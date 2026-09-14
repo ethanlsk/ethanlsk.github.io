@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ethan Khan — Electrical Engineer</title>
+<meta name="description" content="Ethan Khan — MS Electrical Engineering at Binghamton University. Analog circuit design, photonics, and embedded systems.">
+<style>
+  :root {
+    --bg:        #fbfbfa;
+    --surface:   #ffffff;
+    --text:      #1a1a19;
+    --text-soft: #5c5c58;
+    --text-mute: #86867f;
+    --rule:      #e3e3de;
+    --accent:    #1f5f8b;
+    --accent-bg: #eaf2f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:        #141413;
+      --surface:   #1c1c1a;
+      --text:      #eeeeec;
+      --text-soft: #b4b4ae;
+      --text-mute: #82827b;
+      --rule:      #2f2f2c;
+      --accent:    #7fb5db;
+      --accent-bg: #1b2c38;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
+  a { color: var(--accent); }
+
+  /* ---------- header ---------- */
+  header { padding: 4.5rem 0 2.5rem; }
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 2.9rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin: 0 0 .6rem;
+  }
+  .tagline {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    margin: 0 0 1.5rem;
+    max-width: 34rem;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem .75rem;
+    font-size: .9rem;
+  }
+  .links a {
+    text-decoration: none;
+    padding: .35rem .75rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    transition: border-color .15s, background .15s;
+  }
+  .links a:hover { border-color: var(--accent); background: var(--accent-bg); }
+  .citizen {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: .8rem;
+    color: var(--text-mute);
+    font-variant: all-small-caps;
+    letter-spacing: .06em;
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: 2.25rem 0; border-top: 1px solid var(--rule); }
+  h2 {
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    color: var(--text-mute);
+    margin: 0 0 1.5rem;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 1.02rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .entry { margin-bottom: 2rem; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .meta {
+    font-size: .82rem;
+    color: var(--text-mute);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .sub {
+    font-size: .92rem;
+    color: var(--text-soft);
+    margin: .15rem 0 .6rem;
+  }
+  ul { margin: .5rem 0 0; padding-left: 1.1rem; }
+  li { margin-bottom: .45rem; color: var(--text-soft); }
+  li::marker { color: var(--text-mute); }
+  code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: .88em;
+    background: var(--accent-bg);
+    color: var(--accent);
+    padding: .1em .35em;
+    border-radius: 3px;
+  }
+
+  /* ---------- tags ---------- */
+  .tag {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .72rem;
+    letter-spacing: .02em;
+    color: var(--accent);
+    background: var(--accent-bg);
+    padding: .15rem .5rem;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: .5rem;
+  }
+  .skillgroup { margin-bottom: 1.1rem; }
+  .skillgroup:last-child { margin-bottom: 0; }
+  .skillgroup .label {
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: .4rem;
+  }
+  .pills { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .pill {
+    font-size: .82rem;
+    color: var(--text-soft);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: .2rem .55rem;
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 0 3.5rem;
+    font-size: .85rem;
+    color: var(--text-mute);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <h1>Ethan Khan</h1>
+    <p class="tagline">
+      MS Electrical Engineering candidate at Binghamton University, working across
+      analog circuit design, semiconductor photonics, and embedded systems.
+    </p>
+    <nav class="links">
+      <a href="mailto:ekhan7@binghamton.edu">Email</a>
+      <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
+      <a href="https://github.com/ethanlsk">GitHub</a>
+      <a href="resume.pdf">Résumé (PDF)</a>
+    </nav>
+    <span class="citizen">New York, NY · U.S. Citizen</span>
+  </header>
+
+  <section>
+    <h2>Education</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Binghamton University <span class="tag">MS</span></h3>
+        <span class="meta">Expected May 2027</span>
+      </div>
+      <p class="sub">
+        MS Electrical Engineering — Physical Electronics &amp; Electro-Optics ·
+        Thomas J. Watson College of Engineering · GPA 3.45
+      </p>
+      <p class="sub" style="margin-bottom:0">
+        Quantum Electronics &amp; Photonics · Electro-Optics · Advanced Semiconductor Lasers ·
+        Analog Circuit Design · Hardware-Based Security · CMOS VLSI Circuits &amp; Architecture
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>SUNY Polytechnic Institute <span class="tag">BS</span></h3>
+        <span class="meta">May 2025</span>
+      </div>
+      <p class="sub">BS Electrical Engineering · College of Engineering</p>
+      <p class="sub" style="margin-bottom:0">
+        Optical Communication · Semiconductor Microfabrication · Embedded Systems ·
+        Control Systems · Microprocessors and CPU Architecture
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Research Associate</h3>
+        <span class="meta">Oct 2024 – Aug 2025</span>
+      </div>
+      <p class="sub">Center for Safe and Secure Artificial Intelligence Robotics · Utica, NY</p>
+      <ul>
+        <li>Developed and tested AI-driven robotics systems on the NVIDIA Isaac stack, integrating
+            perception and motion planning modules and validating behavior through defined test procedures.</li>
+        <li>Profiled GPU workloads and inference to locate bottlenecks, improving computational
+            throughput and power efficiency.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Robotics Research Aide</h3>
+        <span class="meta">May 2024 – Aug 2024</span>
+      </div>
+      <p class="sub">The Research Foundation for SUNY · Utica, NY</p>
+      <ul>
+        <li>Built the motor-drive subsystem of an autonomous carrier robot using an L298N H-bridge with a
+            dual-battery supply (separate motor and logic power), controlling DC motor speed and direction
+            via Raspberry Pi PWM.</li>
+        <li>Implemented PID closed-loop motor control and integrated a YOLO-based vision system that
+            segmented the camera frame into directional zones for real-time person tracking and obstacle
+            avoidance.</li>
+        <li><a href="https://github.com/ethanlsk/Robotics-Research-Aide">github.com/ethanlsk/Robotics-Research-Aide</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Circuits &amp; Power</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Constant-Current LED/Laser Driver Board <span class="tag">KiCad</span></h3>
+        <span class="meta">Jun 2026 – Present</span>
+      </div>
+      <ul>
+        <li>Designing a regulated LM317 constant-current driver in KiCad that holds output constant
+            independent of supply voltage.</li>
+        <li>Extending from an LED load toward a protected laser-diode driver with current limiting
+            and modulation.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>8th-Order Sallen–Key Band-Pass Filter <span class="tag">LTspice</span></h3>
+        <span class="meta">Aug – Dec 2025</span>
+      </div>
+      <ul>
+        <li>Designed an 8th-order Sallen–Key band-pass filter (1 kHz–50 kHz passband, &gt;45 dB stopband
+            attenuation) by cascading 4th-order high-pass and low-pass biquad stages, sizing RC networks
+            (HP: 15.9 kΩ/10 nF; LP: 3.18 kΩ/1 nF) and setting stage gains (K = 1.152, 2.235).</li>
+        <li>Analyzed loop stability by solving each biquad's pole locations, confirming all poles lie in the
+            left half s-plane, and validated with a transient step response that decayed without oscillations.</li>
+        <li>Verified in LTspice with AC (1 Hz–10 MHz) and transient simulation, recovering a clean 30 kHz
+            tone from a white-noise-corrupted input.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>CMOS Cascode Amplifier, Active Current-Source Load <span class="tag">LTspice</span></h3>
+        <span class="meta">Oct 2025</span>
+      </div>
+      <ul>
+        <li>Designed an NMOS cascode amplifier with an active current-source load achieving 86 dB voltage
+            gain and ~7.2 MΩ output resistance, sizing devices at W = 20 µm, L = 1 µm for a 1 mA bias current.</li>
+        <li>Hand-calculated transconductance (g<sub>m</sub> = 2.83 mS) and output resistance (r<sub>o</sub> ≈ 50 kΩ)
+            from SPICE Level-1 model parameters (KP = 200 µA/V², V<sub>T</sub> = 1.0 V, V<sub>ov</sub> = 0.707 V),
+            then verified gain and bandwidth against LTspice AC analysis (10 Hz – 100 MHz).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Photonics &amp; Semiconductors</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Fiber-Optic Communication System Design &amp; Analysis <span class="tag">MATLAB</span></h3>
+        <span class="meta">Spring 2026</span>
+      </div>
+      <ul>
+        <li>Designed the optical front-end of a fiber link: single- and multi-lens fiber couplers
+            (numerical aperture, acceptance angle, beam collimation) to maximize launch efficiency into
+            multimode fiber, and modeled polarizer transmission via Malus's law with analytical and
+            1M-sample Monte Carlo verification.</li>
+        <li>Analyzed an end-to-end binary link: electro-optic amplitude modulation, intermodal-dispersion
+            bandwidth-length limit (~298 m at 50 Mbps), and PIN photodiode responsivity and photocurrent
+            at the receiver.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Semiconductor Laser Relaxation Oscillation Modeling <span class="tag">MATLAB</span></h3>
+        <span class="meta">Spring 2026</span>
+      </div>
+      <ul>
+        <li>Modeled a directly modulated semiconductor laser with coupled carrier/photon rate equations
+            including gain compression, solving threshold current (~22.9 mA) and steady-state operation by
+            numerical integration (<code>ode45</code>).</li>
+        <li>Simulated transient response to a 100 ps drive pulse, extracting a ~5–15 GHz
+            relaxation-oscillation frequency relevant to high-speed direct modulation and eye-pattern behavior.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Optical Computing, Memory &amp; Data Centers <span class="tag">BS Thesis</span></h3>
+        <span class="meta">Jan – May 2025</span>
+      </div>
+      <ul>
+        <li>Explored advanced photonic and optoelectronic systems to overcome Moore's Law limitations in
+            processors, memory, and data centers, focusing on photonic integrated circuits and all-optical
+            RNNs for &gt;100 GHz computing.</li>
+        <li>Proposed integration strategies for optical memory and switching, including magneto-optical
+            controllers, photon-trapped memory, and optical multiplexing for scalable, energy-efficient
+            data centers.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Semiconductor Experimentation Research <span class="tag">2nd Place</span></h3>
+        <span class="meta">Jan – May 2024</span>
+      </div>
+      <ul>
+        <li>Researched thermal oxidation of silicon wafers, experimenting with impurity variables;
+            presented findings showcasing the discovery of nanowire growth under specific conditions.</li>
+        <li>Second place, 2024 SUNY Polytechnic Student Project Showcase.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+
+    <div class="skillgroup">
+      <div class="label">Circuit &amp; Power Design</div>
+      <div class="pills">
+        <span class="pill">LTspice</span><span class="pill">KiCad</span><span class="pill">Multisim</span>
+        <span class="pill">Analog design</span><span class="pill">Filter design</span>
+        <span class="pill">Linear regulators</span><span class="pill">H-bridge / PWM</span>
+        <span class="pill">Oscilloscope &amp; bench debug</span>
+      </div>
+    </div>
+
+    <div class="skillgroup">
+      <div class="label">Optics &amp; Photonics</div>
+      <div class="pills">
+        <span class="pill">Semiconductor lasers</span><span class="pill">Rate-equation modeling</span>
+        <span class="pill">Fiber coupling &amp; collimation</span><span class="pill">Electro-optic modulation</span>
+        <span class="pill">Polarization optics</span><span class="pill">PIN photodetection</span>
+        <span class="pill">Optical communication / WDM</span>
+      </div>
+    </div>
+
+    <div class="skillgroup">
+      <div class="label">Languages</div>
+      <div class="pills">
+        <span class="pill">C</span><span class="pill">C++</span><span class="pill">Python</span>
+        <span class="pill">MATLAB</span><span class="pill">C#</span><span class="pill">VHDL</span>
+        <span class="pill">Verilog</span><span class="pill">CUDA</span>
+      </div>
+    </div>
+
+    <div class="skillgroup">
+      <div class="label">Systems &amp; Tools</div>
+      <div class="pills">
+        <span class="pill">Raspberry Pi</span><span class="pill">ARM microcontrollers</span>
+        <span class="pill">PID control</span><span class="pill">ROS2</span>
+        <span class="pill">NVIDIA Isaac Lab</span><span class="pill">Arduino IDE</span>
+        <span class="pill">AutoCAD</span><span class="pill">Linux</span><span class="pill">Git</span>
+        <span class="pill">Semiconductor microfabrication</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p style="margin:0">
+      Open to electrical engineering internships and full-time roles ·
+      <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
