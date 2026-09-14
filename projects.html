@@ -3,18 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Projects — Ethan Khan</title>
-<meta name="description" content="Engineering projects by Ethan Khan — optics and photonics, analog circuits and power, robotics and embedded systems, semiconductor fabrication.">
+<title>Projects | Ethan Khan</title>
+<meta name="description" content="Engineering projects by Ethan Khan covering optics and photonics, analog circuits and power, robotics and embedded systems, semiconductor fabrication.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">Ethan Khan<span>.</span></a>
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="">
+      <span>
+        <span class="brand-name">Ethan Khan</span>
+        <span class="brand-sub">Electrical Engineer</span>
+      </span>
+    </a>
     <nav class="tabs">
       <a href="index.html">Home</a>
-      <a href="interests.html">Current Interests</a>
       <a href="projects.html" class="active">Projects</a>
     </nav>
   </div>
@@ -27,7 +34,7 @@
     <h1>Projects</h1>
     <div class="rule"></div>
     <p class="lede">
-      Coursework, research, and personal builds — grouped by discipline.
+      Coursework, research, and personal builds, grouped by discipline.
       Expand a category to see full write-ups, results, figures, and source.
     </p>
   </div>
@@ -46,7 +53,7 @@
         <!-- Fiber-optic system -->
         <div class="card">
           <div class="card-head">
-            <h3>Fiber-Optic Communication System — Analysis &amp; Design</h3>
+            <h3>Fiber-Optic Communication System</h3>
             <span class="meta">Spring 2026</span>
           </div>
           <p class="course">EECE 530 Electro-Optics · Binghamton University · MATLAB</p>
@@ -57,7 +64,7 @@
             recovering it at a photodiode. Four linked tasks that build into one end-to-end system.
           </p>
 
-          <h4>Task 1 — Fiber coupler</h4>
+          <h4>Task 1: Fiber coupler</h4>
           <p>
             Single-lens system launching a laser into 50 µm multimode fiber
             (n₁ = 1.5, n₂ = 1.49, lens F = 3.5 mm, D = 2 mm).
@@ -76,7 +83,7 @@
             the fiber's acceptance cone will admit.
           </p>
 
-          <h4>Task 2 — Revised three-lens coupler</h4>
+          <h4>Task 2: Revised three-lens coupler</h4>
           <p>
             Redesigned with a three-lens arrangement that shrinks the beam so every ray arrives
             within θ_max, recovering the lost power.
@@ -91,7 +98,7 @@
             </table>
           </div>
 
-          <h4>Task 3 — Random polarization through a polarizer</h4>
+          <h4>Task 3: Random polarization through a polarizer</h4>
           <p>
             Malus's law applied to a randomly polarized source. Analytically, for θ uniform over
             [0, 2π], the expected transmission E[cos²θ] = ½. A 1,000,000-sample Monte Carlo
@@ -105,12 +112,12 @@
             </div>
             <figcaption>
               Probability density of cos²(θ) over 1,000,000 random polarization angles. The U-shape
-              shows near-zero and near-unity transmission are equally likely — averaging to 0.5.
+              shows near-zero and near-unity transmission are equally likely, averaging to 0.5.
             </figcaption>
           </figure>
 
           <details class="code-toggle">
-            <summary>MATLAB source — Monte Carlo polarization</summary>
+            <summary>MATLAB source: Monte Carlo polarization</summary>
 <pre><code>% Task 3: Power transmitted through polarizer for random polarization
 N = 1e6;                          % number of samples
 theta = 2*pi*rand(N,1);           % uniform random angles in [0, 2pi]
@@ -127,7 +134,7 @@ title(sprintf('Random Polarization through Polarizer (avg = %.4f)', ...
 grid on;</code></pre>
           </details>
 
-          <h4>Task 4 — Modulation and end-to-end link</h4>
+          <h4>Task 4: Modulation and end-to-end link</h4>
           <p>
             Full binary link: 5 mW laser at λ = 1.55 µm → vertical polarizer → electro-optic
             modulator (V<sub>π</sub> = 5 V) → quarter-wave plate → horizontal polarizer →
@@ -167,7 +174,7 @@ grid on;</code></pre>
           <p>
             Numerical simulation of a directly modulated semiconductor laser using coupled rate
             equations for carrier and photon density. The device is biased just above threshold,
-            pulsed to a higher drive current for 100 ps, then returned to bias — the same scenario
+            pulsed to a higher drive current for 100 ps, then returned to bias. This is the same scenario
             a laser sees under direct modulation in a data link.
           </p>
 
@@ -205,8 +212,8 @@ G(n,s) = v_g · (dg/dn) · (n − n₀) / (1 + ε·s)</code></pre>
           <p>
             When the current steps up, carrier density overshoots n_th before stimulated emission
             can respond. Once photon density spikes it clamps the carriers, triggering a damped
-            oscillatory exchange — and a second burst on the step back down. Relaxation oscillation
-            frequency for this parameter set landed at <strong>~5–15 GHz</strong>.
+            oscillatory exchange, plus a second burst on the step back down. Relaxation oscillation
+            frequency for this parameter set landed at <strong>~5 to 15 GHz</strong>.
           </p>
 
           <figure>
@@ -231,7 +238,7 @@ G(n,s) = v_g · (dg/dn) · (n − n₀) / (1 + ε·s)</code></pre>
           </figure>
 
           <details class="code-toggle">
-            <summary>MATLAB source — rate equations and threshold</summary>
+            <summary>MATLAB source: rate equations and threshold</summary>
 <pre><code>% Part (a): Threshold current
 % Threshold condition: Gamma * vg * dgdn * (nth - n0) = 1/tau_p
 delta_nth = 1 / (Gamma * vg * dgdn * tau_p);
@@ -272,7 +279,7 @@ end</code></pre>
         <div class="card">
           <div class="card-head">
             <h3>Optical Computing, Memory &amp; Data Centers</h3>
-            <span class="meta">Jan – May 2025</span>
+            <span class="meta">Jan to May 2025</span>
           </div>
           <p class="course">Bachelor's Thesis · SUNY Polytechnic Institute · Co-author (Processing)</p>
 
@@ -322,14 +329,14 @@ end</code></pre>
         <div class="card">
           <div class="card-head">
             <h3>Constant-Current LED / Laser Diode Driver</h3>
-            <span class="meta">Jun 2026 – Present</span>
+            <span class="meta">Jun 2026 to Present</span>
           </div>
           <p class="course">Personal project · KiCad · <span style="color:var(--cyan)">In progress</span></p>
 
           <p>
             A regulated LM317 constant-current driver designed in KiCad that holds output current
             constant independent of supply voltage. The set resistor fixes the current through
-            I = 1.25 / R_set — a 62 Ω resistor gives roughly 20 mA — with the regulator dissipating
+            I = 1.25 / R_set, so a 62 Ω resistor gives roughly 20 mA, with the regulator dissipating
             about 0.12 W from a 9 V supply, low enough to run without a heatsink.
           </p>
           <p>
@@ -339,7 +346,7 @@ end</code></pre>
           </p>
           <p>
             From there the board branches toward a protected laser-diode driver with current
-            limiting and modulation — laser diodes fail fast under current transients, so the
+            limiting and modulation. Laser diodes fail fast under current transients, so the
             protection circuitry is the real engineering content.
           </p>
 
@@ -353,14 +360,14 @@ end</code></pre>
         <!-- Sallen-Key -->
         <div class="card">
           <div class="card-head">
-            <h3>8th-Order Sallen–Key Band-Pass Filter with Noise Rejection</h3>
-            <span class="meta">Aug – Dec 2025</span>
+            <h3>8th-Order Sallen-Key Band-Pass Filter with Noise Rejection</h3>
+            <span class="meta">Aug to Dec 2025</span>
           </div>
           <p class="course">EECE 501 Analog Circuit Design · Binghamton University · LTspice</p>
 
           <p>
             An 8th-order band-pass filter built by cascading a 4th-order high-pass and a 4th-order
-            low-pass biquad section, giving a 1 kHz – 50 kHz passband with more than 45 dB of
+            low-pass biquad section, giving a 1 kHz to 50 kHz passband with more than 45 dB of
             stopband attenuation.
           </p>
 
@@ -379,11 +386,11 @@ end</code></pre>
           </p>
           <p>
             The design was verified in LTspice with AC analysis from 1 Hz to 10 MHz and transient
-            simulation — recovering a clean 30 kHz tone from a white-noise-corrupted input.
+            simulation, recovering a clean 30 kHz tone from a white-noise-corrupted input.
           </p>
 
           <div class="tags">
-            <span class="tag">LTspice</span><span class="tag">Sallen–Key</span>
+            <span class="tag">LTspice</span><span class="tag">Sallen-Key</span>
             <span class="tag">Biquad cascade</span><span class="tag">Pole placement</span>
             <span class="tag">Noise rejection</span>
           </div>
@@ -449,7 +456,7 @@ end</code></pre>
 
           <p>
             An autonomous robot that follows a specific person while carrying items over long
-            distances — aimed at elderly users and anyone needing mobility assistance. The build
+            distances, aimed at elderly users and anyone needing mobility assistance. The build
             combines computer vision, embedded control, and power electronics.
           </p>
 
@@ -463,8 +470,8 @@ end</code></pre>
 
           <h4>Vision and navigation</h4>
           <p>
-            A YOLO-based vision system segments the camera frame into directional zones —
-            forward, backward, left, right, stop — and the robot continuously reprocesses target
+            A YOLO-based vision system segments the camera frame into directional zones of
+            forward, backward, left, right, and stop. The robot continuously reprocesses target
             coordinates to adjust movement in real time. Ultrasonic and infrared sensors handle
             collision avoidance, and a servo controls the storage compartment lid.
           </p>
@@ -510,13 +517,13 @@ end</code></pre>
         <div class="card">
           <div class="card-head">
             <h3>Analysis of Kinetic Growth in Silicon Thermal Oxidation</h3>
-            <span class="meta">Jan – May 2024</span>
+            <span class="meta">Jan to May 2024</span>
           </div>
           <p class="course">Semiconductor Experimentation Research · SUNY Polytechnic Institute</p>
 
           <p>
             A hands-on fabrication study of how silicon dioxide grows on silicon wafers, combining
-            furnace processing, Deal–Grove modeling, and SEM characterization. SiO₂ is the gate
+            furnace processing, Deal-Grove modeling, and SEM characterization. SiO₂ is the gate
             oxide, insulator, and passivation layer that modern CMOS depends on, so controlling
             its thickness precisely is a core process-engineering problem.
           </p>
@@ -529,13 +536,13 @@ end</code></pre>
               <tr><td>Oxidation temperature</td><td class="val">975 °C</td></tr>
               <tr><td>Oxidation duration</td><td class="val">20 hours</td></tr>
               <tr><td>Atmosphere</td><td class="val">Controlled O₂, inert cooldown</td></tr>
-              <tr><td>Resulting oxide thickness</td><td class="val">≈ 200–300 nm</td></tr>
+              <tr><td>Resulting oxide thickness</td><td class="val">200 to 300 nm</td></tr>
             </table>
           </div>
 
           <h4>Modeling</h4>
           <p>
-            Oxidation was simulated in nanoHUB Process Lab using the Deal–Grove linear-parabolic
+            Oxidation was simulated in nanoHUB Process Lab using the Deal-Grove linear-parabolic
             model across 850 °C, 975 °C, 1100 °C, and 1225 °C, studying oxide thickness against
             time and temperature. Arrhenius plots were used to estimate activation energy and
             characterize the reaction kinetics governing growth.
@@ -544,16 +551,16 @@ end</code></pre>
           <h4>Characterization and findings</h4>
           <p>
             SEM imaging confirmed silicon and oxygen at the surface and the presence of the SiO₂
-            layer — and revealed <strong>nanowire structures</strong> that formed unexpectedly
+            layer, and revealed <strong>nanowire structures</strong> that formed unexpectedly
             after oxidation. That discovery took second place at the 2024 SUNY Polytechnic Student
             Project Showcase and may warrant follow-up for nanoelectronics and sensing applications.
           </p>
 
           <div class="tags">
-            <span class="tag">Thermal oxidation</span><span class="tag">Deal–Grove model</span>
+            <span class="tag">Thermal oxidation</span><span class="tag">Deal-Grove model</span>
             <span class="tag">Arrhenius analysis</span><span class="tag">nanoHUB</span>
             <span class="tag">SEM</span><span class="tag">Thin-film growth</span>
-            <span class="tag rust">2nd place — 2024 Showcase</span>
+            <span class="tag rust">2nd place, 2024 Showcase</span>
           </div>
 
           <p class="note">
