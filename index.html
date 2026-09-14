@@ -12,13 +12,10 @@
 <body>
 
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap wide">
     <a class="brand" href="index.html">
-      <img src="assets/logo.png" alt="">
-      <span>
-        <span class="brand-name">Ethan Khan</span>
-        <span class="brand-sub">Electrical Engineer</span>
-      </span>
+      <span class="brand-name">Ethan Khan</span>
+      <span class="brand-sub">Electrical Engineer</span>
     </a>
     <nav class="tabs">
       <a href="index.html" class="active">Home</a>
@@ -27,199 +24,197 @@
   </div>
 </header>
 
-<div class="wrap">
+<div class="wrap wide">
 
-  <div class="hero">
-    <span class="available">Seeking full-time roles</span>
-    <h1>Ethan Khan</h1>
-    <div class="rule"></div>
-    <p class="lede">
-      I am an electrical engineer finishing my master's at Binghamton University, looking for
-      <strong>full-time electrical engineering roles</strong>. My current work sits in
-      <strong>electronics and optics</strong>: analog and power circuit design on one side,
-      semiconductor lasers and fiber-optic systems on the other.
-    </p>
-    <nav class="linkrow">
-      <a class="btn primary" href="projects.html">See my projects</a>
-      <a class="btn rust" href="resume.pdf">Résumé (PDF)</a>
-      <a class="btn" href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
-      <a class="btn" href="https://github.com/ethanlsk">GitHub</a>
-      <a class="btn" href="mailto:ekhan7@binghamton.edu">Email</a>
-    </nav>
-    <ul class="factline">
-      <li><b>New York, NY</b></li>
-      <li><b>U.S. Citizen</b></li>
-      <li>Available <b>May 2027</b></li>
-    </ul>
+  <div class="split">
+
+    <!-- ---------------- left: name and contact ---------------- -->
+    <aside class="identity">
+      <span class="available">Seeking full-time roles</span>
+      <h1>Ethan<br>Khan</h1>
+      <div class="rule"></div>
+      <p class="title-line">Electrical Engineer</p>
+
+      <ul class="contact">
+        <li><a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a></li>
+        <li><a href="https://www.linkedin.com/in/e1k/">linkedin.com/in/e1k</a></li>
+        <li><a href="https://github.com/ethanlsk">github.com/ethanlsk</a></li>
+        <li><a href="resume.pdf">Résumé (PDF)</a></li>
+      </ul>
+
+      <ul class="vitals">
+        <li>New York, NY</li>
+        <li>U.S. Citizen</li>
+        <li>Available May 2027</li>
+      </ul>
+
+      <a class="btn primary" href="projects.html" style="margin-top:1.4rem">See my projects</a>
+    </aside>
+
+    <!-- ---------------- right: content ---------------- -->
+    <div class="maincol">
+
+      <p class="lede">
+        I am an electrical engineer finishing my master's at Binghamton University and looking for
+        <strong>full-time electrical engineering roles</strong>. My work sits in
+        <strong>electronics and optics</strong>: analog circuit design on one side, semiconductor
+        lasers and fiber-optic systems on the other.
+      </p>
+
+      <section class="first">
+        <h2>Experience</h2>
+
+        <div class="role">
+          <div class="role-head">
+            <h3>Research Associate</h3>
+            <span class="meta">Oct 2024 to Aug 2025</span>
+          </div>
+          <p class="where">Center for Safe and Secure Artificial Intelligence Robotics, Utica, NY</p>
+          <ul>
+            <li>Developed and tested AI-driven robotics systems on the NVIDIA Isaac stack, integrating
+                perception and motion planning modules and validating behavior against defined test
+                procedures.</li>
+            <li>Profiled GPU workloads and inference to locate bottlenecks, improving computational
+                throughput and power efficiency.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <h3>Robotics Research Aide</h3>
+            <span class="meta">May 2024 to Aug 2024</span>
+          </div>
+          <p class="where">The Research Foundation for SUNY, Utica, NY</p>
+          <ul>
+            <li>Built the motor-drive subsystem of an autonomous carrier robot using an L298N H-bridge
+                with a dual-battery supply, keeping motor and logic power on separate rails, and
+                controlling DC motor speed and direction via Raspberry Pi PWM.</li>
+            <li>Implemented PID closed-loop motor control and integrated a YOLO-based vision system
+                that segmented the camera frame into directional zones for real-time person tracking
+                and obstacle avoidance.</li>
+          </ul>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <h3>Resident Advisor</h3>
+            <span class="meta">May 2024 to May 2025</span>
+          </div>
+          <p class="where">Residential Life, SUNY Polytechnic Institute</p>
+          <ul>
+            <li>Organized 6 community events with 200+ participants and advised 45 residents on
+                academic and wellness resources.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+
+        <div class="role">
+          <div class="role-head">
+            <h3>Binghamton University</h3>
+            <span class="meta">Expected May 2027</span>
+          </div>
+          <p class="where">
+            MS Electrical Engineering, Physical Electronics and Electro-Optics.
+            Thomas J. Watson College of Engineering and Applied Science. GPA 3.45
+          </p>
+          <p class="coursework">
+            Coursework: Quantum Electronics and Photonics, Electro-Optics, Advanced Semiconductor
+            Lasers, Analog Circuit Design, Hardware-Based Security, CMOS VLSI Circuits and Architecture
+          </p>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <h3>SUNY Polytechnic Institute</h3>
+            <span class="meta">May 2025</span>
+          </div>
+          <p class="where">BS Electrical Engineering, College of Engineering</p>
+          <p class="coursework">
+            Coursework: Optical Communication, Semiconductor Microfabrication, Embedded Systems,
+            Control Systems, Microprocessors and CPU Architecture
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Technical skills</h2>
+        <dl style="margin:0">
+          <div class="skill-line">
+            <dt>Circuits</dt>
+            <dd>LTspice, KiCad, Multisim, analog design, filter synthesis, linear regulators,
+                H-bridge and PWM drive, oscilloscope and bench debugging</dd>
+          </div>
+          <div class="skill-line">
+            <dt>Optics</dt>
+            <dd>Semiconductor lasers, rate-equation modeling, fiber coupling and collimation,
+                electro-optic modulation, polarization optics, PIN photodetection, optical
+                communication and WDM</dd>
+          </div>
+          <div class="skill-line">
+            <dt>Languages</dt>
+            <dd>C, C++, Python, MATLAB, C#, VHDL, Verilog, CUDA</dd>
+          </div>
+          <div class="skill-line">
+            <dt>Systems</dt>
+            <dd>Raspberry Pi, ARM microcontrollers, PID control, ROS2, NVIDIA Isaac Lab, Arduino IDE,
+                AutoCAD, Linux, Git</dd>
+          </div>
+          <div class="skill-line">
+            <dt>Fabrication</dt>
+            <dd>Semiconductor microfabrication, thermal oxidation, Deal-Grove modeling, SEM
+                characterization</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p style="max-width:34rem">
+          The fastest way to reach me is email. I am open to full-time electrical engineering
+          roles and happy to talk through any of the work on my projects page.
+        </p>
+
+        <dl class="contact-grid">
+          <div class="skill-line">
+            <dt>Email</dt>
+            <dd><a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a></dd>
+          </div>
+          <div class="skill-line">
+            <dt>LinkedIn</dt>
+            <dd><a href="https://www.linkedin.com/in/e1k/">linkedin.com/in/e1k</a></dd>
+          </div>
+          <div class="skill-line">
+            <dt>GitHub</dt>
+            <dd><a href="https://github.com/ethanlsk">github.com/ethanlsk</a></dd>
+          </div>
+          <div class="skill-line">
+            <dt>Résumé</dt>
+            <dd><a href="resume.pdf">Download PDF</a></dd>
+          </div>
+          <div class="skill-line">
+            <dt>Location</dt>
+            <dd>New York, NY</dd>
+          </div>
+          <div class="skill-line">
+            <dt>Authorization</dt>
+            <dd>U.S. Citizen, eligible for cleared and ITAR-restricted work</dd>
+          </div>
+          <div class="skill-line">
+            <dt>Availability</dt>
+            <dd>May 2027</dd>
+          </div>
+        </dl>
+
+        <p style="margin-top:1.6rem">
+          <a class="btn primary" href="mailto:ekhan7@binghamton.edu">Send me an email</a>
+        </p>
+      </section>
+
+    </div>
   </div>
-
-  <section class="prose">
-    <h2>About me</h2>
-
-    <p>
-      I am currently an MS student in Electrical Engineering at Binghamton University, concentrating
-      in Physical Electronics and Electro-Optics, with a bachelor's in Electrical Engineering from
-      SUNY Polytechnic Institute. Two threads run through almost everything I have worked on so far,
-      and they have turned out to be the same thread.
-    </p>
-
-    <p>
-      The first is <strong>analog and power electronics</strong>. I like circuits where the answer
-      is not obvious until you do the math. In my graduate analog coursework I designed a CMOS
-      cascode amplifier with an active current-source load that reached 86 dB of gain, working the
-      transconductance and output resistance out by hand from SPICE Level-1 parameters before
-      opening the simulator, then checking that the AC sweep agreed. I did the same on an 8th-order
-      Sallen-Key band-pass filter, solving each biquad's pole locations analytically to confirm
-      stability rather than trusting the plot. That habit of hand analysis first, simulation second
-      is the part of my training I value most.
-    </p>
-
-    <p>
-      The second is <strong>optics and photonics</strong>, which is my graduate concentration. I
-      have modeled directly modulated semiconductor lasers using coupled carrier and photon rate
-      equations with gain compression, solving for threshold current and watching relaxation
-      oscillations develop when the drive current steps. I have worked through fiber-optic link
-      design end to end: coupling efficiency into multimode fiber, polarization through Malus's law,
-      electro-optic modulation, dispersion budgets, and photodiode response. Before that, my
-      bachelor's thesis covered optical processing and photonic integrated circuits as a route past
-      the limits of electronic interconnect.
-    </p>
-
-    <p>
-      Those two threads meet at the laser diode driver, which is where I am spending my own time
-      right now. A laser diode is an unforgiving load, since it degrades quickly under current
-      overshoot, so driving one properly is a circuit problem governed by device physics. I started
-      with a straightforward LM317 constant-current LED driver in KiCad because it is simple enough
-      to actually get fabricated and measured, and the line-regulation sweep it needs is the same
-      measurement the laser version will need. From there the design moves toward a precision
-      op-amp and MOSFET current source with proper protection and modulation.
-    </p>
-
-    <p>
-      I have also spent real time on the embedded and systems side. During a summer undergraduate
-      research program I built the motor-drive subsystem of an autonomous personal carrier robot,
-      running an L298N H-bridge from a dual-battery supply so motor switching noise stayed off the
-      logic rail, with PID closed-loop control and YOLO-based person tracking on a Raspberry Pi.
-      Afterward, as a research associate, I worked on AI robotics on the NVIDIA Isaac stack and
-      profiled GPU workloads to find inference bottlenecks, which turned out to be as much a power
-      and thermal question as a throughput one. That is part of why power electronics pulled my
-      attention in the first place.
-    </p>
-
-    <p>
-      What I want next is a role where I can close the loop between simulation and hardware:
-      design a board, get it made, measure what actually comes back, and write down honestly
-      whether it met spec. I am a U.S. citizen, so cleared and ITAR-restricted work is open to me.
-    </p>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-
-    <div class="role">
-      <div class="role-head">
-        <h3>Research Associate</h3>
-        <span class="meta">Oct 2024 to Aug 2025</span>
-      </div>
-      <p class="where">Center for Safe and Secure Artificial Intelligence Robotics, Utica, NY</p>
-      <ul>
-        <li>Developed and tested AI-driven robotics systems on the NVIDIA Isaac stack, integrating
-            perception and motion planning modules and validating behavior against defined test procedures.</li>
-        <li>Profiled GPU workloads and inference to locate bottlenecks, improving computational
-            throughput and power efficiency.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <div class="role-head">
-        <h3>Robotics Research Aide</h3>
-        <span class="meta">May 2024 to Aug 2024</span>
-      </div>
-      <p class="where">The Research Foundation for SUNY, Utica, NY</p>
-      <ul>
-        <li>Built the motor-drive subsystem of an autonomous carrier robot using an L298N H-bridge
-            with a dual-battery supply, keeping motor and logic power on separate rails, and
-            controlling DC motor speed and direction via Raspberry Pi PWM.</li>
-        <li>Implemented PID closed-loop motor control and integrated a YOLO-based vision system that
-            segmented the camera frame into directional zones for real-time person tracking and
-            obstacle avoidance.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <div class="role-head">
-        <h3>Resident Advisor</h3>
-        <span class="meta">May 2024 to May 2025</span>
-      </div>
-      <p class="where">Residential Life, SUNY Polytechnic Institute</p>
-      <ul>
-        <li>Organized 6 community events with 200+ participants and advised 45 residents on
-            academic and wellness resources.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-
-    <div class="role">
-      <div class="role-head">
-        <h3>Binghamton University</h3>
-        <span class="meta">Expected May 2027</span>
-      </div>
-      <p class="where">
-        MS Electrical Engineering, Physical Electronics and Electro-Optics.
-        Thomas J. Watson College of Engineering and Applied Science. GPA 3.45
-      </p>
-      <p style="font-size:.92rem;color:var(--dim);margin:0">
-        Coursework: Quantum Electronics and Photonics, Electro-Optics, Advanced Semiconductor
-        Lasers, Analog Circuit Design, Hardware-Based Security, CMOS VLSI Circuits and Architecture
-      </p>
-    </div>
-
-    <div class="role">
-      <div class="role-head">
-        <h3>SUNY Polytechnic Institute</h3>
-        <span class="meta">May 2025</span>
-      </div>
-      <p class="where">BS Electrical Engineering, College of Engineering</p>
-      <p style="font-size:.92rem;color:var(--dim);margin:0">
-        Coursework: Optical Communication, Semiconductor Microfabrication, Embedded Systems,
-        Control Systems, Microprocessors and CPU Architecture
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Technical skills</h2>
-    <dl style="margin:0">
-      <div class="skill-line">
-        <dt>Circuits</dt>
-        <dd>LTspice, KiCad, Multisim, analog design, filter synthesis, linear regulators,
-            H-bridge and PWM drive, oscilloscope and bench debugging</dd>
-      </div>
-      <div class="skill-line">
-        <dt>Optics</dt>
-        <dd>Semiconductor lasers, rate-equation modeling, fiber coupling and collimation,
-            electro-optic modulation, polarization optics, PIN photodetection, optical
-            communication and WDM</dd>
-      </div>
-      <div class="skill-line">
-        <dt>Languages</dt>
-        <dd>C, C++, Python, MATLAB, C#, VHDL, Verilog, CUDA</dd>
-      </div>
-      <div class="skill-line">
-        <dt>Systems</dt>
-        <dd>Raspberry Pi, ARM microcontrollers, PID control, ROS2, NVIDIA Isaac Lab, Arduino IDE,
-            AutoCAD, Linux, Git</dd>
-      </div>
-      <div class="skill-line">
-        <dt>Fabrication</dt>
-        <dd>Semiconductor microfabrication, thermal oxidation, Deal-Grove modeling, SEM
-            characterization</dd>
-      </div>
-    </dl>
-  </section>
 
   <footer>
     <p>
