@@ -151,8 +151,12 @@ img { max-width: 100%; height: auto; display: block; }
   margin: .35rem .2rem;
 }
 
-@media (max-width: 34rem) {
+@media (max-width: 40rem) {
   .navmenu { left: 50%; transform: translateX(-50%); min-width: 13rem; }
+  .site-header .wrap { justify-content: center; }
+  .brand { align-items: center; }
+  .tabs { width: 100%; justify-content: center; }
+  .tabs .btn-sm { margin-left: 0; }
 }
 .tabs a {
   font-size: .92rem;
@@ -654,7 +658,6 @@ footer {
 }
 
 @media (max-width: 34rem) {
-  .site-header .wrap { justify-content: center; }
   .hero { padding-top: 2.75rem; }
   .card { padding: 1.15rem; }
   .group-body { padding: 0 1rem 1.1rem; }
