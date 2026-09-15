@@ -176,6 +176,16 @@ img { max-width: 100%; height: auto; display: block; }
   object-fit: cover;
   border: 1px solid var(--line);
 }
+.id-name { min-width: 0; }
+.id-role {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  line-height: 1.45;
+  color: var(--cyan);
+  margin: .45rem 0 0;
+}
+.identity h1 span { display: block; }
 .identity h1 {
   font-size: clamp(1.9rem, 3.6vw, 2.15rem);
   line-height: 1.05;
@@ -213,11 +223,60 @@ img { max-width: 100%; height: auto; display: block; }
 .coursework { font-size: .92rem; color: var(--dim); margin: 0; }
 
 @media (max-width: 58rem) {
-  /* minmax(0, 1fr), not 1fr: a plain 1fr track is minmax(auto, 1fr) and so
-     cannot shrink below the widest item's min-content, which the wide tables
-     and code blocks in .maincol would push past the viewport. */
-  .split { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding-top: 2.75rem; }
-  .identity { position: static; padding-bottom: 0; }
+  /* One column, and the rail stops being a sidebar. `display: contents` drops
+     the <aside> box so its children become flex items of .split directly,
+     which lets the contact block be ordered AFTER the content instead of
+     sitting between the visitor and the work. */
+  /* Grid, not flex: in a column flex container the line's cross-size grows to
+     the widest item, so .maincol's min-content (wide results tables) would drag
+     the whole column past the viewport. A minmax(0, 1fr) grid track caps it,
+     and grid items honour `order` just the same. */
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.15rem;
+    padding-top: 1.75rem;
+  }
+  .identity { display: contents; }
+  .identity > * { order: 1; }   /* whole rail above the content ... */
+  .maincol      { order: 2; min-width: 0; }
+  .id-meta      { order: 3; }   /* ... except the contact block, which goes last */
+
+  /* rail children are flex items now, so the flex gap owns their spacing */
+  .split > .rule { margin: 0; }
+  .identity .eyebrow { margin: 0; }
+  .rail-note { margin: 0; }
+  h1.railtitle { margin: 0; font-size: clamp(1.9rem, 8vw, 2.3rem); }
+
+  /* the same four links already sit in the Projects nav dropdown */
+  .rail-links { display: none; }
+
+  .identity > .btn { width: 100%; justify-content: center; }
+
+  /* .id-meta already lists email, LinkedIn, GitHub and the resume right above
+     it, so the footer would repeat itself on a phone. */
+  .has-meta > footer { display: none; }
+
+  .id-head { gap: .85rem; margin: 0; }
+  .headshot { width: 66px; height: 66px; }
+  .identity h1 { font-size: 1.75rem; }
+  .identity h1 span { display: inline; }
+
+  .maincol section.first { padding-top: 0; }
+  .maincol > .lede { margin-bottom: 1.4rem; }
+  section { padding: 1.85rem 0; }
+  .lede { font-size: 1.06rem; margin-bottom: 0; }
+
+  /* the contact block reads as a footer card once it is at the bottom */
+  .id-meta {
+    border-top: 1px solid var(--line-dim);
+    padding-top: 1.5rem;
+    margin-top: .5rem;
+  }
+  /* thumb-sized tap targets */
+  .contact li { margin-bottom: 0; }
+  .contact a { display: block; padding: .62rem 0; }
+  .id-meta .btn { width: 100%; justify-content: center; }
 }
 
 /* ---------------- hero (projects page) ---------------- */

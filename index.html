@@ -43,7 +43,7 @@
   </div>
 </header>
 
-<div class="wrap wide">
+<div class="wrap wide has-meta">
 
   <div class="split">
 
@@ -52,24 +52,31 @@
       <div class="id-head">
         <img class="headshot" src="assets/headshot.jpg" width="82" height="82"
              alt="Ethan Khan">
-        <h1>Ethan<br>Khan</h1>
+        <div class="id-name">
+          <h1><span>Ethan</span> <span>Khan</span></h1>
+          <p class="id-role">MS EE &middot; Photonics &amp; Analog Circuits</p>
+        </div>
       </div>
       <div class="rule"></div>
 
-      <ul class="contact">
-        <li><a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a></li>
-        <li><a href="https://www.linkedin.com/in/e1k/">linkedin.com/in/e1k</a></li>
-        <li><a href="https://github.com/ethanlsk">github.com/ethanlsk</a></li>
-        <li><a href="resume.pdf">Résumé (PDF)</a></li>
-      </ul>
+      <!-- Wrapped so the mobile breakpoint can move the whole block below the
+           content; on a phone this is 320px of metadata nobody scrolls past. -->
+      <div class="id-meta">
+        <ul class="contact">
+          <li><a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a></li>
+          <li><a href="https://www.linkedin.com/in/e1k/">linkedin.com/in/e1k</a></li>
+          <li><a href="https://github.com/ethanlsk">github.com/ethanlsk</a></li>
+          <li><a href="resume.pdf">Résumé (PDF)</a></li>
+        </ul>
 
-      <ul class="vitals">
-        <li>New York, NY</li>
-        <li>U.S. Citizen</li>
-        <li>Available May 2027</li>
-      </ul>
+        <ul class="vitals">
+          <li>New York, NY</li>
+          <li>U.S. Citizen</li>
+          <li>Available May 2027</li>
+        </ul>
 
-      <a class="btn primary" href="projects.html" style="margin-top:1.4rem">See all projects</a>
+        <a class="btn primary" href="projects.html" style="margin-top:1.4rem">See all projects</a>
+      </div>
     </aside>
 
     <!-- ---------------- right: content ---------------- -->
