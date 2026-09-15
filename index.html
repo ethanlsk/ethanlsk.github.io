@@ -19,7 +19,17 @@
     </a>
     <nav class="tabs">
       <a href="/" class="active">Home</a>
-      <a href="projects.html">Projects</a>
+      <details class="navdrop">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="projects.html">All projects</a>
+          <div class="sep"></div>
+          <a href="projects.html#optics">Optics &amp; Photonics</a>
+          <a href="projects.html#circuits">Circuits &amp; Power</a>
+          <a href="projects.html#robotics">Robotics &amp; Embedded</a>
+          <a href="projects.html#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
       <a href="contact.html">Contact</a>
       <a class="btn btn-sm rust" href="resume.pdf">Résumé</a>
     </nav>
@@ -184,5 +194,6 @@
   </footer>
 
 </div>
+<script src="site.js"></script>
 </body>
 </html>

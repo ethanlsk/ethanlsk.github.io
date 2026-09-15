@@ -19,7 +19,17 @@
     </a>
     <nav class="tabs">
       <a href="/">Home</a>
-      <a href="projects.html" class="active">Projects</a>
+      <details class="navdrop active">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="projects.html">All projects</a>
+          <div class="sep"></div>
+          <a href="projects.html#optics">Optics &amp; Photonics</a>
+          <a href="projects.html#circuits">Circuits &amp; Power</a>
+          <a href="projects.html#robotics">Robotics &amp; Embedded</a>
+          <a href="projects.html#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
       <a href="contact.html">Contact</a>
       <a class="btn btn-sm rust" href="resume.pdf">Résumé</a>
     </nav>
@@ -33,21 +43,154 @@
     <h1>Projects</h1>
     <div class="rule"></div>
     <p class="lede">
-      Coursework, research, and personal builds, grouped by discipline.
-      Expand a category to see full write-ups, results, figures, and source.
+      Coursework, research, and personal builds, grouped by discipline and ordered oldest to
+      newest within each group. Expand a category for full write-ups, results, figures, and source.
     </p>
   </div>
 
   <section style="padding-top:0">
+    <h2>Academic progression</h2>
+    <p style="max-width:38rem;color:var(--dim);font-size:.95rem">
+      How the work has moved from undergraduate hands-on builds, through analog circuit design,
+      into graduate photonics and self-directed hardware.
+    </p>
+    <ul class="timeline">
+      <li class="tl-item">
+        <div class="tl-when">Spring<br>2024</div>
+        <div class="tl-body">
+          <div class="tl-title">UV-C Sterilization Robot, Silicon Thermal Oxidation</div>
+          <p class="tl-note">
+            SUNY Polytechnic Institute, undergraduate. First full hardware build and first
+            cleanroom process work. The oxidation research took second place at the SUNY Poly
+            Student Project Showcase.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Summer<br>2024</div>
+        <div class="tl-body">
+          <div class="tl-title">Personal Carrier Robot</div>
+          <p class="tl-note">
+            Summer Undergraduate Research Program. Motor drive, power rails, PID control,
+            and vision-based tracking on a real platform.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Oct 2024<br>to Aug 2025</div>
+        <div class="tl-body">
+          <div class="tl-title">Research Associate, AI robotics</div>
+          <p class="tl-note">
+            NVIDIA Isaac stack, perception and motion planning, GPU workload profiling.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Spring<br>2025</div>
+        <div class="tl-body">
+          <div class="tl-title">Bachelor's thesis on optical computing</div>
+          <p class="tl-note">
+            First sustained work in photonics, covering photonic integrated circuits and
+            optical processing architectures.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item milestone">
+        <div class="tl-when">May<br>2025</div>
+        <div class="tl-body">
+          <div class="tl-title">BS Electrical Engineering conferred</div>
+          <p class="tl-note">SUNY Polytechnic Institute, College of Engineering.</p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Fall<br>2025</div>
+        <div class="tl-body">
+          <div class="tl-title">Graduate analog design at Binghamton</div>
+          <p class="tl-note">
+            8th-order Sallen-Key band-pass filter and a CMOS cascode amplifier reaching 86 dB,
+            both worked out by hand before simulating.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Spring<br>2026</div>
+        <div class="tl-body">
+          <div class="tl-title">Electro-optics and semiconductor lasers</div>
+          <p class="tl-note">
+            End-to-end fiber-optic link design and rate-equation modeling of a directly
+            modulated laser.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Summer 2026<br>to present</div>
+        <div class="tl-body">
+          <div class="tl-title">Constant-current driver in KiCad</div>
+          <p class="tl-note">
+            Self-directed. Moving from simulation into fabrication and bench measurement,
+            heading toward a laser diode driver.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item milestone">
+        <div class="tl-when">May<br>2027</div>
+        <div class="tl-body">
+          <div class="tl-title">MS Electrical Engineering expected</div>
+          <p class="tl-note">Binghamton University, Physical Electronics and Electro-Optics.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
 
-    <!-- ============================ OPTICS & PHOTONICS ============================ -->
-    <details class="group" open>
+  <section>
+
+    <!-- Optics &amp; Photonics -->
+    <details class="group" id="optics" open>
       <summary>
         <span class="chev"></span>
         <span class="summary-text">Optics &amp; Photonics</span>
         <span class="count">3 projects</span>
       </summary>
       <div class="group-body">
+
+        <!-- Thesis -->
+        <div class="card">
+          <div class="card-head">
+            <h3>Optical Computing, Memory &amp; Data Centers</h3>
+            <span class="meta">Jan to May 2025</span>
+          </div>
+          <p class="course">Bachelor's Thesis · SUNY Polytechnic Institute · Co-author (Processing)</p>
+
+          <p>
+            <em>Integrating Optical Technologies for Enhanced Processing, Memory, and Bandwidth
+            Scalability in Next-Generation Computing.</em> As Moore's Law approaches practical
+            limits, this thesis examines how photonic technologies can move past the thermal,
+            delay, and power-density constraints of silicon.
+          </p>
+          <p>
+            My section covered <strong>optical processing</strong>: photonic integrated circuits,
+            all-optical computing architectures, and clock speeds beyond what electronic logic
+            supports. Co-authors covered photonic memory and data-center scalability.
+          </p>
+
+          <h4>Technologies surveyed</h4>
+          <div class="tags">
+            <span class="tag">Silicon photonics</span><span class="tag">InP photonic chips</span>
+            <span class="tag">Optical neural networks</span><span class="tag">High-bandwidth memory</span>
+            <span class="tag">DWDM</span><span class="tag">Optical interconnects</span>
+            <span class="tag">Hybrid electro-optic systems</span>
+          </div>
+
+          <p class="note">
+            Written with Owen Lawrence (memory) and Devin DiTucci (scalability / data centers)
+            at SUNY Polytechnic Institute, Utica, NY.
+          </p>
+
+          <p style="margin-top:1.1rem">
+            <a class="btn" href="https://github.com/ethanlsk/Bachelor-Thesis-on-Optical-Computing-Memory-and-Data-Centers">View on GitHub</a>
+          </p>
+        </div>
+
 
         <!-- Fiber-optic system -->
         <div class="card">
@@ -162,6 +305,7 @@ grid on;</code></pre>
           </p>
         </div>
 
+
         <!-- Laser relaxation -->
         <div class="card">
           <div class="card-head">
@@ -274,87 +418,18 @@ end</code></pre>
           </p>
         </div>
 
-        <!-- Thesis -->
-        <div class="card">
-          <div class="card-head">
-            <h3>Optical Computing, Memory &amp; Data Centers</h3>
-            <span class="meta">Jan to May 2025</span>
-          </div>
-          <p class="course">Bachelor's Thesis · SUNY Polytechnic Institute · Co-author (Processing)</p>
-
-          <p>
-            <em>Integrating Optical Technologies for Enhanced Processing, Memory, and Bandwidth
-            Scalability in Next-Generation Computing.</em> As Moore's Law approaches practical
-            limits, this thesis examines how photonic technologies can move past the thermal,
-            delay, and power-density constraints of silicon.
-          </p>
-          <p>
-            My section covered <strong>optical processing</strong>: photonic integrated circuits,
-            all-optical computing architectures, and clock speeds beyond what electronic logic
-            supports. Co-authors covered photonic memory and data-center scalability.
-          </p>
-
-          <h4>Technologies surveyed</h4>
-          <div class="tags">
-            <span class="tag">Silicon photonics</span><span class="tag">InP photonic chips</span>
-            <span class="tag">Optical neural networks</span><span class="tag">High-bandwidth memory</span>
-            <span class="tag">DWDM</span><span class="tag">Optical interconnects</span>
-            <span class="tag">Hybrid electro-optic systems</span>
-          </div>
-
-          <p class="note">
-            Written with Owen Lawrence (memory) and Devin DiTucci (scalability / data centers)
-            at SUNY Polytechnic Institute, Utica, NY.
-          </p>
-
-          <p style="margin-top:1.1rem">
-            <a class="btn" href="https://github.com/ethanlsk/Bachelor-Thesis-on-Optical-Computing-Memory-and-Data-Centers">View on GitHub</a>
-          </p>
-        </div>
 
       </div>
     </details>
 
-    <!-- ============================ CIRCUITS & POWER ============================ -->
-    <details class="group">
+    <!-- Circuits &amp; Power -->
+    <details class="group" id="circuits">
       <summary>
         <span class="chev"></span>
         <span class="summary-text">Circuits &amp; Power</span>
         <span class="count">3 projects</span>
       </summary>
       <div class="group-body">
-
-        <!-- LM317 driver -->
-        <div class="card">
-          <div class="card-head">
-            <h3>Constant-Current LED / Laser Diode Driver</h3>
-            <span class="meta">Jun 2026 to Present</span>
-          </div>
-          <p class="course">Personal project · KiCad · <span style="color:var(--cyan)">In progress</span></p>
-
-          <p>
-            A regulated LM317 constant-current driver designed in KiCad that holds output current
-            constant independent of supply voltage. The set resistor fixes the current through
-            I = 1.25 / R_set, so a 62 Ω resistor gives roughly 20 mA, with the regulator dissipating
-            about 0.12 W from a 9 V supply, low enough to run without a heatsink.
-          </p>
-          <p>
-            The planned test is a supply sweep from 7 V to 12 V confirming output current stays
-            flat, which is a line-regulation measurement. That same test carries over directly to
-            the laser-diode version.
-          </p>
-          <p>
-            From there the board branches toward a protected laser-diode driver with current
-            limiting and modulation. Laser diodes fail fast under current transients, so the
-            protection circuitry is the real engineering content.
-          </p>
-
-          <div class="tags">
-            <span class="tag">KiCad</span><span class="tag">LM317</span>
-            <span class="tag">Constant-current source</span><span class="tag">Line regulation</span>
-            <span class="tag">PCB layout</span><span class="tag rust">In progress</span>
-          </div>
-        </div>
 
         <!-- Sallen-Key -->
         <div class="card">
@@ -395,6 +470,7 @@ end</code></pre>
           </div>
         </div>
 
+
         <!-- Cascode -->
         <div class="card">
           <div class="card-head">
@@ -434,17 +510,137 @@ end</code></pre>
           </div>
         </div>
 
+
+        <!-- LM317 driver -->
+        <div class="card">
+          <div class="card-head">
+            <h3>Constant-Current LED / Laser Diode Driver</h3>
+            <span class="meta">Jun 2026 to Present</span>
+          </div>
+          <p class="course">Personal project · KiCad · <span style="color:var(--cyan)">In progress</span></p>
+
+          <p>
+            A regulated LM317 constant-current driver designed in KiCad that holds output current
+            constant independent of supply voltage. The set resistor fixes the current through
+            I = 1.25 / R_set, so a 62 Ω resistor gives roughly 20 mA, with the regulator dissipating
+            about 0.12 W from a 9 V supply, low enough to run without a heatsink.
+          </p>
+          <p>
+            The planned test is a supply sweep from 7 V to 12 V confirming output current stays
+            flat, which is a line-regulation measurement. That same test carries over directly to
+            the laser-diode version.
+          </p>
+          <p>
+            From there the board branches toward a protected laser-diode driver with current
+            limiting and modulation. Laser diodes fail fast under current transients, so the
+            protection circuitry is the real engineering content.
+          </p>
+
+          <div class="tags">
+            <span class="tag">KiCad</span><span class="tag">LM317</span>
+            <span class="tag">Constant-current source</span><span class="tag">Line regulation</span>
+            <span class="tag">PCB layout</span><span class="tag rust">In progress</span>
+          </div>
+        </div>
+
+
       </div>
     </details>
 
-    <!-- ============================ ROBOTICS & EMBEDDED ============================ -->
-    <details class="group">
+    <!-- Robotics &amp; Embedded Systems -->
+    <details class="group" id="robotics">
       <summary>
         <span class="chev"></span>
         <span class="summary-text">Robotics &amp; Embedded Systems</span>
-        <span class="count">1 project</span>
+        <span class="count">2 projects</span>
       </summary>
       <div class="group-body">
+
+        <!-- UV-C sterilization robot -->
+        <div class="card">
+          <div class="card-head">
+            <h3>UV-C Sterilization Robot</h3>
+            <span class="meta">Spring 2024</span>
+          </div>
+          <p class="course">CET 429 · SUNY Polytechnic Institute · Arduino</p>
+
+          <p>
+            A team-built autonomous disinfecting robot that drives itself through a room while
+            UV-C LEDs sterilize the surfaces it passes, intended to cut infection risk in shared
+            spaces. The design brief was to keep it versatile and genuinely affordable rather than
+            matching the cost of commercial units, so the whole robot came in under $150 in parts.
+          </p>
+          <p>
+            The chassis and shell were 3D printed, with a domed cover over a circular base that
+            carries the drive wheels, the electronics stack, and forward-facing ultrasonic sensors
+            for obstacle detection.
+          </p>
+
+          <div class="photo-grid">
+            <figure>
+              <div class="photo">
+                <img src="assets/uvc-robot-assembled.png"
+                     alt="The assembled UV-C sterilization robot: a red 3D-printed dome on a black circular base, with two ultrasonic sensors facing forward">
+              </div>
+              <figcaption>
+                The assembled robot. The printed dome lifts off the base, and the paired ultrasonic
+                transducers sit at the front edge for obstacle detection.
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="photo">
+                <img src="assets/uvc-robot-internals.png"
+                     alt="Interior of the robot showing the Arduino board, motor driver modules, lithium battery, and wiring on the circular chassis">
+              </div>
+              <figcaption>
+                Electronics stack with the dome removed: Arduino controller, motor driver modules,
+                and the lithium cell mounted on the printed base.
+              </figcaption>
+            </figure>
+          </div>
+
+          <h4>Bill of materials</h4>
+          <div class="tablescroll">
+            <table class="results">
+              <tr><th>Component</th><th>Cost</th></tr>
+              <tr><td>UV-C LEDs (5 pc)</td><td class="val">$27.06</td></tr>
+              <tr><td>Arduino Nano microcontroller</td><td class="val">$22.05</td></tr>
+              <tr><td>Gravity Nano IO shield</td><td class="val">$11.30</td></tr>
+              <tr><td>DC motors (2)</td><td class="val">$9.99</td></tr>
+              <tr><td>3.7 V battery</td><td class="val">$17.99</td></tr>
+              <tr><td>Arduino car kit chassis</td><td class="val">$59.99</td></tr>
+              <tr><td><strong>Total</strong></td><td class="val"><strong>$148.29</strong></td></tr>
+            </table>
+          </div>
+
+          <h4>Build schedule</h4>
+          <div class="tablescroll">
+            <table class="results">
+              <tr><th>Phase</th><th>Dates</th></tr>
+              <tr><td>Planning</td><td class="val">Jan 16 to Feb 6</td></tr>
+              <tr><td>Parts procurement</td><td class="val">Feb 7 to Mar 1</td></tr>
+              <tr><td>Initial build and soldering</td><td class="val">Mar 2 to 14</td></tr>
+              <tr><td>Coding and troubleshooting</td><td class="val">Mar 15 to Apr 16</td></tr>
+              <tr><td>Finalizing and prep</td><td class="val">Apr 17 to 24</td></tr>
+            </table>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Arduino Nano</span><span class="tag">UV-C LEDs</span>
+            <span class="tag">DC motor drive</span><span class="tag">Embedded C</span>
+            <span class="tag">Chassis integration</span><span class="tag">Cost-constrained design</span>
+          </div>
+
+          <p class="note">
+            Team project with Owen Lawrence, Leo Bruno, and Kaitlyn P.
+          </p>
+
+          <p style="margin-top:1.1rem">
+            <a class="btn rust" href="assets/uvc-sterilization-report.pdf">Project report (PDF)</a>
+          </p>
+        </div>
+
+
 
         <div class="card">
           <div class="card-head">
@@ -501,17 +697,19 @@ end</code></pre>
           </p>
         </div>
 
+
       </div>
     </details>
 
-    <!-- ============================ SEMICONDUCTORS ============================ -->
-    <details class="group">
+    <!-- Semiconductors &amp; Fabrication -->
+    <details class="group" id="semiconductors">
       <summary>
         <span class="chev"></span>
         <span class="summary-text">Semiconductors &amp; Fabrication</span>
         <span class="count">1 project</span>
       </summary>
       <div class="group-body">
+
 
         <div class="card">
           <div class="card-head">
@@ -573,6 +771,7 @@ end</code></pre>
           </p>
         </div>
 
+
       </div>
     </details>
 
@@ -587,5 +786,6 @@ end</code></pre>
   </footer>
 
 </div>
+<script src="site.js"></script>
 </body>
 </html>
