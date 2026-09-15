@@ -89,7 +89,8 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 400;
 }
 
-.tabs { display: flex; gap: .3rem; }
+.tabs { display: flex; gap: .3rem; align-items: center; flex-wrap: wrap; }
+.tabs .btn-sm { margin-left: .45rem; }
 .tabs a {
   font-size: .92rem;
   color: var(--pale);
@@ -147,7 +148,6 @@ img { max-width: 100%; height: auto; display: block; }
 .maincol > .lede { margin-bottom: 0; }
 .maincol section.first { border-top: none; padding-top: 2.1rem; }
 .coursework { font-size: .92rem; color: var(--dim); margin: 0; }
-.contact-grid { margin: 1.5rem 0 0; }
 
 @media (max-width: 58rem) {
   .split { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 2.75rem; }
@@ -167,28 +167,6 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 0 1rem;
 }
 
-.available {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  font-family: var(--mono);
-  font-size: .76rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: #e7bdb1;
-  background: rgba(150, 71, 52, .22);
-  border: 1px solid rgba(150, 71, 52, .55);
-  border-radius: 999px;
-  padding: .3rem .85rem;
-  margin-bottom: 1.5rem;
-}
-.available::before {
-  content: "";
-  width: .45rem; height: .45rem;
-  border-radius: 50%;
-  background: #d9735a;
-  box-shadow: 0 0 0 3px rgba(217, 115, 90, .22);
-}
 
 .hero h1 {
   font-size: clamp(2.4rem, 7.5vw, 3.6rem);
@@ -239,6 +217,7 @@ img { max-width: 100%; height: auto; display: block; }
 .btn.primary:hover { background: #35bec8; color: #00272a; }
 .btn.rust { border-color: rgba(150,71,52,.6); }
 .btn.rust:hover { background: var(--rust); border-color: var(--rust); color: #fff; }
+.btn.btn-sm { font-size: .86rem; padding: .36rem .85rem; border-radius: 6px; }
 
 /* ---------------- sections ---------------- */
 
@@ -480,19 +459,6 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   margin: 1.25rem 0 0;
 }
 
-.factline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem 1.6rem;
-  font-family: var(--mono);
-  font-size: .82rem;
-  color: var(--dim);
-  padding: 1rem 0 0;
-  margin: 0;
-  list-style: none;
-}
-.factline li { margin: 0; }
-.factline b { color: var(--pale); font-weight: 500; }
 
 footer {
   border-top: 1px solid var(--line-dim);
