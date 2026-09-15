@@ -50,6 +50,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: sticky;
   top: 0;
   z-index: 20;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 .site-header .wrap {
@@ -110,6 +111,7 @@ img { max-width: 100%; height: auto; display: block; }
   user-select: none;
 }
 .navdrop > summary::-webkit-details-marker { display: none; }
+.navdrop > summary::marker { content: ""; }
 .navdrop > summary:hover { background: var(--panel); border-color: var(--line); }
 .navdrop.active > summary { background: var(--panel); border-color: var(--cyan); color: var(--bright); }
 .navdrop > summary::after {
@@ -502,6 +504,7 @@ details.group > summary {
   user-select: none;
 }
 details.group > summary::-webkit-details-marker { display: none; }
+details.group > summary::marker { content: ""; }
 details.group > summary:hover { background: rgba(137,221,255,.07); }
 
 .chev {
@@ -527,6 +530,7 @@ details.code-toggle > summary {
   padding: .3rem 0;
 }
 details.code-toggle > summary::-webkit-details-marker { display: none; }
+details.code-toggle > summary::marker { content: ""; }
 details.code-toggle > summary:hover { color: #B9E9FF; }
 details.code-toggle > summary::before { content: "\25B8  "; }
 details.code-toggle[open] > summary::before { content: "\25BE  "; }
