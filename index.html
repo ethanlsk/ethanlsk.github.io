@@ -1,5 +1,16 @@
 <!doctype html>
 <html lang="en">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so the figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +49,11 @@
 
     <!-- ---------------- left: name and contact ---------------- -->
     <aside class="identity">
-      <h1>Ethan<br>Khan</h1>
+      <div class="id-head">
+        <img class="headshot" src="assets/headshot.jpg" width="82" height="82"
+             alt="Ethan Khan">
+        <h1>Ethan<br>Khan</h1>
+      </div>
       <div class="rule"></div>
 
       <ul class="contact">

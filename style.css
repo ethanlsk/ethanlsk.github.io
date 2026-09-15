@@ -155,18 +155,32 @@ img { max-width: 100%; height: auto; display: block; }
 
 .split {
   display: grid;
-  grid-template-columns: 15.5rem minmax(0, 1fr);
-  gap: 0 4.5rem;
+  grid-template-columns: 17rem minmax(0, 1fr);
+  gap: 0 3.75rem;
   padding-top: 3.25rem;
   align-items: start;
 }
 
-.identity { position: sticky; top: 4.9rem; padding-bottom: 2rem; }
+.identity { position: sticky; top: 4.9rem; padding-bottom: 2rem; min-width: 0; }
+.id-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.15rem;
+}
+.headshot {
+  flex: 0 0 auto;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
 .identity h1 {
-  font-size: clamp(2.4rem, 5.5vw, 3.15rem);
-  line-height: 1.02;
-  letter-spacing: -0.038em;
-  margin: 0 0 1.1rem;
+  font-size: clamp(1.9rem, 3.6vw, 2.15rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
   color: var(--bright);
 }
 .title-line {
@@ -193,12 +207,16 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.85;
 }
 
+.maincol { min-width: 0; }
 .maincol > .lede { margin-bottom: 0; }
 .maincol section.first { border-top: none; padding-top: 2.1rem; }
 .coursework { font-size: .92rem; color: var(--dim); margin: 0; }
 
 @media (max-width: 58rem) {
-  .split { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 2.75rem; }
+  /* minmax(0, 1fr), not 1fr: a plain 1fr track is minmax(auto, 1fr) and so
+     cannot shrink below the widest item's min-content, which the wide tables
+     and code blocks in .maincol would push past the viewport. */
+  .split { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding-top: 2.75rem; }
   .identity { position: static; padding-bottom: 0; }
 }
 
@@ -518,7 +536,7 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
 
 .proj-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
   gap: .85rem;
   margin: 0;
 }
@@ -636,6 +654,7 @@ footer {
   padding: 2.25rem 0 3.5rem;
   font-size: .88rem;
   color: var(--dim);
+  text-align: center;
 }
 
 @media (max-width: 34rem) {
@@ -644,3 +663,76 @@ footer {
   .group-body { padding: 0 1rem 1.1rem; }
   details.group > summary { padding: .95rem 1rem; }
 }
+
+/* ---------------- page rail (projects, contact) ----------------
+   Same split as the home page: title and intro sit in the left
+   column, the content scrolls past on the right. */
+
+.identity .eyebrow { margin-bottom: .75rem; }
+h1.railtitle {
+  font-size: clamp(2.2rem, 4.6vw, 2.9rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 0 0 1.1rem;
+  color: var(--bright);
+}
+.rail-note {
+  font-size: .95rem;
+  line-height: 1.62;
+  color: var(--dim);
+  margin: 0;
+}
+.rail-links { list-style: none; padding: 0; margin: 1.5rem 0 0; font-size: .91rem; }
+.rail-links li { margin-bottom: .45rem; }
+.rail-links a { text-decoration: none; }
+.rail-links a:hover { text-decoration: underline; }
+.rail-links .sep-label {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  display: block;
+  margin: 0 0 .55rem;
+}
+
+/* ---------------- scroll reveal ----------------
+   Figures fade up as they enter the viewport. Only armed when JS is
+   running, so the images are never stuck invisible without it. */
+
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .65s cubic-bezier(.22,.61,.36,1),
+              transform .65s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+
+/* stagger side-by-side figures so a pair does not pop in as one block */
+html.js .photo-grid > .reveal:nth-child(2) { transition-delay: .12s; }
+html.js .photo-grid > .reveal:nth-child(3) { transition-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------------- equations (KaTeX) ---------------- */
+
+.katex { color: var(--pale); font-size: 1.04em; }
+.katex-display {
+  margin: 0;
+  padding: .15rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.eqbox {
+  background: var(--well);
+  border: 1px solid var(--line-dim);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  margin: 1rem 0 0;
+  overflow-x: auto;
+}
+.eqbox .katex-display + .katex-display { margin-top: .55rem; }
+.eqnote { font-size: .86rem; color: var(--dim); margin: .7rem 0 0; }

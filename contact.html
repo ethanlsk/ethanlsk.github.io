@@ -1,5 +1,16 @@
 <!doctype html>
 <html lang="en">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so the figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +23,7 @@
 <body>
 
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap wide">
     <nav class="tabs">
       <a href="/">Home</a>
       <details class="navdrop">
@@ -32,22 +43,27 @@
   </div>
 </header>
 
-<div class="wrap">
+<div class="wrap wide">
 
-  <div class="hero">
-    <p class="eyebrow">Get in touch</p>
-    <h1>Contact</h1>
-    <div class="rule"></div>
-    <p class="lede">
-      The fastest way to reach me is email. I am open to full-time electrical engineering roles
-      and happy to talk through any of the work on my projects page.
-    </p>
-    <p>
-      <a class="btn primary" href="mailto:ekhan7@binghamton.edu">Send me an email</a>
-    </p>
-  </div>
+  <div class="split">
 
-  <section style="padding-top:0">
+    <!-- ---------------- left: page title and intro ---------------- -->
+    <aside class="identity">
+      <p class="eyebrow">Get in touch</p>
+      <h1 class="railtitle">Contact</h1>
+      <div class="rule"></div>
+      <p class="rail-note">
+        The fastest way to reach me is email. I am open to full-time electrical engineering roles
+        and happy to talk through any of the work on my projects page.
+      </p>
+      <a class="btn primary" href="mailto:ekhan7@binghamton.edu"
+         style="margin-top:1.4rem">Send me an email</a>
+    </aside>
+
+    <!-- ---------------- right: details ---------------- -->
+    <div class="maincol">
+
+  <section class="first">
     <dl style="margin:0">
       <div class="skill-line">
         <dt>Email</dt>
@@ -79,6 +95,9 @@
       </div>
     </dl>
   </section>
+
+    </div>
+  </div>
 
   <footer>
     <p>

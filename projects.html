@@ -1,5 +1,16 @@
 <!doctype html>
 <html lang="en">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so the figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,11 +19,35 @@
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="apple-touch-icon" href="assets/logo.png">
 <link rel="stylesheet" href="style.css">
+
+<!-- KaTeX: equations are authored as \( inline \) and \[ display \] -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      crossorigin="anonymous">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        crossorigin="anonymous"></script>
+<script>
+  // Deferred scripts run before DOMContentLoaded, so KaTeX is ready here.
+  // Dollar delimiters are deliberately NOT enabled: the UV-C bill of
+  // materials is full of prices that would be parsed as math.
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!window.renderMathInElement) return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code", "option"],
+      throwOnError: false
+    });
+  });
+</script>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap wide">
     <nav class="tabs">
       <a href="/">Home</a>
       <details class="navdrop active">
@@ -32,19 +67,32 @@
   </div>
 </header>
 
-<div class="wrap">
+<div class="wrap wide">
 
-  <div class="hero">
-    <p class="eyebrow">Selected Work</p>
-    <h1>Projects</h1>
-    <div class="rule"></div>
-    <p class="lede">
-      Coursework, research, and personal builds, grouped by discipline and ordered oldest to
-      newest within each group. Expand a category for full write-ups, results, figures, and source.
-    </p>
-  </div>
+  <div class="split">
 
-  <section style="padding-top:0">
+    <!-- ---------------- left: page title and intro ---------------- -->
+    <aside class="identity">
+      <p class="eyebrow">Selected Work</p>
+      <h1 class="railtitle">Projects</h1>
+      <div class="rule"></div>
+      <p class="rail-note">
+        Coursework, research, and personal builds, grouped by discipline and ordered oldest to
+        newest within each group. Expand a category for full write-ups, results, figures, and source.
+      </p>
+      <ul class="rail-links">
+        <li><span class="sep-label">Jump to</span></li>
+        <li><a href="#optics">Optics &amp; Photonics</a></li>
+        <li><a href="#circuits">Circuits &amp; Power</a></li>
+        <li><a href="#robotics">Robotics &amp; Embedded</a></li>
+        <li><a href="#semiconductors">Semiconductors &amp; Fabrication</a></li>
+      </ul>
+    </aside>
+
+    <!-- ---------------- right: content ---------------- -->
+    <div class="maincol">
+
+  <section class="first">
     <h2>Academic progression</h2>
     <p style="max-width:38rem;color:var(--dim);font-size:.95rem">
       How the work has moved from undergraduate hands-on builds, through analog circuit design,
@@ -54,11 +102,21 @@
       <li class="tl-item">
         <div class="tl-when">Spring<br>2024</div>
         <div class="tl-body">
-          <div class="tl-title">UV-C Sterilization Robot, Silicon Thermal Oxidation</div>
+          <div class="tl-title">UV-C Sterilization Robot</div>
           <p class="tl-note">
-            SUNY Polytechnic Institute, undergraduate. First full hardware build and first
-            cleanroom process work. The oxidation research took second place at the SUNY Poly
-            Student Project Showcase.
+            CET 429 at SUNY Polytechnic Institute, undergraduate. First full hardware build:
+            3D-printed chassis, Arduino drive and sensing, the whole robot under $150 in parts.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Spring<br>2024</div>
+        <div class="tl-body">
+          <div class="tl-title">Silicon Thermal Oxidation</div>
+          <p class="tl-note">
+            Semiconductor Experimentation Research at SUNY Polytechnic Institute. First cleanroom
+            process work, Deal-Grove modeling and SEM characterization. Took second place at the
+            SUNY Poly Student Project Showcase.
           </p>
         </div>
       </li>
@@ -205,15 +263,15 @@
           <h4>Task 1: Fiber coupler</h4>
           <p>
             Single-lens system launching a laser into 50 µm multimode fiber
-            (n₁ = 1.5, n₂ = 1.49, lens F = 3.5 mm, D = 2 mm).
+            (\(n_1 = 1.5\), \(n_2 = 1.49\), lens \(F = 3.5\ \mathrm{mm}\), \(D = 2\ \mathrm{mm}\)).
           </p>
           <div class="tablescroll">
             <table class="results">
               <tr><th>Quantity</th><th>Result</th></tr>
-              <tr><td>Numerical aperture</td><td class="val">NA = 0.1729</td></tr>
-              <tr><td>Acceptance angle</td><td class="val">θ_max = 9.96°</td></tr>
-              <tr><td>Max coupling radius</td><td class="val">r_max = 0.6147 mm</td></tr>
-              <tr><td>Power coupling efficiency</td><td class="val">η ≈ 37.79%</td></tr>
+              <tr><td>Numerical aperture</td><td class="val">\(\mathrm{NA} = 0.1729\)</td></tr>
+              <tr><td>Acceptance angle</td><td class="val">\(\theta_{\max} = 9.96^{\circ}\)</td></tr>
+              <tr><td>Max coupling radius</td><td class="val">\(r_{\max} = 0.6147\ \mathrm{mm}\)</td></tr>
+              <tr><td>Power coupling efficiency</td><td class="val">\(\eta \approx 37.79\%\)</td></tr>
             </table>
           </div>
           <p style="margin-top:.9rem">
@@ -224,26 +282,26 @@
           <h4>Task 2: Revised three-lens coupler</h4>
           <p>
             Redesigned with a three-lens arrangement that shrinks the beam so every ray arrives
-            within θ_max, recovering the lost power.
+            within \(\theta_{\max}\), recovering the lost power.
           </p>
           <div class="tablescroll">
             <table class="results">
               <tr><th>Quantity</th><th>Result</th></tr>
-              <tr><td>Required beam radius at L₃</td><td class="val">r₃ = 0.3511 mm</td></tr>
-              <tr><td>Lens separation</td><td class="val">d₁ = 4.729 mm</td></tr>
-              <tr><td>Collimating lens focal length</td><td class="val">F₂ = 1.229 mm</td></tr>
-              <tr><td>Radius of curvature (plano-convex)</td><td class="val">R = 0.6145 mm</td></tr>
+              <tr><td>Required beam radius at L₃</td><td class="val">\(r_3 = 0.3511\ \mathrm{mm}\)</td></tr>
+              <tr><td>Lens separation</td><td class="val">\(d_1 = 4.729\ \mathrm{mm}\)</td></tr>
+              <tr><td>Collimating lens focal length</td><td class="val">\(F_2 = 1.229\ \mathrm{mm}\)</td></tr>
+              <tr><td>Radius of curvature (plano-convex)</td><td class="val">\(R = 0.6145\ \mathrm{mm}\)</td></tr>
             </table>
           </div>
 
           <h4>Task 3: Random polarization through a polarizer</h4>
           <p>
-            Malus's law applied to a randomly polarized source. Analytically, for θ uniform over
-            [0, 2π], the expected transmission E[cos²θ] = ½. A 1,000,000-sample Monte Carlo
+            Malus's law applied to a randomly polarized source. Analytically, for \(\theta\) uniform over
+            \([0, 2\pi]\), the expected transmission \(E[\cos^{2}\theta] = \tfrac{1}{2}\). A 1,000,000-sample Monte Carlo
             simulation returned <strong>0.5001</strong>, confirming the result.
           </p>
 
-          <figure>
+          <figure class="reveal">
             <div class="plate">
               <img src="assets/polarization-histogram.jpg"
                    alt="Probability density histogram of cos squared theta over one million random polarization angles, showing a U-shaped distribution">
@@ -274,9 +332,9 @@ grid on;</code></pre>
 
           <h4>Task 4: Modulation and end-to-end link</h4>
           <p>
-            Full binary link: 5 mW laser at λ = 1.55 µm → vertical polarizer → electro-optic
-            modulator (V<sub>π</sub> = 5 V) → quarter-wave plate → horizontal polarizer →
-            multimode fiber → PIN photodiode (η<sub>q</sub> = 80%).
+            Full binary link: 5 mW laser at \(\lambda = 1.55\ \mu\mathrm{m}\) &rarr; vertical polarizer &rarr; electro-optic
+            modulator (\(V_\pi = 5\ \mathrm{V}\)) &rarr; quarter-wave plate &rarr; horizontal polarizer &rarr;
+            multimode fiber &rarr; PIN photodiode (\(\eta_q = 80\%\)).
           </p>
           <div class="tablescroll">
             <table class="results">
@@ -321,41 +379,42 @@ grid on;</code></pre>
           <p>
             Carrier and photon densities are coupled through a gain term that includes compression:
           </p>
-<pre><code>dn/dt = I/(qV) − n/τ − Γ·G(n,s)·s
-ds/dt = Γ·G(n,s)·s − s/τ_p + β·n/τ
-
-G(n,s) = v_g · (dg/dn) · (n − n₀) / (1 + ε·s)</code></pre>
+          <div class="eqbox">
+            \[ \frac{dn}{dt} = \frac{I}{qV} - \frac{n}{\tau} - \Gamma\, G(n,s)\, s \]
+            \[ \frac{ds}{dt} = \Gamma\, G(n,s)\, s - \frac{s}{\tau_p} + \beta\, \frac{n}{\tau} \]
+            \[ G(n,s) = \frac{v_g \,(dg/dn)\,(n - n_0)}{1 + \varepsilon s} \]
+          </div>
 
           <h4>Device parameters</h4>
           <div class="tablescroll">
             <table class="results">
               <tr><th>Parameter</th><th>Symbol</th><th>Value</th></tr>
-              <tr><td>Active region volume</td><td class="val">V</td><td class="val">120 µm³</td></tr>
-              <tr><td>Photon lifetime</td><td class="val">τ_p</td><td class="val">4 ps</td></tr>
-              <tr><td>Carrier lifetime</td><td class="val">τ</td><td class="val">1 ns</td></tr>
-              <tr><td>Spontaneous emission factor</td><td class="val">β</td><td class="val">10⁻⁵</td></tr>
-              <tr><td>Differential gain</td><td class="val">dg/dn</td><td class="val">5×10⁻¹⁶ cm²</td></tr>
-              <tr><td>Gain compression</td><td class="val">ε</td><td class="val">10⁻¹⁷ cm³</td></tr>
-              <tr><td>Confinement factor</td><td class="val">Γ</td><td class="val">0.30</td></tr>
-              <tr><td>Transparency carrier density</td><td class="val">n₀</td><td class="val">10¹⁸ cm⁻³</td></tr>
+              <tr><td>Active region volume</td><td class="val">\(V\)</td><td class="val">\(120\ \mu\mathrm{m}^3\)</td></tr>
+              <tr><td>Photon lifetime</td><td class="val">\(\tau_p\)</td><td class="val">\(4\ \mathrm{ps}\)</td></tr>
+              <tr><td>Carrier lifetime</td><td class="val">\(\tau\)</td><td class="val">\(1\ \mathrm{ns}\)</td></tr>
+              <tr><td>Spontaneous emission factor</td><td class="val">\(\beta\)</td><td class="val">\(10^{-5}\)</td></tr>
+              <tr><td>Differential gain</td><td class="val">\(dg/dn\)</td><td class="val">\(5\times10^{-16}\ \mathrm{cm}^2\)</td></tr>
+              <tr><td>Gain compression</td><td class="val">\(\varepsilon\)</td><td class="val">\(10^{-17}\ \mathrm{cm}^3\)</td></tr>
+              <tr><td>Confinement factor</td><td class="val">\(\Gamma\)</td><td class="val">\(0.30\)</td></tr>
+              <tr><td>Transparency carrier density</td><td class="val">\(n_0\)</td><td class="val">\(10^{18}\ \mathrm{cm}^{-3}\)</td></tr>
             </table>
           </div>
 
           <h4>Results</h4>
           <p>
-            Threshold came out to <strong>n_th ≈ 1.19 × 10¹⁸ cm⁻³</strong> and
-            <strong>I_th ≈ 22.9 mA</strong>. Steady state at 1.1·I_th was found by integrating to
+            Threshold came out to \(n_{\mathrm{th}} \approx 1.19 \times 10^{18}\ \mathrm{cm}^{-3}\) and
+            \(I_{\mathrm{th}} \approx 22.9\ \mathrm{mA}\). Steady state at \(1.1\,I_{\mathrm{th}}\) was found by integrating to
             convergence over 8 ns rather than assuming carrier clamping, so the transient starts
             from a self-consistent bias point.
           </p>
           <p>
-            When the current steps up, carrier density overshoots n_th before stimulated emission
+            When the current steps up, carrier density overshoots \(n_{\mathrm{th}}\) before stimulated emission
             can respond. Once photon density spikes it clamps the carriers, triggering a damped
             oscillatory exchange, plus a second burst on the step back down. Relaxation oscillation
             frequency for this parameter set landed at <strong>~5 to 15 GHz</strong>.
           </p>
 
-          <figure>
+          <figure class="reveal">
             <div class="plate">
               <img src="assets/laser-three-panel.jpg"
                    alt="Three stacked plots showing driving current, carrier density, and photon density versus time over 2500 picoseconds">
@@ -366,7 +425,7 @@ G(n,s) = v_g · (dg/dn) · (n − n₀) / (1 + ε·s)</code></pre>
             </figcaption>
           </figure>
 
-          <figure>
+          <figure class="reveal">
             <div class="plate">
               <img src="assets/laser-photon-density.jpg"
                    alt="Photon density versus time plot in eye-pattern style, showing the pulse spike and steady-state levels">
@@ -444,8 +503,8 @@ end</code></pre>
           <div class="tablescroll">
             <table class="results">
               <tr><th>Stage</th><th>Components</th><th>Gain</th></tr>
-              <tr><td>High-pass (4th order)</td><td class="val">R = 15.9 kΩ, C = 10 nF</td><td class="val">K₁ = 1.152</td></tr>
-              <tr><td>Low-pass (4th order)</td><td class="val">R = 3.18 kΩ, C = 1 nF</td><td class="val">K₂ = 2.235</td></tr>
+              <tr><td>High-pass (4th order)</td><td class="val">\(R = 15.9\ \mathrm{k\Omega}\), \(C = 10\ \mathrm{nF}\)</td><td class="val">\(K_1 = 1.152\)</td></tr>
+              <tr><td>Low-pass (4th order)</td><td class="val">\(R = 3.18\ \mathrm{k\Omega}\), \(C = 1\ \mathrm{nF}\)</td><td class="val">\(K_2 = 2.235\)</td></tr>
             </table>
           </div>
 
@@ -484,18 +543,18 @@ end</code></pre>
           <div class="tablescroll">
             <table class="results">
               <tr><th>Quantity</th><th>Value</th></tr>
-              <tr><td>Device sizing</td><td class="val">W = 20 µm, L = 1 µm</td></tr>
-              <tr><td>Bias current</td><td class="val">I_D = 1 mA</td></tr>
-              <tr><td>Transconductance (hand-calculated)</td><td class="val">g_m = 2.83 mS</td></tr>
-              <tr><td>Output resistance per device</td><td class="val">r_o ≈ 50 kΩ</td></tr>
-              <tr><td>Amplifier output resistance</td><td class="val">≈ 7.2 MΩ</td></tr>
-              <tr><td>Voltage gain</td><td class="val">86 dB</td></tr>
+              <tr><td>Device sizing</td><td class="val">\(W = 20\ \mu\mathrm{m}\), \(L = 1\ \mu\mathrm{m}\)</td></tr>
+              <tr><td>Bias current</td><td class="val">\(I_D = 1\ \mathrm{mA}\)</td></tr>
+              <tr><td>Transconductance (hand-calculated)</td><td class="val">\(g_m = 2.83\ \mathrm{mS}\)</td></tr>
+              <tr><td>Output resistance per device</td><td class="val">\(r_o \approx 50\ \mathrm{k\Omega}\)</td></tr>
+              <tr><td>Amplifier output resistance</td><td class="val">\(\approx 7.2\ \mathrm{M\Omega}\)</td></tr>
+              <tr><td>Voltage gain</td><td class="val">\(86\ \mathrm{dB}\)</td></tr>
             </table>
           </div>
 
           <p style="margin-top:.9rem">
             Transconductance and output resistance were hand-calculated from SPICE Level-1 model
-            parameters (KP = 200 µA/V², V_T = 1.0 V, V_ov = 0.707 V) before simulating, then gain
+            parameters (\(K_P = 200\ \mu\mathrm{A/V}^2\), \(V_T = 1.0\ \mathrm{V}\), \(V_{ov} = 0.707\ \mathrm{V}\)) before simulating, then gain
             and bandwidth were verified against LTspice AC analysis from 10 Hz to 100 MHz.
           </p>
 
@@ -518,7 +577,7 @@ end</code></pre>
           <p>
             A regulated LM317 constant-current driver designed in KiCad that holds output current
             constant independent of supply voltage. The set resistor fixes the current through
-            I = 1.25 / R_set, so a 62 Ω resistor gives roughly 20 mA, with the regulator dissipating
+            \(I = 1.25\,\mathrm{V} / R_{\mathrm{set}}\), so a 62 &Omega; resistor gives roughly 20 mA, with the regulator dissipating
             about 0.12 W from a 9 V supply, low enough to run without a heatsink.
           </p>
           <p>
@@ -573,7 +632,7 @@ end</code></pre>
           </p>
 
           <div class="photo-grid">
-            <figure>
+            <figure class="reveal">
               <div class="photo">
                 <img src="assets/uvc-robot-assembled.png"
                      alt="The assembled UV-C sterilization robot: a red 3D-printed dome on a black circular base, with two ultrasonic sensors facing forward">
@@ -583,7 +642,7 @@ end</code></pre>
                 transducers sit at the front edge for obstacle detection.
               </figcaption>
             </figure>
-            <figure>
+            <figure class="reveal">
               <div class="photo">
                 <img src="assets/uvc-robot-internals.png"
                      alt="Interior of the robot showing the Arduino board, motor driver modules, lithium battery, and wiring on the circular chassis">
@@ -772,6 +831,9 @@ end</code></pre>
     </details>
 
   </section>
+
+    </div>
+  </div>
 
   <footer>
     <p>
