@@ -56,42 +56,23 @@ img { max-width: 100%; height: auto; display: block; }
 .site-header .wrap {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem 1.5rem;
+  justify-content: flex-start;
+  gap: .4rem 1rem;
   flex-wrap: wrap;
   padding-top: .7rem;
   padding-bottom: .7rem;
 }
 
-.brand {
+.tabs {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-decoration: none;
-  color: var(--bright);
-  min-width: 0;
+  gap: .3rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* pull the row left by the first tab's padding so the nav text,
+     not its hover box, lines up with the content edge below */
+  margin-left: -.9rem;
 }
-.brand:hover .brand-name { color: var(--cyan); }
-.brand-name {
-  transition: color .15s;
-  font-size: 1.06rem;
-  font-weight: 650;
-  letter-spacing: -0.015em;
-  margin: 0;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-.brand-sub {
-  display: block;
-  font-family: var(--mono);
-  font-size: .68rem;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  font-weight: 400;
-}
-
-.tabs { display: flex; gap: .3rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 .tabs .btn-sm { margin-left: .45rem; }
 
 /* nav dropdown */
@@ -154,16 +135,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @media (max-width: 46rem) {
-  .navmenu { left: 50%; transform: translateX(-50%); min-width: 13rem; }
-  .site-header .wrap {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: .55rem;
-  }
-  .brand { align-items: center; text-align: center; }
-  .tabs { width: 100%; justify-content: center; }
-  .tabs .btn-sm { margin-left: 0; }
+  .navmenu { min-width: 13rem; }
+  .site-header .wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .tabs { width: 100%; }
 }
 .tabs a {
   font-size: .92rem;
@@ -593,8 +567,6 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   color: var(--cyan);
   margin-top: .55rem;
 }
-.proj.ongoing { border-left-color: var(--rust); }
-.proj.ongoing .proj-area { color: var(--rust); }
 
 /* ---------------- academic timeline ---------------- */
 
