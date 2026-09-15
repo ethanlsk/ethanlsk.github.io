@@ -91,7 +91,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 400;
 }
 
-.tabs { display: flex; gap: .3rem; align-items: center; flex-wrap: wrap; }
+.tabs { display: flex; gap: .3rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 .tabs .btn-sm { margin-left: .45rem; }
 
 /* nav dropdown */
@@ -153,10 +153,15 @@ img { max-width: 100%; height: auto; display: block; }
   margin: .35rem .2rem;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 46rem) {
   .navmenu { left: 50%; transform: translateX(-50%); min-width: 13rem; }
-  .site-header .wrap { justify-content: center; }
-  .brand { align-items: center; }
+  .site-header .wrap {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+  }
+  .brand { align-items: center; text-align: center; }
   .tabs { width: 100%; justify-content: center; }
   .tabs .btn-sm { margin-left: 0; }
 }
