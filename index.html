@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ethan Khan | Electrical Engineer</title>
-<meta name="description" content="Ethan Khan, MS Electrical Engineering at Binghamton University. Electronics and optics: analog circuit design, semiconductor lasers, and embedded systems. Seeking full-time electrical engineering roles.">
+<meta name="description" content="Ethan Khan, MS Electrical Engineering at Binghamton University. Electronics and optics: analog circuit design, semiconductor lasers, and embedded systems.">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="apple-touch-icon" href="assets/logo.png">
 <link rel="stylesheet" href="style.css">
@@ -15,7 +15,6 @@
   <div class="wrap wide">
     <a class="brand" href="/">
       <span class="brand-name">Ethan Khan</span>
-      <span class="brand-sub">Electrical Engineer</span>
     </a>
     <nav class="tabs">
       <a href="/" class="active">Home</a>
@@ -44,7 +43,6 @@
     <aside class="identity">
       <h1>Ethan<br>Khan</h1>
       <div class="rule"></div>
-      <p class="title-line">Electrical Engineer</p>
 
       <ul class="contact">
         <li><a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a></li>
@@ -59,63 +57,131 @@
         <li>Available May 2027</li>
       </ul>
 
-      <a class="btn primary" href="projects.html" style="margin-top:1.4rem">See my projects</a>
+      <a class="btn primary" href="projects.html" style="margin-top:1.4rem">See all projects</a>
     </aside>
 
     <!-- ---------------- right: content ---------------- -->
     <div class="maincol">
 
       <p class="lede">
-        I am an electrical engineer finishing my master's at Binghamton University and looking for
-        <strong>full-time electrical engineering roles</strong>. My work sits in
+        I am an electrical engineer finishing my master's at Binghamton University. My work sits in
         <strong>electronics and optics</strong>: analog circuit design on one side, semiconductor
         lasers and fiber-optic systems on the other.
       </p>
 
       <section class="first">
-        <h2>Experience</h2>
+        <h2>Projects</h2>
 
-        <div class="role">
-          <div class="role-head">
-            <h3>Research Associate</h3>
-            <span class="meta">Oct 2024 to Aug 2025</span>
-          </div>
-          <p class="where">Center for Safe and Secure Artificial Intelligence Robotics, Utica, NY</p>
-          <ul>
-            <li>Developed and tested AI-driven robotics systems on the NVIDIA Isaac stack, integrating
-                perception and motion planning modules and validating behavior against defined test
-                procedures.</li>
-            <li>Profiled GPU workloads and inference to locate bottlenecks, improving computational
-                throughput and power efficiency.</li>
-          </ul>
-        </div>
+        <div class="proj-grid">
 
-        <div class="role">
-          <div class="role-head">
-            <h3>Robotics Research Aide</h3>
-            <span class="meta">May 2024 to Aug 2024</span>
-          </div>
-          <p class="where">The Research Foundation for SUNY, Utica, NY</p>
-          <ul>
-            <li>Built the motor-drive subsystem of an autonomous carrier robot using an L298N H-bridge
-                with a dual-battery supply, keeping motor and logic power on separate rails, and
-                controlling DC motor speed and direction via Raspberry Pi PWM.</li>
-            <li>Implemented PID closed-loop motor control and integrated a YOLO-based vision system
-                that segmented the camera frame into directional zones for real-time person tracking
-                and obstacle avoidance.</li>
-          </ul>
-        </div>
+          <a class="proj ongoing" href="projects.html#circuits">
+            <div class="proj-top">
+              <span class="proj-name">Constant-Current LED / Laser Diode Driver</span>
+              <span class="proj-when">2026</span>
+            </div>
+            <p class="proj-what">
+              LM317 driver in KiCad holding output current flat against supply variation, building
+              toward a protected laser diode driver.
+            </p>
+            <span class="proj-area">Circuits &amp; Power · In progress</span>
+          </a>
 
-        <div class="role">
-          <div class="role-head">
-            <h3>Resident Advisor</h3>
-            <span class="meta">May 2024 to May 2025</span>
-          </div>
-          <p class="where">Residential Life, SUNY Polytechnic Institute</p>
-          <ul>
-            <li>Organized 6 community events with 200+ participants and advised 45 residents on
-                academic and wellness resources.</li>
-          </ul>
+          <a class="proj" href="projects.html#optics">
+            <div class="proj-top">
+              <span class="proj-name">Semiconductor Laser Relaxation Oscillations</span>
+              <span class="proj-when">2026</span>
+            </div>
+            <p class="proj-what">
+              Rate-equation model of a directly modulated laser with gain compression.
+              Threshold 22.9 mA, relaxation oscillations at 5 to 15 GHz.
+            </p>
+            <span class="proj-area">Optics &amp; Photonics</span>
+          </a>
+
+          <a class="proj" href="projects.html#optics">
+            <div class="proj-top">
+              <span class="proj-name">Fiber-Optic Communication System</span>
+              <span class="proj-when">2026</span>
+            </div>
+            <p class="proj-what">
+              End-to-end link design: fiber coupling, polarization by Monte Carlo, electro-optic
+              modulation, dispersion budget, and photodetection.
+            </p>
+            <span class="proj-area">Optics &amp; Photonics</span>
+          </a>
+
+          <a class="proj" href="projects.html#circuits">
+            <div class="proj-top">
+              <span class="proj-name">CMOS Cascode Amplifier</span>
+              <span class="proj-when">2025</span>
+            </div>
+            <p class="proj-what">
+              Active current-source load reaching 86 dB gain and 7.2 MΩ output resistance,
+              hand-calculated before simulating.
+            </p>
+            <span class="proj-area">Circuits &amp; Power</span>
+          </a>
+
+          <a class="proj" href="projects.html#circuits">
+            <div class="proj-top">
+              <span class="proj-name">8th-Order Sallen-Key Band-Pass Filter</span>
+              <span class="proj-when">2025</span>
+            </div>
+            <p class="proj-what">
+              1 kHz to 50 kHz passband with over 45 dB stopband, poles solved analytically,
+              recovering a 30 kHz tone from white noise.
+            </p>
+            <span class="proj-area">Circuits &amp; Power</span>
+          </a>
+
+          <a class="proj" href="projects.html#optics">
+            <div class="proj-top">
+              <span class="proj-name">Optical Computing, Memory &amp; Data Centers</span>
+              <span class="proj-when">2025</span>
+            </div>
+            <p class="proj-what">
+              Bachelor's thesis on photonic integrated circuits and optical processing as a route
+              past the limits of electronic interconnect.
+            </p>
+            <span class="proj-area">Optics &amp; Photonics</span>
+          </a>
+
+          <a class="proj" href="projects.html#robotics">
+            <div class="proj-top">
+              <span class="proj-name">AI-Powered Personal Carrier Robot</span>
+              <span class="proj-when">2024</span>
+            </div>
+            <p class="proj-what">
+              L298N motor drive on split battery rails, PID following control, and YOLO-based
+              person tracking on a Raspberry Pi.
+            </p>
+            <span class="proj-area">Robotics &amp; Embedded</span>
+          </a>
+
+          <a class="proj" href="projects.html#robotics">
+            <div class="proj-top">
+              <span class="proj-name">UV-C Sterilization Robot</span>
+              <span class="proj-when">2024</span>
+            </div>
+            <p class="proj-what">
+              Autonomous disinfecting robot on a 3D-printed chassis with ultrasonic obstacle
+              detection, built for under $150 in parts.
+            </p>
+            <span class="proj-area">Robotics &amp; Embedded</span>
+          </a>
+
+          <a class="proj" href="projects.html#semiconductors">
+            <div class="proj-top">
+              <span class="proj-name">Silicon Thermal Oxidation</span>
+              <span class="proj-when">2024</span>
+            </div>
+            <p class="proj-what">
+              Deal-Grove modeling and furnace processing of SiO₂ films, with SEM revealing
+              unexpected nanowire growth. Second place, SUNY Poly showcase.
+            </p>
+            <span class="proj-area">Semiconductors &amp; Fabrication</span>
+          </a>
+
         </div>
       </section>
 
@@ -186,7 +252,6 @@
 
   <footer>
     <p>
-      Open to full-time electrical engineering roles.<br>
       <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a> ·
       <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a> ·
       <a href="https://github.com/ethanlsk">GitHub</a>
