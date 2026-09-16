@@ -223,7 +223,7 @@
 
   function drawCloud(a, time) {
     if (a < 0.01) return;
-    var sweep = (time * 0.00036) % 6.2832;      // rotating scan line
+    var sweep = (time * 0.00055) % 6.2832;      // rotating scan line, ~11s/rev
     for (var i = 0; i < cloud.length; i++) {
       var p = cloud[i];
       var d = Math.abs(p.ang - sweep);
