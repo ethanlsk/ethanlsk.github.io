@@ -24,6 +24,17 @@
 
 * { box-sizing: border-box; }
 
+/* particle field, painted behind all content by particles.js */
+#bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: block;
+  pointer-events: none;
+}
+
 body {
   margin: 0;
   background: var(--base);
@@ -35,7 +46,7 @@ body {
 }
 
 .wrap { max-width: 50rem; margin: 0 auto; padding: 0 1.5rem; }
-.wrap.wide { max-width: 74rem; padding: 0 2rem; }
+.wrap.wide { max-width: 79rem; padding: 0 2rem; }
 
 a { color: var(--cyan); text-underline-offset: 3px; }
 a:hover { color: #B9E9FF; }
@@ -155,8 +166,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .split {
   display: grid;
-  grid-template-columns: 17rem minmax(0, 1fr);
-  gap: 0 3.75rem;
+  grid-template-columns: 20rem minmax(0, 1fr);
+  gap: 0 3.25rem;
   padding-top: 3.25rem;
   align-items: start;
 }
@@ -165,21 +176,21 @@ img { max-width: 100%; height: auto; display: block; }
 .id-head {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin: 0 0 1.15rem;
+  gap: 1.15rem;
+  margin: 0 0 1.35rem;
 }
 .headshot {
   flex: 0 0 auto;
-  width: 82px;
-  height: 82px;
-  border-radius: 50%;
+  width: 124px;
+  height: 124px;
+  border-radius: 12px;        /* square, as the source photo is */
   object-fit: cover;
   border: 1px solid var(--line);
 }
 .id-name { min-width: 0; }
 .id-role {
   font-family: var(--mono);
-  font-size: .72rem;
+  font-size: .8rem;
   letter-spacing: .04em;
   line-height: 1.45;
   color: var(--cyan);
@@ -187,8 +198,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .identity h1 span { display: block; }
 .identity h1 {
-  font-size: clamp(1.9rem, 3.6vw, 2.15rem);
-  line-height: 1.05;
+  font-size: clamp(2.15rem, 4.2vw, 2.6rem);
+  line-height: 1.04;
   letter-spacing: -0.03em;
   margin: 0;
   color: var(--bright);
@@ -202,8 +213,8 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0;
 }
 
-.contact { list-style: none; padding: 0; margin: 1.5rem 0 0; font-size: .93rem; }
-.contact li { margin-bottom: .42rem; }
+.contact { list-style: none; padding: 0; margin: 1.6rem 0 0; font-size: 1.01rem; }
+.contact li { margin-bottom: .55rem; }
 .contact a { text-decoration: none; word-break: break-word; }
 .contact a:hover { text-decoration: underline; }
 
@@ -212,9 +223,9 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 0;
   margin: 1.4rem 0 0;
   font-family: var(--mono);
-  font-size: .77rem;
+  font-size: .86rem;
   color: var(--dim);
-  line-height: 1.85;
+  line-height: 1.95;
 }
 
 .maincol { min-width: 0; }
@@ -257,9 +268,9 @@ img { max-width: 100%; height: auto; display: block; }
      it, so the footer would repeat itself on a phone. */
   .has-meta > footer { display: none; }
 
-  .id-head { gap: .85rem; margin: 0; }
-  .headshot { width: 66px; height: 66px; }
-  .identity h1 { font-size: 1.75rem; }
+  .id-head { gap: 1rem; margin: 0; }
+  .headshot { width: 96px; height: 96px; border-radius: 10px; }
+  .identity h1 { font-size: 1.95rem; }
   .identity h1 span { display: inline; }
 
   .maincol section.first { padding-top: 0; }
@@ -417,11 +428,12 @@ li::marker { color: var(--cyan); }
 /* ---------------- cards (projects) ---------------- */
 
 .card {
-  background: var(--panel);
+  background: rgba(40, 40, 40, .86);
   border: 1px solid var(--line-dim);
-  border-radius: 10px;
-  padding: 1.5rem;
+  border-radius: 14px;
+  padding: 1.6rem;
   margin-bottom: 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.28), 0 6px 18px rgba(0,0,0,.22);
 }
 .card:last-child { margin-bottom: 0; }
 .card-head {
@@ -596,25 +608,30 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
 .proj-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
-  gap: .85rem;
+  gap: 1rem;
   margin: 0;
 }
 .proj {
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: inherit;
-  background: var(--panel);
+  /* slightly translucent so the particle field reads faintly behind the card */
+  background: rgba(40, 40, 40, .86);
   border: 1px solid var(--line-dim);
-  border-left: 2px solid var(--raised);
-  border-radius: 8px;
-  padding: 1rem 1.1rem;
-  transition: border-color .15s, background .15s, transform .12s;
+  border-radius: 14px;
+  padding: 1.35rem 1.4rem 1.2rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.28), 0 6px 18px rgba(0,0,0,.24);
+  transition: border-color .18s, background .18s, transform .18s, box-shadow .18s;
 }
 .proj:hover {
-  background: var(--raised);
-  border-left-color: var(--cyan);
-  transform: translateY(-1px);
+  background: rgba(50, 50, 50, .94);
+  border-color: var(--line);
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(0,0,0,.3), 0 14px 32px rgba(0,0,0,.38);
 }
+/* pin the discipline label to the bottom so a row of cards lines up */
+.proj .proj-area { margin-top: auto; padding-top: .85rem; }
 .proj-top {
   display: flex;
   justify-content: space-between;
@@ -622,7 +639,7 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   gap: .75rem;
 }
 .proj-name {
-  font-size: .96rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--bright);
   letter-spacing: -0.01em;
@@ -634,15 +651,14 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   color: var(--dim);
   white-space: nowrap;
 }
-.proj-what { font-size: .88rem; color: var(--dim); margin: .35rem 0 0; line-height: 1.5; }
+.proj-what { font-size: .9rem; color: var(--dim); margin: .5rem 0 0; line-height: 1.55; }
 .proj-area {
   display: inline-block;
   font-family: var(--mono);
-  font-size: .68rem;
+  font-size: .69rem;
   letter-spacing: .07em;
   text-transform: uppercase;
   color: var(--cyan);
-  margin-top: .55rem;
 }
 
 /* ---------------- academic timeline ---------------- */
