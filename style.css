@@ -117,31 +117,29 @@ img { max-width: 100%; height: auto; display: block; }
 
 .navmenu {
   position: absolute;
-  top: calc(100% + .45rem);
+  top: calc(100% + .3rem);
   left: 0;
   min-width: 15rem;
-  background: #0E141C;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  padding: .4rem;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, .55);
+  /* No panel. It still needs to be opaque, or page text shows through the
+     menu, so it takes the page colour rather than a card colour. */
+  background: var(--base);
+  padding: .5rem 0;
   z-index: 40;
 }
 .navmenu a {
   display: block;
-  font-size: .88rem;
+  font-size: .9rem;
   color: var(--pale);
   text-decoration: none;
-  padding: .45rem .7rem;
-  border-radius: 5px;
+  padding: .42rem .9rem;
   white-space: nowrap;
   border: none;
 }
-.navmenu a:hover { background: var(--raised); color: var(--bright); }
+.navmenu a:hover { color: var(--blue); }
 .navmenu .sep {
   height: 1px;
   background: var(--line-dim);
-  margin: .35rem .2rem;
+  margin: .4rem .9rem;
 }
 
 @media (max-width: 46rem) {
