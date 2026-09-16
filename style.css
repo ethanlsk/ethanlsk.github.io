@@ -167,7 +167,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .split {
   display: grid;
-  grid-template-columns: 20rem minmax(0, 1fr);
+  grid-template-columns: 22rem minmax(0, 1fr);
   gap: 0 3.25rem;
   padding-top: 3.25rem;
   align-items: start;
@@ -178,24 +178,24 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   gap: 1.15rem;
-  margin: 0 0 1.35rem;
+  margin: 0 0 .8rem;
 }
 .headshot {
   flex: 0 0 auto;
-  width: 124px;
-  height: 124px;
-  border-radius: 12px;        /* square, as the source photo is */
+  width: 176px;
+  height: 176px;
+  border-radius: 14px;        /* square, as the source photo is */
   object-fit: cover;
   border: 1px solid var(--line);
 }
 .id-name { min-width: 0; }
 .id-role {
   font-family: var(--mono);
-  font-size: .8rem;
+  font-size: .82rem;
   letter-spacing: .04em;
   line-height: 1.45;
   color: var(--blue);
-  margin: .45rem 0 0;
+  margin: 0 0 1.15rem;
 }
 .identity h1 span { display: block; }
 .identity h1 {
@@ -257,6 +257,7 @@ img { max-width: 100%; height: auto; display: block; }
   /* rail children are flex items now, so the flex gap owns their spacing */
   .split > .rule { margin: 0; }
   .identity .eyebrow { margin: 0; }
+  .id-role { margin: 0; }     /* the grid gap spaces these on mobile */
   .rail-note { margin: 0; }
   h1.railtitle { margin: 0; font-size: clamp(1.9rem, 8vw, 2.3rem); }
 
@@ -270,7 +271,7 @@ img { max-width: 100%; height: auto; display: block; }
   .has-meta > footer { display: none; }
 
   .id-head { gap: 1rem; margin: 0; }
-  .headshot { width: 96px; height: 96px; border-radius: 10px; }
+  .headshot { width: 124px; height: 124px; border-radius: 12px; }
   .identity h1 { font-size: 1.95rem; }
   .identity h1 span { display: inline; }
 
