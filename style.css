@@ -249,8 +249,6 @@ img { max-width: 100%; height: auto; display: block; }
   .id-meta      { order: 3; }   /* ... except the contact block, which goes last */
 
   /* rail children are flex items now, so the flex gap owns their spacing */
-  .split > .rule { margin: 0; }
-  .identity .eyebrow { margin: 0; }
   .id-role { margin: 0; }     /* the grid gap spaces these on mobile */
   .rail-note { margin: 0; }
   h1.railtitle { margin: 0; font-size: clamp(1.9rem, 8vw, 2.3rem); }
@@ -290,14 +288,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero { padding: 4rem 0 2.5rem; }
 
-.eyebrow {
-  font-family: var(--mono);
-  font-size: .76rem;
-  letter-spacing: .17em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin: 0 0 1rem;
-}
 
 
 .hero h1 {
@@ -315,13 +305,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .lede strong { color: var(--bright); font-weight: 600; }
 
-.rule {
-  height: 3px;
-  width: 3.5rem;
-  background: var(--ice);
-  border-radius: 2px;
-  margin: 0 0 1.6rem;
-}
 
 /* ---------------- buttons ---------------- */
 
@@ -715,7 +698,6 @@ footer {
    Same split as the home page: title and intro sit in the left
    column, the content scrolls past on the right. */
 
-.identity .eyebrow { margin-bottom: .75rem; }
 h1.railtitle {
   font-size: clamp(2.2rem, 4.6vw, 2.9rem);
   line-height: 1.04;
