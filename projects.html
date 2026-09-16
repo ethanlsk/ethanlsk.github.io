@@ -427,6 +427,18 @@ grid on;</code></pre>
             stopband attenuation.
           </p>
 
+          <figure class="reveal">
+            <div class="plate">
+              <img src="assets/filter-schematic.png" width="1928" height="510" loading="lazy"
+                   alt="LTspice schematic of the 8th-order band-pass filter: four Sallen-Key op-amp stages in series, two high-pass sections with 15.9 kilohm resistors and 10 nanofarad capacitors followed by two low-pass sections with 3.18 kilohm resistors and 1 nanofarad capacitors, each stage set by a 1.52 kilohm and 12.4 kilohm gain divider">
+            </div>
+            <figcaption>
+              The cascade in LTspice: two high-pass Sallen-Key sections (15.9 k&Omega;, 10 nF) into
+              two low-pass sections (3.18 k&Omega;, 1 nF), each stage's gain set by the 1.52 k&Omega;
+              and 12.4 k&Omega; divider.
+            </figcaption>
+          </figure>
+
           <div class="tablescroll">
             <table class="results">
               <tr><th>Stage</th><th>Components</th><th>Gain</th></tr>
