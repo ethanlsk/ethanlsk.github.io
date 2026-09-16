@@ -445,6 +445,35 @@ grid on;</code></pre>
             simulation, recovering a clean 30 kHz tone from a white-noise-corrupted input.
           </p>
 
+          <figure class="reveal">
+            <div class="plate">
+              <img src="assets/filter-bode.png" width="1690" height="762" loading="lazy"
+                   alt="LTspice AC sweep of the filter output from 1 Hz to 10 MHz, showing a flat passband near 0 dB between about 1 kHz and 50 kHz with steep roll-off on both sides">
+            </div>
+            <figcaption>
+              AC sweep, 1 Hz to 10 MHz. The response is flat across the 1 kHz to 50 kHz passband
+              and falls away steeply on both skirts, past 45 dB down in the stopbands.
+            </figcaption>
+          </figure>
+
+          <h4>Noise rejection test</h4>
+          <div class="photo-grid">
+            <figure class="reveal">
+              <div class="photo">
+                <img src="assets/filter-noise-input.png" width="1640" height="787" loading="lazy"
+                     alt="Transient plot of the noisy input: a 30 kHz sinusoid buried in broadband white noise, appearing as a thick jagged green band">
+              </div>
+              <figcaption>Input: a 30 kHz tone combined with two white-noise sources.</figcaption>
+            </figure>
+            <figure class="reveal">
+              <div class="photo">
+                <img src="assets/filter-noise-output.png" width="1690" height="718" loading="lazy"
+                     alt="Transient plot of the filter output: a clean periodic 30 kHz sinusoid with the broadband noise removed">
+              </div>
+              <figcaption>Output: the same tone recovered, broadband noise removed.</figcaption>
+            </figure>
+          </div>
+
           <div class="tags">
             <span class="tag">LTspice</span><span class="tag">Sallen-Key</span>
             <span class="tag">Biquad cascade</span><span class="tag">Pole placement</span>
@@ -483,6 +512,31 @@ grid on;</code></pre>
             parameters (\(K_P = 200\ \mu\mathrm{A/V}^2\), \(V_T = 1.0\ \mathrm{V}\), \(V_{ov} = 0.707\ \mathrm{V}\)) before simulating, then gain
             and bandwidth were verified against LTspice AC analysis from 10 Hz to 100 MHz.
           </p>
+
+          <figure class="reveal">
+            <div class="plate">
+              <img src="assets/cascode-schematic.png" width="1308" height="662" loading="lazy"
+                   alt="LTspice schematic of the cascode amplifier: stacked NMOS devices M1 and M2, a 1 mA current-source load to a 5 V rail, 2.5 V cascode bias, and the SPICE model card">
+            </div>
+            <figcaption>
+              LTspice schematic. M1 and M2 stacked as the cascode, a 1 mA current source as the
+              active load, and the Level-1 model card driving an AC sweep from 10 Hz to 100 MHz.
+            </figcaption>
+          </figure>
+
+          <h4>Hand analysis</h4>
+          <figure class="reveal">
+            <div class="plate">
+              <img src="assets/cascode-hand-analysis.jpg" width="1350" height="1265" loading="lazy"
+                   alt="Handwritten derivation for the cascode amplifier: device sizing, K from KP times W over L, overdrive voltage, transconductance, output resistance per device, total output resistance, and the resulting voltage gain in decibels">
+            </div>
+            <figcaption>
+              The derivation worked by hand before simulating: \(K = K_P (W/L)\), then
+              \(V_{ov}\), \(g_m = K V_{ov} = 2.83\ \mathrm{mS}\), \(r_o = 1/(\lambda I_D) = 50\ \mathrm{k\Omega}\),
+              \(R_{out} \approx (1 + g_{m2} r_{o2})r_{o1} + r_{o2} = 7.17\ \mathrm{M\Omega}\), giving
+              \(|A_v| = 20\log_{10}(20{,}280) = 86.14\ \mathrm{dB}\).
+            </figcaption>
+          </figure>
 
           <div class="tags">
             <span class="tag">LTspice</span><span class="tag">CMOS</span>
