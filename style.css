@@ -4,19 +4,20 @@
    ========================================================================== */
 
 :root {
-  /* Material Theme, Darker variant */
-  --base:   #212121;  /* page background          */
-  --panel:  #282828;  /* cards and panels         */
-  --raised: #323232;  /* hover states, insets     */
-  --rust:   #F78C6C;  /* orange accent            */
-  --cyan:   #89DDFF;  /* primary accent           */
-  --pale:   #EEFFFF;  /* body text                */
+  /* Black base with blue/white highlights, matching the PCB -> fibre -> LiDAR
+     background scene drawn by background.js */
+  --base:   #000000;  /* page background          */
+  --panel:  #0A0F16;  /* cards and panels         */
+  --raised: #131B25;  /* hover states, insets     */
+  --ice:    #BFE2FF;  /* pale highlight accent    */
+  --blue:   #4DA3FF;  /* primary accent           */
+  --pale:   #D6E4F2;  /* body text                */
 
   --bright:   #FFFFFF;
-  --dim:      #8C8C8C;
-  --well:     #1A1A1A;
-  --line:     rgba(137, 221, 255, 0.22);
-  --line-dim: rgba(238, 255, 255, 0.10);
+  --dim:      #76889B;
+  --well:     #05080D;
+  --line:     rgba(77, 163, 255, 0.24);
+  --line-dim: rgba(214, 228, 242, 0.10);
 
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
@@ -48,8 +49,8 @@ body {
 .wrap { max-width: 50rem; margin: 0 auto; padding: 0 1.5rem; }
 .wrap.wide { max-width: 79rem; padding: 0 2rem; }
 
-a { color: var(--cyan); text-underline-offset: 3px; }
-a:hover { color: #B9E9FF; }
+a { color: var(--blue); text-underline-offset: 3px; }
+a:hover { color: #A9D6FF; }
 
 img { max-width: 100%; height: auto; display: block; }
 
@@ -57,7 +58,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .site-header {
   border-bottom: 1px solid var(--line-dim);
-  background: rgba(26, 26, 26, 0.88);
+  background: rgba(0, 0, 0, 0.72);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -105,12 +106,12 @@ img { max-width: 100%; height: auto; display: block; }
 .navdrop > summary::-webkit-details-marker { display: none; }
 .navdrop > summary::marker { content: ""; }
 .navdrop > summary:hover { background: var(--panel); border-color: var(--line); }
-.navdrop.active > summary { background: var(--panel); border-color: var(--cyan); color: var(--bright); }
+.navdrop.active > summary { background: var(--panel); border-color: var(--blue); color: var(--bright); }
 .navdrop > summary::after {
   content: "";
   width: .38rem; height: .38rem;
-  border-right: 1.5px solid var(--cyan);
-  border-bottom: 1.5px solid var(--cyan);
+  border-right: 1.5px solid var(--blue);
+  border-bottom: 1.5px solid var(--blue);
   transform: rotate(45deg) translateY(-1px);
   transition: transform .2s;
 }
@@ -121,7 +122,7 @@ img { max-width: 100%; height: auto; display: block; }
   top: calc(100% + .45rem);
   left: 0;
   min-width: 15rem;
-  background: #2E2E2E;
+  background: #0E141C;
   border: 1px solid var(--line);
   border-radius: 9px;
   padding: .4rem;
@@ -160,7 +161,7 @@ img { max-width: 100%; height: auto; display: block; }
   transition: background .15s, border-color .15s, color .15s;
 }
 .tabs a:hover { background: var(--panel); border-color: var(--line); }
-.tabs a.active { background: var(--panel); border-color: var(--cyan); color: var(--bright); }
+.tabs a.active { background: var(--panel); border-color: var(--blue); color: var(--bright); }
 
 /* ---------------- split layout (home) ---------------- */
 
@@ -193,7 +194,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: .8rem;
   letter-spacing: .04em;
   line-height: 1.45;
-  color: var(--cyan);
+  color: var(--blue);
   margin: .45rem 0 0;
 }
 .identity h1 span { display: block; }
@@ -209,7 +210,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: .8rem;
   letter-spacing: .13em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--blue);
   margin: 0;
 }
 
@@ -299,7 +300,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: .76rem;
   letter-spacing: .17em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--blue);
   margin: 0 0 1rem;
 }
 
@@ -322,7 +323,7 @@ img { max-width: 100%; height: auto; display: block; }
 .rule {
   height: 3px;
   width: 3.5rem;
-  background: var(--rust);
+  background: var(--ice);
   border-radius: 2px;
   margin: 0 0 1.6rem;
 }
@@ -345,14 +346,14 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .btn:hover {
   background: var(--raised);
-  border-color: var(--cyan);
+  border-color: var(--blue);
   color: var(--bright);
   transform: translateY(-1px);
 }
-.btn.primary { background: var(--cyan); color: #17222b; border-color: var(--cyan); font-weight: 600; }
-.btn.primary:hover { background: #B9E9FF; color: #17222b; }
-.btn.rust { border-color: rgba(247,140,108,.55); color: var(--rust); }
-.btn.rust:hover { background: var(--rust); border-color: var(--rust); color: #2b1b14; }
+.btn.primary { background: var(--blue); color: #04121F; border-color: var(--blue); font-weight: 600; }
+.btn.primary:hover { background: #A9D6FF; color: #04121F; }
+.btn.rust { border-color: rgba(191,226,255,.5); color: var(--ice); }
+.btn.rust:hover { background: var(--ice); border-color: var(--ice); color: #04121F; }
 .btn.btn-sm { font-size: .86rem; padding: .36rem .85rem; border-radius: 6px; }
 
 /* ---------------- sections ---------------- */
@@ -372,7 +373,7 @@ h2.kicker {
   font-weight: 600;
   letter-spacing: .17em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--blue);
   margin-bottom: 1.4rem;
 }
 h3 { font-size: 1.08rem; margin: 0; color: var(--bright); letter-spacing: -0.012em; }
@@ -381,7 +382,7 @@ h4 {
   font-family: var(--mono);
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: var(--cyan);
+  color: var(--blue);
   margin: 1.7rem 0 .55rem;
 }
 
@@ -391,7 +392,7 @@ p:last-child { margin-bottom: 0; }
 
 ul { margin: .6rem 0 0; padding-left: 1.15rem; }
 li { margin-bottom: .5rem; }
-li::marker { color: var(--cyan); }
+li::marker { color: var(--blue); }
 
 /* ---------------- roles (home) ---------------- */
 
@@ -407,7 +408,7 @@ li::marker { color: var(--cyan); }
   position: absolute;
   left: -5px; top: .62rem;
   width: 8px; height: 8px;
-  background: var(--cyan);
+  background: var(--blue);
   border-radius: 50%;
 }
 .role-head {
@@ -428,7 +429,7 @@ li::marker { color: var(--cyan); }
 /* ---------------- cards (projects) ---------------- */
 
 .card {
-  background: rgba(40, 40, 40, .86);
+  background: rgba(10, 15, 22, .82);
   border: 1px solid var(--line-dim);
   border-radius: 14px;
   padding: 1.6rem;
@@ -461,7 +462,7 @@ li::marker { color: var(--cyan); }
   font-size: .76rem;
   text-transform: uppercase;
   letter-spacing: .09em;
-  color: var(--cyan);
+  color: var(--blue);
   padding-top: .18rem;
 }
 .skill-line dd { margin: 0; color: var(--pale); }
@@ -477,12 +478,12 @@ li::marker { color: var(--cyan); }
   font-family: var(--mono);
   font-size: .72rem;
   color: var(--pale);
-  background: rgba(137,221,255,.13);
+  background: rgba(77,163,255,.14);
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: .18rem .5rem;
 }
-.tag.rust { color: var(--rust); background: rgba(247,140,108,.14); border-color: rgba(247,140,108,.42); }
+.tag.rust { color: var(--ice); background: rgba(191,226,255,.12); border-color: rgba(191,226,255,.38); }
 
 /* ---------------- tables ---------------- */
 
@@ -534,8 +535,8 @@ figcaption { font-size: .84rem; color: var(--dim); margin-top: .55rem; line-heig
 code {
   font-family: var(--mono);
   font-size: .88em;
-  background: rgba(137,221,255,.12);
-  color: var(--cyan);
+  background: rgba(77,163,255,.13);
+  color: var(--blue);
   padding: .12em .38em;
   border-radius: 3px;
 }
@@ -555,10 +556,10 @@ details.group {
   border: 1px solid var(--line);
   border-radius: 10px;
   margin-bottom: 1rem;
-  background: rgba(40, 40, 40, .75);
+  background: rgba(10, 15, 22, .72);
   overflow: hidden;
 }
-details.group[open] { background: rgba(40, 40, 40, .4); }
+details.group[open] { background: rgba(10, 15, 22, .45); }
 details.group > summary {
   cursor: pointer;
   list-style: none;
@@ -573,13 +574,13 @@ details.group > summary {
 }
 details.group > summary::-webkit-details-marker { display: none; }
 details.group > summary::marker { content: ""; }
-details.group > summary:hover { background: rgba(137,221,255,.07); }
+details.group > summary:hover { background: rgba(77,163,255,.08); }
 
 .chev {
   flex: 0 0 auto;
   width: .58rem; height: .58rem;
-  border-right: 2px solid var(--cyan);
-  border-bottom: 2px solid var(--cyan);
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
   transform: rotate(-45deg);
   transition: transform .2s;
 }
@@ -593,13 +594,13 @@ details.code-toggle > summary {
   cursor: pointer;
   font-family: var(--mono);
   font-size: .8rem;
-  color: var(--cyan);
+  color: var(--blue);
   list-style: none;
   padding: .3rem 0;
 }
 details.code-toggle > summary::-webkit-details-marker { display: none; }
 details.code-toggle > summary::marker { content: ""; }
-details.code-toggle > summary:hover { color: #B9E9FF; }
+details.code-toggle > summary:hover { color: #A9D6FF; }
 details.code-toggle > summary::before { content: "\25B8  "; }
 details.code-toggle[open] > summary::before { content: "\25BE  "; }
 
@@ -617,7 +618,7 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   text-decoration: none;
   color: inherit;
   /* slightly translucent so the particle field reads faintly behind the card */
-  background: rgba(40, 40, 40, .86);
+  background: rgba(10, 15, 22, .82);
   border: 1px solid var(--line-dim);
   border-radius: 14px;
   padding: 1.35rem 1.4rem 1.2rem;
@@ -625,7 +626,7 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   transition: border-color .18s, background .18s, transform .18s, box-shadow .18s;
 }
 .proj:hover {
-  background: rgba(50, 50, 50, .94);
+  background: rgba(18, 26, 36, .9);
   border-color: var(--line);
   transform: translateY(-3px);
   box-shadow: 0 2px 4px rgba(0,0,0,.3), 0 14px 32px rgba(0,0,0,.38);
@@ -658,7 +659,7 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   font-size: .69rem;
   letter-spacing: .07em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--blue);
 }
 
 /* ---------------- academic timeline ---------------- */
@@ -684,7 +685,7 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
 .tl-when {
   font-family: var(--mono);
   font-size: .76rem;
-  color: var(--cyan);
+  color: var(--blue);
   text-align: right;
   padding-top: .18rem;
   line-height: 1.5;
@@ -698,12 +699,12 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   width: 7px; height: 7px;
   margin-left: -3px;
   border-radius: 50%;
-  background: var(--cyan);
+  background: var(--blue);
 }
-.tl-item.milestone::before { background: var(--rust); width: 9px; height: 9px; margin-left: -4px; top: .5rem; }
+.tl-item.milestone::before { background: var(--ice); width: 9px; height: 9px; margin-left: -4px; top: .5rem; }
 .tl-title { color: var(--bright); font-weight: 600; font-size: .96rem; }
 .tl-note { font-size: .88rem; color: var(--dim); margin: .1rem 0 0; }
-.tl-item.milestone .tl-title { color: var(--rust); }
+.tl-item.milestone .tl-title { color: var(--ice); }
 
 @media (max-width: 34rem) {
   .timeline::before { left: .25rem; }
@@ -716,7 +717,7 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
 /* ---------------- misc ---------------- */
 
 .note {
-  border-left: 3px solid var(--rust);
+  border-left: 3px solid var(--ice);
   padding: .1rem 0 .1rem 1rem;
   color: var(--dim);
   font-size: .92rem;
