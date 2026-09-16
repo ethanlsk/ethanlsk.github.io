@@ -616,6 +616,14 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   color: var(--blue);
 }
 
+/* index tiles carry the tool alongside the discipline, since that is what a
+   reader is usually scanning for */
+.proj-area .tool { color: var(--dim); }
+.proj-area .tool::before { content: "\00b7  "; color: var(--line-dim); }
+
+/* anchored cards and groups must clear the sticky header when jumped to */
+.card, details.group { scroll-margin-top: 5.5rem; }
+
 /* ---------------- academic timeline ---------------- */
 
 .timeline { margin: 0; padding: 0; list-style: none; position: relative; }

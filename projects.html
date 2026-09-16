@@ -76,8 +76,8 @@
     <aside class="identity">
       <h1 class="railtitle">Projects</h1>
       <p class="rail-note">
-        Coursework, research, and personal builds, grouped by discipline and ordered oldest to
-        newest within each group. Expand a category for full write-ups, results, figures, and source.
+        Coursework, research, and personal builds, newest first. Pick any one for the full
+        write-up with results, figures and source, or browse the groups by discipline.
       </p>
       <ul class="rail-links">
         <li><span class="sep-label">Jump to</span></li>
@@ -92,9 +92,97 @@
     <div class="maincol">
 
   <section class="first">
+    <div class="proj-grid">
+
+          <a class="proj" href="#lm317-driver">
+            <div class="proj-top">
+              <span class="proj-name">Constant-Current LED / Laser Diode Driver</span>
+              <span class="proj-when">2026</span>
+            </div>
+            <p class="proj-what">LM317 driver holding output current flat against supply variation, building toward a protected laser-diode driver.</p>
+            <span class="proj-area">Circuits &amp; Power <span class="tool">KiCad</span></span>
+          </a>
+
+          <a class="proj" href="#laser-relaxation">
+            <div class="proj-top">
+              <span class="proj-name">Semiconductor Laser Relaxation Oscillations</span>
+              <span class="proj-when">2026</span>
+            </div>
+            <p class="proj-what">Coupled carrier and photon rate equations with gain compression. Threshold 22.9 mA, oscillations at 5 to 15 GHz.</p>
+            <span class="proj-area">Optics &amp; Photonics <span class="tool">MATLAB</span></span>
+          </a>
+
+          <a class="proj" href="#fiber-optic-link">
+            <div class="proj-top">
+              <span class="proj-name">Fiber-Optic Communication System</span>
+              <span class="proj-when">2026</span>
+            </div>
+            <p class="proj-what">End-to-end link: lens coupling into multimode fibre, random polarisation, electro-optic modulation, PIN detection.</p>
+            <span class="proj-area">Optics &amp; Photonics <span class="tool">MATLAB</span></span>
+          </a>
+
+          <a class="proj" href="#sallen-key-filter">
+            <div class="proj-top">
+              <span class="proj-name">8th-Order Sallen-Key Band-Pass Filter</span>
+              <span class="proj-when">2025</span>
+            </div>
+            <p class="proj-what">Cascaded biquads giving a 1 kHz to 50 kHz passband over 45 dB stopband, recovering a 30 kHz tone from white noise.</p>
+            <span class="proj-area">Circuits &amp; Power <span class="tool">LTspice</span></span>
+          </a>
+
+          <a class="proj" href="#cascode-amplifier">
+            <div class="proj-top">
+              <span class="proj-name">CMOS Cascode Amplifier</span>
+              <span class="proj-when">2025</span>
+            </div>
+            <p class="proj-what">NMOS cascode with an active current-source load, hand-analysed from Level-1 parameters before simulating.</p>
+            <span class="proj-area">Circuits &amp; Power <span class="tool">LTspice</span></span>
+          </a>
+
+          <a class="proj" href="#optical-computing">
+            <div class="proj-top">
+              <span class="proj-name">Optical Computing, Memory &amp; Data Centers</span>
+              <span class="proj-when">2025</span>
+            </div>
+            <p class="proj-what">Bachelor's thesis on photonic integrated circuits and all-optical architectures past the limits of silicon.</p>
+            <span class="proj-area">Optics &amp; Photonics <span class="tool">Thesis</span></span>
+          </a>
+
+          <a class="proj" href="#carrier-robot">
+            <div class="proj-top">
+              <span class="proj-name">AI-Powered Personal Carrier Robot</span>
+              <span class="proj-when">2024</span>
+            </div>
+            <p class="proj-what">Person-following robot: L298N drive on split rails, PID distance control, YOLO vision tracking on a Raspberry Pi.</p>
+            <span class="proj-area">Robotics &amp; Embedded <span class="tool">Python</span></span>
+          </a>
+
+          <a class="proj" href="#uvc-robot">
+            <div class="proj-top">
+              <span class="proj-name">UV-C Sterilization Robot</span>
+              <span class="proj-when">2024</span>
+            </div>
+            <p class="proj-what">Autonomous disinfecting robot with a 3D-printed chassis and ultrasonic obstacle detection, built for under $150.</p>
+            <span class="proj-area">Robotics &amp; Embedded <span class="tool">Arduino</span></span>
+          </a>
+
+          <a class="proj" href="#thermal-oxidation">
+            <div class="proj-top">
+              <span class="proj-name">Analysis of Kinetic Growth in Silicon Thermal Oxidation</span>
+              <span class="proj-when">2024</span>
+            </div>
+            <p class="proj-what">Furnace oxidation with Deal-Grove modelling and SEM characterisation, which turned up unexpected nanowires.</p>
+            <span class="proj-area">Semiconductors <span class="tool">nanoHUB</span></span>
+          </a>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Full write-ups by discipline</h2>
 
     <!-- Optics &amp; Photonics -->
-    <details class="group" id="optics" open>
+    <details class="group" id="optics">
       <summary>
         <span class="chev"></span>
         <span class="summary-text">Optics &amp; Photonics</span>
@@ -103,7 +191,7 @@
       <div class="group-body">
 
         <!-- Laser relaxation -->
-        <div class="card">
+        <div class="card" id="laser-relaxation">
           <div class="card-head">
             <h3>Semiconductor Laser Relaxation Oscillations</h3>
             <span class="meta">Spring 2026</span>
@@ -216,7 +304,7 @@ end</code></pre>
         </div>
 
         <!-- Fiber-optic system -->
-        <div class="card">
+        <div class="card" id="fiber-optic-link">
           <div class="card-head">
             <h3>Fiber-Optic Communication System</h3>
             <span class="meta">Spring 2026</span>
@@ -329,7 +417,7 @@ grid on;</code></pre>
         </div>
 
         <!-- Thesis -->
-        <div class="card">
+        <div class="card" id="optical-computing">
           <div class="card-head">
             <h3>Optical Computing, Memory &amp; Data Centers</h3>
             <span class="meta">Jan to May 2025</span>
@@ -380,7 +468,7 @@ grid on;</code></pre>
       <div class="group-body">
 
         <!-- LM317 driver -->
-        <div class="card">
+        <div class="card" id="lm317-driver">
           <div class="card-head">
             <h3>Constant-Current LED / Laser Diode Driver</h3>
             <span class="meta">Jun 2026 to Present</span>
@@ -412,7 +500,7 @@ grid on;</code></pre>
         </div>
 
         <!-- Sallen-Key -->
-        <div class="card">
+        <div class="card" id="sallen-key-filter">
           <div class="card-head">
             <h3>8th-Order Sallen-Key Band-Pass Filter with Noise Rejection</h3>
             <span class="meta">Aug to Dec 2025</span>
@@ -492,7 +580,7 @@ grid on;</code></pre>
         </div>
 
         <!-- Cascode -->
-        <div class="card">
+        <div class="card" id="cascode-amplifier">
           <div class="card-head">
             <h3>CMOS Cascode Amplifier with Active Current-Source Load</h3>
             <span class="meta">Oct 2025</span>
@@ -568,7 +656,7 @@ grid on;</code></pre>
       </summary>
       <div class="group-body">
 
-        <div class="card">
+        <div class="card" id="carrier-robot">
           <div class="card-head">
             <h3>AI-Powered Personal Carrier Robot</h3>
             <span class="meta">Summer 2024</span>
@@ -635,7 +723,7 @@ grid on;</code></pre>
         </div>
 
         <!-- UV-C sterilization robot -->
-        <div class="card">
+        <div class="card" id="uvc-robot">
           <div class="card-head">
             <h3>UV-C Sterilization Robot</h3>
             <span class="meta">Spring 2024</span>
@@ -732,7 +820,7 @@ grid on;</code></pre>
       <div class="group-body">
 
 
-        <div class="card">
+        <div class="card" id="thermal-oxidation">
           <div class="card-head">
             <h3>Analysis of Kinetic Growth in Silicon Thermal Oxidation</h3>
             <span class="meta">Jan to May 2024</span>
