@@ -98,15 +98,13 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: .92rem;
   color: var(--pale);
   padding: .4rem .9rem;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  transition: background .15s, border-color .15s, color .15s;
+  transition: color .15s;
   user-select: none;
 }
 .navdrop > summary::-webkit-details-marker { display: none; }
 .navdrop > summary::marker { content: ""; }
-.navdrop > summary:hover { background: var(--panel); border-color: var(--line); }
-.navdrop.active > summary { background: var(--panel); border-color: var(--blue); color: var(--bright); }
+.navdrop > summary:hover { color: var(--bright); }
+.navdrop.active > summary { color: var(--bright); box-shadow: inset 0 -2px 0 var(--blue); }
 .navdrop > summary::after {
   content: "";
   width: .38rem; height: .38rem;
@@ -156,12 +154,10 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--pale);
   text-decoration: none;
   padding: .4rem .9rem;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  transition: background .15s, border-color .15s, color .15s;
+  transition: color .15s;
 }
-.tabs a:hover { background: var(--panel); border-color: var(--line); }
-.tabs a.active { background: var(--panel); border-color: var(--blue); color: var(--bright); }
+.tabs a:hover { color: var(--bright); }
+.tabs a.active { color: var(--bright); box-shadow: inset 0 -2px 0 var(--blue); }
 
 /* ---------------- split layout (home) ---------------- */
 
@@ -264,7 +260,7 @@ img { max-width: 100%; height: auto; display: block; }
   /* the same four links already sit in the Projects nav dropdown */
   .rail-links { display: none; }
 
-  .identity > .btn { width: 100%; justify-content: center; }
+  .identity > .btn { width: auto; }
 
   /* .id-meta already lists email, LinkedIn, GitHub and the resume right above
      it, so the footer would repeat itself on a phone. */
@@ -289,7 +285,7 @@ img { max-width: 100%; height: auto; display: block; }
   /* thumb-sized tap targets */
   .contact li { margin-bottom: 0; }
   .contact a { display: block; padding: .62rem 0; }
-  .id-meta .btn { width: 100%; justify-content: center; }
+  .id-meta .btn { width: auto; }
 }
 
 /* ---------------- hero (projects page) ---------------- */
@@ -332,30 +328,38 @@ img { max-width: 100%; height: auto; display: block; }
 /* ---------------- buttons ---------------- */
 
 .linkrow { display: flex; flex-wrap: wrap; gap: .55rem; }
+/* A link with a trailing arrow rather than a filled control, so nothing on the
+   page carries a box. The arrow and the hover underline carry the affordance. */
 .btn {
   display: inline-flex;
   align-items: center;
-  font-size: .92rem;
+  gap: .45rem;
+  font-size: .95rem;
   font-weight: 500;
   text-decoration: none;
-  color: var(--pale);
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: .58rem 1.1rem;
-  transition: background .15s, border-color .15s, transform .12s, color .15s;
+  color: var(--blue);
+  background: none;
+  border: 0;
+  padding: 0;
+  transition: color .15s;
 }
+.btn::after { content: "\2192"; transition: transform .15s; }
 .btn:hover {
-  background: var(--raised);
-  border-color: var(--blue);
   color: var(--bright);
-  transform: translateY(-1px);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
-.btn.primary { background: var(--blue); color: #04121F; border-color: var(--blue); font-weight: 600; }
-.btn.primary:hover { background: #A9D6FF; color: #04121F; }
-.btn.rust { border-color: rgba(191,226,255,.5); color: var(--ice); }
-.btn.rust:hover { background: var(--ice); border-color: var(--ice); color: #04121F; }
-.btn.btn-sm { font-size: .86rem; padding: .36rem .85rem; border-radius: 6px; }
+.btn:hover::after { transform: translateX(3px); }
+.btn.primary { color: var(--bright); font-weight: 600; }
+.btn.primary:hover { color: var(--blue); }
+.btn.ice { color: var(--ice); }
+.btn.btn-sm { font-size: .92rem; }
+/* without their boxes, adjacent links need real space between them */
+.btn + .btn { margin-left: 1.75rem; }
+.linkrow { gap: .6rem 1.75rem; }
+/* the resume link sits in the nav row, where an arrow would just be noise */
+.tabs .btn { margin-left: .45rem; color: var(--ice); }
+.tabs .btn::after { content: none; }
 
 /* ---------------- sections ---------------- */
 
@@ -429,15 +433,10 @@ li::marker { color: var(--blue); }
 
 /* ---------------- cards (projects) ---------------- */
 
-.card {
-  background: rgba(10, 15, 22, .82);
-  border: 1px solid var(--line-dim);
-  border-radius: 14px;
-  padding: 1.6rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 1px 2px rgba(0,0,0,.28), 0 6px 18px rgba(0,0,0,.22);
-}
+.card { padding: 0; margin-bottom: 2.75rem; }
 .card:last-child { margin-bottom: 0; }
+/* a hairline between entries instead of a box around each */
+.card + .card { border-top: 1px solid var(--line-dim); padding-top: 2.75rem; }
 .card-head {
   display: flex;
   justify-content: space-between;
@@ -474,17 +473,15 @@ li::marker { color: var(--blue); }
 
 /* ---------------- tags ---------------- */
 
-.tags { display: flex; flex-wrap: wrap; gap: .35rem; margin: 1rem 0 0; }
+.tags { display: flex; flex-wrap: wrap; gap: .1rem .55rem; margin: 1rem 0 0; }
 .tag {
   font-family: var(--mono);
   font-size: .72rem;
-  color: var(--pale);
-  background: rgba(77,163,255,.14);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: .18rem .5rem;
+  color: var(--dim);
+  padding: 0;
 }
-.tag.rust { color: var(--ice); background: rgba(191,226,255,.12); border-color: rgba(191,226,255,.38); }
+.tag + .tag::before { content: "\00b7"; color: var(--line-dim); margin: 0 .55rem 0 0; }
+.tag.ice { color: var(--ice); }
 
 /* ---------------- tables ---------------- */
 
@@ -508,12 +505,7 @@ li::marker { color: var(--blue); }
 /* ---------------- figures ---------------- */
 
 figure { margin: 1.25rem 0 0; }
-.plate {
-  background: #fff;
-  border-radius: 8px;
-  padding: .7rem;
-  border: 1px solid var(--line-dim);
-}
+.plate { background: #fff; }
 figcaption { font-size: .84rem; color: var(--dim); margin-top: .55rem; line-height: 1.55; }
 
 .photo-grid {
@@ -523,12 +515,7 @@ figcaption { font-size: .84rem; color: var(--dim); margin-top: .55rem; line-heig
   margin: 1.25rem 0 0;
 }
 .photo-grid figure { margin: 0; }
-.photo {
-  border-radius: 8px;
-  border: 1px solid var(--line-dim);
-  overflow: hidden;
-  background: var(--well);
-}
+.photo { overflow: hidden; }
 .photo img { width: 100%; }
 
 /* ---------------- code ---------------- */
@@ -536,16 +523,12 @@ figcaption { font-size: .84rem; color: var(--dim); margin-top: .55rem; line-heig
 code {
   font-family: var(--mono);
   font-size: .88em;
-  background: rgba(77,163,255,.13);
   color: var(--blue);
-  padding: .12em .38em;
-  border-radius: 3px;
 }
 pre {
-  background: var(--well);
-  border: 1px solid var(--line-dim);
-  border-radius: 8px;
-  padding: 1rem;
+  /* no panel; a rule down the left edge marks it as a block instead */
+  border-left: 1px solid var(--line-dim);
+  padding: .2rem 0 .2rem 1rem;
   overflow-x: auto;
   margin: .75rem 0 0;
 }
@@ -554,17 +537,14 @@ pre code { background: none; padding: 0; color: var(--pale); font-size: .82rem; 
 /* ---------------- disclosure groups ---------------- */
 
 details.group {
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  background: rgba(10, 15, 22, .72);
-  overflow: hidden;
+  border-top: 1px solid var(--line-dim);
+  margin-bottom: 0;
 }
-details.group[open] { background: rgba(10, 15, 22, .45); }
+details.group:last-of-type { border-bottom: 1px solid var(--line-dim); }
 details.group > summary {
   cursor: pointer;
   list-style: none;
-  padding: 1.1rem 1.4rem;
+  padding: 1.15rem 0;
   display: flex;
   align-items: center;
   gap: .85rem;
@@ -575,7 +555,7 @@ details.group > summary {
 }
 details.group > summary::-webkit-details-marker { display: none; }
 details.group > summary::marker { content: ""; }
-details.group > summary:hover { background: rgba(77,163,255,.08); }
+details.group > summary:hover { color: var(--blue); }
 
 .chev {
   flex: 0 0 auto;
@@ -588,7 +568,7 @@ details.group > summary:hover { background: rgba(77,163,255,.08); }
 details.group[open] > summary .chev { transform: rotate(45deg); }
 .summary-text { flex: 1 1 auto; }
 .count { font-family: var(--mono); font-size: .76rem; color: var(--dim); font-weight: 400; }
-.group-body { padding: 0 1.4rem 1.4rem; }
+.group-body { padding: .35rem 0 2.25rem; }
 
 details.code-toggle { margin-top: 1rem; }
 details.code-toggle > summary {
@@ -618,20 +598,12 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   flex-direction: column;
   text-decoration: none;
   color: inherit;
-  /* slightly translucent so the particle field reads faintly behind the card */
-  background: rgba(10, 15, 22, .82);
-  border: 1px solid var(--line-dim);
-  border-radius: 14px;
-  padding: 1.35rem 1.4rem 1.2rem;
-  box-shadow: 0 1px 2px rgba(0,0,0,.28), 0 6px 18px rgba(0,0,0,.24);
-  transition: border-color .18s, background .18s, transform .18s, box-shadow .18s;
+  padding: 0 1.4rem 0 0;
+  transition: transform .18s;
 }
-.proj:hover {
-  background: rgba(18, 26, 36, .9);
-  border-color: var(--line);
-  transform: translateY(-3px);
-  box-shadow: 0 2px 4px rgba(0,0,0,.3), 0 14px 32px rgba(0,0,0,.38);
-}
+.proj:hover { transform: translateY(-2px); }
+.proj:hover .proj-name { color: var(--blue); }
+.proj-name { transition: color .15s; }
 /* pin the discipline label to the bottom so a row of cards lines up */
 .proj .proj-area { margin-top: auto; padding-top: .85rem; }
 .proj-top {
@@ -804,10 +776,7 @@ html.js .photo-grid > .reveal:nth-child(3) { transition-delay: .24s; }
   overflow-y: hidden;
 }
 .eqbox {
-  background: var(--well);
-  border: 1px solid var(--line-dim);
-  border-radius: 8px;
-  padding: 1rem 1.15rem;
+  padding: .35rem 0;
   margin: 1rem 0 0;
   overflow-x: auto;
 }
