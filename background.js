@@ -58,11 +58,37 @@
         horiz = !horiz;
         pts.push({ x: x, y: y });
       }
-      traces.push({ pts: pts, via: Math.random() < 0.55 });
+      // segment table so a pulse can be placed at any distance along the trace
+      var segs = [], total = 0;
+      for (var m = 1; m < pts.length; m++) {
+        var ax = pts[m - 1].x, ay = pts[m - 1].y;
+        var bx = pts[m].x - ax, by = pts[m].y - ay;
+        var L = Math.sqrt(bx * bx + by * by);
+        if (L > 0) { segs.push({ x: ax, y: ay, dx: bx, dy: by, L: L }); total += L; }
+      }
+      var pulses = [];
+      if (total > 0 && Math.random() < 0.65) {
+        pulses.push({ d0: Math.random() * total, v: rnd(0.045, 0.115) });  // px per ms
+      }
+      traces.push({
+        pts: pts, via: Math.random() < 0.55,
+        segs: segs, total: total, pulses: pulses
+      });
     }
   }
 
-  function drawTraces(a) {
+  function pointAt(tr, dist) {
+    var d = dist % tr.total;
+    for (var i = 0; i < tr.segs.length; i++) {
+      var g = tr.segs[i];
+      if (d <= g.L) { var f = d / g.L; return { x: g.x + g.dx * f, y: g.y + g.dy * f }; }
+      d -= g.L;
+    }
+    var e = tr.segs[tr.segs.length - 1];
+    return { x: e.x + e.dx, y: e.y + e.dy };
+  }
+
+  function drawTraces(a, time) {
     if (a < 0.01) return;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
@@ -84,6 +110,20 @@
       ctx.fillStyle = 'rgba(0,0,0,' + (0.9 * a).toFixed(3) + ')';
       ctx.beginPath(); ctx.arc(p.x, p.y, 1.15, 0, 6.2832); ctx.fill();
     }
+    // current running down the traces
+    for (var n = 0; n < traces.length; n++) {
+      var tr = traces[n];
+      if (!tr.segs.length) continue;
+      for (var q = 0; q < tr.pulses.length; q++) {
+        var pl = tr.pulses[q];
+        var at = pointAt(tr, pl.d0 + time * pl.v);
+        for (var r = 3; r >= 1; r--) {
+          ctx.fillStyle = 'rgba(' + (r === 1 ? WHITE : BLUE) + ',' +
+            (a * (r === 1 ? 0.6 : r === 2 ? 0.2 : 0.09)).toFixed(3) + ')';
+          ctx.beginPath(); ctx.arc(at.x, at.y, r * 1.6, 0, 6.2832); ctx.fill();
+        }
+      }
+    }
   }
 
   /* ---------------------------------------------------------- fibre layer */
@@ -96,7 +136,7 @@
       var pulses = [];
       var np = 1 + (Math.random() * 2 | 0);
       for (var k = 0; k < np; k++) {
-        pulses.push({ t: Math.random(), v: rnd(0.00016, 0.00046) });
+        pulses.push({ t0: Math.random(), v: rnd(0.00013, 0.00032) });
       }
       fibres.push({
         y0: y0,
@@ -104,7 +144,7 @@
         amp: rnd(30, 120),
         k: rnd(1.2, 2.8),
         phase: rnd(0, 6.2832),
-        drift: rnd(0.00005, 0.00018),
+        drift: rnd(0.00028, 0.00072),
         pulses: pulses
       });
     }
@@ -136,7 +176,8 @@
       // light travelling down the fibre
       for (var q = 0; q < f.pulses.length; q++) {
         var pu = f.pulses[q];
-        var px = pu.t * w, py = fibreY(f, pu.t, time);
+        var pt = (pu.t0 + time * pu.v) % 1;          // advance with time
+        var px = pt * w, py = fibreY(f, pt, time);
         for (var r = 3; r >= 1; r--) {
           ctx.fillStyle = 'rgba(' + WHITE + ',' +
             (a * (r === 1 ? 0.55 : r === 2 ? 0.16 : 0.07)).toFixed(3) + ')';
@@ -209,7 +250,7 @@
     var time = Date.now() - t0;
     var t = progress(time);
     ctx.clearRect(0, 0, w, h);
-    drawTraces(band(t, 0.0, 0.45));
+    drawTraces(band(t, 0.0, 0.45), time);
     drawFibres(band(t, 0.5, 0.40), time);
     drawCloud(band(t, 1.0, 0.45), time);
   }
