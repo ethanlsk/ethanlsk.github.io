@@ -15,8 +15,14 @@
   var w = 0, h = 0, small = false, raf = null, t0 = Date.now();
   var traces = [], fibres = [], cloud = [], horizon = 0;
 
+  // prefers-reduced-motion calms the scene rather than stopping it. What that
+  // setting is meant to suppress is large, sweeping movement, so the fibres
+  // stop undulating and everything else runs at a third speed -- the travelling
+  // lights are small and local, and freezing the whole thing outright just
+  // leaves a dead background.
   var reduced = window.matchMedia &&
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var motion = reduced ? 0.33 : 1;
 
   function rnd(a, b) { return a + Math.random() * (b - a); }
 
@@ -144,7 +150,7 @@
         amp: rnd(30, 120),
         k: rnd(1.2, 2.8),
         phase: rnd(0, 6.2832),
-        drift: rnd(0.00028, 0.00072),
+        drift: reduced ? 0 : rnd(0.00028, 0.00072),
         pulses: pulses
       });
     }
@@ -247,17 +253,20 @@
   }
 
   function frame() {
-    var time = Date.now() - t0;
-    var t = progress(time);
+    var time = (Date.now() - t0) * motion;
+    var t = progress(Date.now() - t0);
     ctx.clearRect(0, 0, w, h);
     drawTraces(band(t, 0.0, 0.45), time);
     drawFibres(band(t, 0.5, 0.40), time);
     drawCloud(band(t, 1.0, 0.45), time);
   }
 
-  function loop() { frame(); raf = window.requestAnimationFrame(loop); }
+  function loop() {
+    raf = window.requestAnimationFrame(loop);   // queue first: a throw below
+    frame();                                    // must not end the animation
+  }
   function start() {
-    if (raf === null && !reduced && window.requestAnimationFrame) {
+    if (raf === null && window.requestAnimationFrame) {
       raf = window.requestAnimationFrame(loop);
     }
   }
