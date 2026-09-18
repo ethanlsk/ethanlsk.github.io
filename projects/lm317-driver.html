@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constant-Current LED / Laser Diode Driver | Ethan Khan</title>
+<meta name="description" content="LM317 driver holding output current flat against supply variation, building toward a protected laser-diode driver.">
+<link rel="canonical" href="https://ethanlsk.com/projects/lm317-driver">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethan Khan">
+<meta property="og:title" content="Constant-Current LED / Laser Diode Driver | Ethan Khan">
+<meta property="og:description" content="LM317 driver holding output current flat against supply variation, building toward a protected laser-diode driver.">
+<meta property="og:url" content="https://ethanlsk.com/projects/lm317-driver">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      crossorigin="anonymous">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        crossorigin="anonymous"></script>
+<script>
+  // Dollar delimiters are deliberately NOT enabled: the UV-C bill of materials
+  // is full of prices that would otherwise be parsed as maths.
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!window.renderMathInElement) return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      ignoredTags: ["script","noscript","style","textarea","pre","code","option"],
+      throwOnError: false
+    });
+  });
+</script>
+</head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap wide">
+    <nav class="tabs">
+      <a href="/">Home</a>
+      <details class="navdrop active">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="/projects">All projects</a>
+          <div class="sep"></div>
+          <a href="/projects#optics">Optics &amp; Photonics</a>
+          <a href="/projects#circuits">Circuits &amp; Power</a>
+          <a href="/projects#robotics">Robotics &amp; Embedded</a>
+          <a href="/projects#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
+      <a href="/contact">Contact</a>
+      <a class="btn btn-sm ice" href="../resume.pdf">R&eacute;sum&eacute;</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap wide">
+
+  <div class="split">
+
+    <aside class="identity">
+      <p class="backlink"><a href="/projects">&larr; All projects</a></p>
+      <h1 class="projtitle">Constant-Current LED / Laser Diode Driver</h1>
+      <p class="rail-note">LM317 driver holding output current flat against supply variation, building toward a protected laser-diode driver.</p>
+      <dl class="rail-meta">
+        <div><dt>When</dt><dd>Jun 2026 to Present</dd></div>
+        <div><dt>Context</dt><dd>Personal project · KiCad</dd></div>
+        <div><dt>Area</dt><dd>Circuits &amp; Power</dd></div>
+      </dl>
+    </aside>
+
+    <div class="maincol">
+          <p>
+            A regulated LM317 constant-current driver designed in KiCad that holds output current
+            constant independent of supply voltage. The set resistor fixes the current through
+            \(I = 1.25\,\mathrm{V} / R_{\mathrm{set}}\), so a 62 &Omega; resistor gives roughly 20 mA, with the regulator dissipating
+            about 0.12 W from a 9 V supply, low enough to run without a heatsink.
+          </p>
+          <p>
+            The planned test is a supply sweep from 7 V to 12 V confirming output current stays
+            flat, which is a line-regulation measurement. That same test carries over directly to
+            the laser-diode version.
+          </p>
+          <p>
+            From there the board branches toward a protected laser-diode driver with current
+            limiting and modulation. Laser diodes fail fast under current transients, so the
+            protection circuitry is the real engineering content.
+          </p>
+
+          <div class="tags">
+            <span class="tag">KiCad</span><span class="tag">LM317</span>
+            <span class="tag">Constant-current source</span><span class="tag">Line regulation</span>
+            <span class="tag">PCB layout</span>
+          </div>
+
+      <nav class="projnav">
+    <a class="nx" href="/projects/laser-relaxation"><span class="lbl">Next</span><span class="ttl">Semiconductor Laser Relaxation Oscillations</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      More on <a href="https://github.com/ethanlsk">GitHub</a> ·
+      <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a> ·
+      <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
+    </p>
+  </footer>
+
+</div>
+<script src="../background.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-Powered Personal Carrier Robot | Ethan Khan</title>
+<meta name="description" content="Person-following robot: L298N drive on split rails, PID distance control, YOLO vision tracking on a Raspberry Pi.">
+<link rel="canonical" href="https://ethanlsk.com/projects/carrier-robot">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethan Khan">
+<meta property="og:title" content="AI-Powered Personal Carrier Robot | Ethan Khan">
+<meta property="og:description" content="Person-following robot: L298N drive on split rails, PID distance control, YOLO vision tracking on a Raspberry Pi.">
+<meta property="og:url" content="https://ethanlsk.com/projects/carrier-robot">
+<meta property="og:image" content="https://ethanlsk.com/assets/surp-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      crossorigin="anonymous">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        crossorigin="anonymous"></script>
+<script>
+  // Dollar delimiters are deliberately NOT enabled: the UV-C bill of materials
+  // is full of prices that would otherwise be parsed as maths.
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!window.renderMathInElement) return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      ignoredTags: ["script","noscript","style","textarea","pre","code","option"],
+      throwOnError: false
+    });
+  });
+</script>
+</head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap wide">
+    <nav class="tabs">
+      <a href="/">Home</a>
+      <details class="navdrop active">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="/projects">All projects</a>
+          <div class="sep"></div>
+          <a href="/projects#optics">Optics &amp; Photonics</a>
+          <a href="/projects#circuits">Circuits &amp; Power</a>
+          <a href="/projects#robotics">Robotics &amp; Embedded</a>
+          <a href="/projects#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
+      <a href="/contact">Contact</a>
+      <a class="btn btn-sm ice" href="../resume.pdf">R&eacute;sum&eacute;</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap wide">
+
+  <div class="split">
+
+    <aside class="identity">
+      <p class="backlink"><a href="/projects">&larr; All projects</a></p>
+      <h1 class="projtitle">AI-Powered Personal Carrier Robot</h1>
+      <p class="rail-note">Person-following robot: L298N drive on split rails, PID distance control, YOLO vision tracking on a Raspberry Pi.</p>
+      <dl class="rail-meta">
+        <div><dt>When</dt><dd>Summer 2024</dd></div>
+        <div><dt>Context</dt><dd>Summer Undergraduate Research Program (SURP) · SUNY Polytechnic Institute · Python</dd></div>
+        <div><dt>Area</dt><dd>Robotics &amp; Embedded</dd></div>
+      </dl>
+    </aside>
+
+    <div class="maincol">
+          <p>
+            An autonomous robot that follows a specific person while carrying items over long
+            distances, aimed at elderly users and anyone needing mobility assistance. The build
+            combines computer vision, embedded control, and power electronics.
+          </p>
+
+          <h4>Motor drive and power</h4>
+          <p>
+            I built the motor-drive subsystem around an L298N H-bridge running from a dual-battery
+            supply, keeping motor power and logic power on separate rails so switching transients
+            on the motor side don't disturb the Raspberry Pi. Speed and direction are set by
+            Raspberry Pi PWM, with PID closed-loop control maintaining a safe following distance.
+          </p>
+
+          <h4>Vision and navigation</h4>
+          <p>
+            A YOLO-based vision system segments the camera frame into directional zones of
+            forward, backward, left, right, and stop. The robot continuously reprocesses target
+            coordinates to adjust movement in real time. Ultrasonic and infrared sensors handle
+            collision avoidance, and a servo controls the storage compartment lid.
+          </p>
+
+          <h4>Hardware</h4>
+          <div class="tags">
+            <span class="tag">Raspberry Pi</span><span class="tag">HuskyLens AI camera</span>
+            <span class="tag">L298N motor driver</span><span class="tag">DC motors</span>
+            <span class="tag">Servo motor</span><span class="tag">Ultrasonic sensor</span>
+            <span class="tag">IR sensors</span><span class="tag">Dual battery system</span>
+          </div>
+
+          <h4>Software</h4>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">PID control</span>
+            <span class="tag">Computer vision tracking</span><span class="tag">Image segmentation logic</span>
+            <span class="tag">Embedded GPIO</span>
+          </div>
+
+          <h4>Research poster</h4>
+          <figure class="reveal">
+            <div class="plate">
+              <img src="../assets/surp-poster.jpg" width="1600" height="1200" loading="lazy"
+                   alt="SURP 2024 research poster for the Personal Carrier Robot: abstract, methodology, control algorithm, circuit block diagram, YOLO image-segmentation scheme, and conclusions">
+            </div>
+            <figcaption>
+              SURP 2024 poster, Personal Carrier Robot Design and Implementation, with
+              Mcdhellyne Edwards and Dr. Gunyaz Ablay.
+            </figcaption>
+          </figure>
+
+          <p class="note">
+            Supported by SURP 2024, with thanks to Dr. Gunyaz Ablay and Mcdhellyne Edwards.
+          </p>
+
+          <p style="margin-top:1.1rem">
+            <a class="btn" href="https://github.com/ethanlsk/Robotics-Research-Aide">View on GitHub</a>
+            <a class="btn ice" href="https://github.com/ethanlsk/Robotics-Research-Aide/blob/main/SURP%20presentation%20poster%20(1).pdf">Research poster (PDF)</a>
+          </p>
+
+      <nav class="projnav">
+    <a class="pv" href="/projects/optical-computing"><span class="lbl">Previous</span><span class="ttl">Optical Computing, Memory &amp; Data Centers</span></a>
+    <a class="nx" href="/projects/uvc-robot"><span class="lbl">Next</span><span class="ttl">UV-C Sterilization Robot</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      More on <a href="https://github.com/ethanlsk">GitHub</a> ·
+      <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a> ·
+      <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
+    </p>
+  </footer>
+
+</div>
+<script src="../background.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>

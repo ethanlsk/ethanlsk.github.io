@@ -733,6 +733,55 @@ h1.railtitle {
   margin: 0 0 .55rem;
 }
 
+/* ---------------- project pages ---------------- */
+
+h1.projtitle {
+  font-size: clamp(1.55rem, 3vw, 1.95rem);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  color: var(--bright);
+}
+.backlink { font-family: var(--mono); font-size: .78rem; margin: 0 0 1.2rem; }
+.backlink a { text-decoration: none; }
+.backlink a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.rail-meta { margin: 1.5rem 0 0; }
+.rail-meta > div { padding: .65rem 0; border-bottom: 1px solid var(--line-dim); }
+.rail-meta > div:last-child { border-bottom: none; }
+.rail-meta dt {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.rail-meta dd { margin: .3rem 0 0; font-size: .92rem; color: var(--pale); line-height: 1.5; }
+
+.projnav {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3.25rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line-dim);
+}
+.projnav a { text-decoration: none; max-width: 46%; }
+.projnav .nx { margin-left: auto; text-align: right; }
+.projnav .lbl {
+  display: block;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: .3rem;
+}
+.projnav .ttl { color: var(--blue); font-size: .95rem; line-height: 1.4; }
+.projnav a:hover .ttl { color: var(--bright); text-decoration: underline; text-underline-offset: 3px; }
+
+/* index sections are anchor targets too */
+section[id] { scroll-margin-top: 5.5rem; }
+
 /* ---------------- scroll reveal ----------------
    Figures fade up as they enter the viewport. Only armed when JS is
    running, so the images are never stuck invisible without it. */

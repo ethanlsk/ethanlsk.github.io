@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8th-Order Sallen-Key Band-Pass Filter with Noise Rejection | Ethan Khan</title>
+<meta name="description" content="Cascaded biquads giving a 1 kHz to 50 kHz passband over 45 dB stopband, recovering a 30 kHz tone from white noise.">
+<link rel="canonical" href="https://ethanlsk.com/projects/sallen-key-filter">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethan Khan">
+<meta property="og:title" content="8th-Order Sallen-Key Band-Pass Filter with Noise Rejection | Ethan Khan">
+<meta property="og:description" content="Cascaded biquads giving a 1 kHz to 50 kHz passband over 45 dB stopband, recovering a 30 kHz tone from white noise.">
+<meta property="og:url" content="https://ethanlsk.com/projects/sallen-key-filter">
+<meta property="og:image" content="https://ethanlsk.com/assets/filter-bode.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      crossorigin="anonymous">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        crossorigin="anonymous"></script>
+<script>
+  // Dollar delimiters are deliberately NOT enabled: the UV-C bill of materials
+  // is full of prices that would otherwise be parsed as maths.
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!window.renderMathInElement) return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      ignoredTags: ["script","noscript","style","textarea","pre","code","option"],
+      throwOnError: false
+    });
+  });
+</script>
+</head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap wide">
+    <nav class="tabs">
+      <a href="/">Home</a>
+      <details class="navdrop active">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="/projects">All projects</a>
+          <div class="sep"></div>
+          <a href="/projects#optics">Optics &amp; Photonics</a>
+          <a href="/projects#circuits">Circuits &amp; Power</a>
+          <a href="/projects#robotics">Robotics &amp; Embedded</a>
+          <a href="/projects#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
+      <a href="/contact">Contact</a>
+      <a class="btn btn-sm ice" href="../resume.pdf">R&eacute;sum&eacute;</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap wide">
+
+  <div class="split">
+
+    <aside class="identity">
+      <p class="backlink"><a href="/projects">&larr; All projects</a></p>
+      <h1 class="projtitle">8th-Order Sallen-Key Band-Pass Filter with Noise Rejection</h1>
+      <p class="rail-note">Cascaded biquads giving a 1 kHz to 50 kHz passband over 45 dB stopband, recovering a 30 kHz tone from white noise.</p>
+      <dl class="rail-meta">
+        <div><dt>When</dt><dd>Aug to Dec 2025</dd></div>
+        <div><dt>Context</dt><dd>EECE 501 Analog Circuit Design · Binghamton University · LTspice</dd></div>
+        <div><dt>Area</dt><dd>Circuits &amp; Power</dd></div>
+      </dl>
+    </aside>
+
+    <div class="maincol">
+          <p>
+            An 8th-order band-pass filter built by cascading a 4th-order high-pass and a 4th-order
+            low-pass biquad section, giving a 1 kHz to 50 kHz passband with more than 45 dB of
+            stopband attenuation.
+          </p>
+
+          <figure class="reveal">
+            <div class="plate">
+              <img src="../assets/filter-schematic.png" width="1928" height="510" loading="lazy"
+                   alt="LTspice schematic of the 8th-order band-pass filter: four Sallen-Key op-amp stages in series, two high-pass sections with 15.9 kilohm resistors and 10 nanofarad capacitors followed by two low-pass sections with 3.18 kilohm resistors and 1 nanofarad capacitors, each stage set by a 1.52 kilohm and 12.4 kilohm gain divider">
+            </div>
+            <figcaption>
+              The cascade in LTspice: two high-pass Sallen-Key sections (15.9 k&Omega;, 10 nF) into
+              two low-pass sections (3.18 k&Omega;, 1 nF), each stage's gain set by the 1.52 k&Omega;
+              and 12.4 k&Omega; divider.
+            </figcaption>
+          </figure>
+
+          <div class="tablescroll">
+            <table class="results">
+              <tr><th>Stage</th><th>Components</th><th>Gain</th></tr>
+              <tr><td>High-pass (4th order)</td><td class="val">\(R = 15.9\ \mathrm{k\Omega}\), \(C = 10\ \mathrm{nF}\)</td><td class="val">\(K_1 = 1.152\)</td></tr>
+              <tr><td>Low-pass (4th order)</td><td class="val">\(R = 3.18\ \mathrm{k\Omega}\), \(C = 1\ \mathrm{nF}\)</td><td class="val">\(K_2 = 2.235\)</td></tr>
+            </table>
+          </div>
+
+          <p style="margin-top:.9rem">
+            Stability was checked by solving each biquad's pole locations analytically and
+            confirming all poles lie in the left half s-plane, then validating with a transient
+            step response that decayed without oscillation.
+          </p>
+          <p>
+            The design was verified in LTspice with AC analysis from 1 Hz to 10 MHz and transient
+            simulation, recovering a clean 30 kHz tone from a white-noise-corrupted input.
+          </p>
+
+          <figure class="reveal">
+            <div class="plate">
+              <img src="../assets/filter-bode.png" width="1690" height="762" loading="lazy"
+                   alt="LTspice AC sweep of the filter output from 1 Hz to 10 MHz, showing a flat passband near 0 dB between about 1 kHz and 50 kHz with steep roll-off on both sides">
+            </div>
+            <figcaption>
+              AC sweep, 1 Hz to 10 MHz. The response is flat across the 1 kHz to 50 kHz passband
+              and falls away steeply on both skirts, past 45 dB down in the stopbands.
+            </figcaption>
+          </figure>
+
+          <h4>Noise rejection test</h4>
+          <div class="photo-grid">
+            <figure class="reveal">
+              <div class="photo">
+                <img src="../assets/filter-noise-input.png" width="1640" height="787" loading="lazy"
+                     alt="Transient plot of the noisy input: a 30 kHz sinusoid buried in broadband white noise, appearing as a thick jagged green band">
+              </div>
+              <figcaption>Input: a 30 kHz tone combined with two white-noise sources.</figcaption>
+            </figure>
+            <figure class="reveal">
+              <div class="photo">
+                <img src="../assets/filter-noise-output.png" width="1690" height="718" loading="lazy"
+                     alt="Transient plot of the filter output: a clean periodic 30 kHz sinusoid with the broadband noise removed">
+              </div>
+              <figcaption>Output: the same tone recovered, broadband noise removed.</figcaption>
+            </figure>
+          </div>
+
+          <div class="tags">
+            <span class="tag">LTspice</span><span class="tag">Sallen-Key</span>
+            <span class="tag">Biquad cascade</span><span class="tag">Pole placement</span>
+            <span class="tag">Noise rejection</span>
+          </div>
+
+      <nav class="projnav">
+    <a class="pv" href="/projects/fiber-optic-link"><span class="lbl">Previous</span><span class="ttl">Fiber-Optic Communication System</span></a>
+    <a class="nx" href="/projects/cascode-amplifier"><span class="lbl">Next</span><span class="ttl">CMOS Cascode Amplifier with Active Current-Source Load</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      More on <a href="https://github.com/ethanlsk">GitHub</a> ·
+      <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a> ·
+      <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
+    </p>
+  </footer>
+
+</div>
+<script src="../background.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>

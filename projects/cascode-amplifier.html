@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMOS Cascode Amplifier with Active Current-Source Load | Ethan Khan</title>
+<meta name="description" content="NMOS cascode with an active current-source load, hand-analysed from Level-1 parameters before simulating.">
+<link rel="canonical" href="https://ethanlsk.com/projects/cascode-amplifier">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethan Khan">
+<meta property="og:title" content="CMOS Cascode Amplifier with Active Current-Source Load | Ethan Khan">
+<meta property="og:description" content="NMOS cascode with an active current-source load, hand-analysed from Level-1 parameters before simulating.">
+<meta property="og:url" content="https://ethanlsk.com/projects/cascode-amplifier">
+<meta property="og:image" content="https://ethanlsk.com/assets/cascode-schematic.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      crossorigin="anonymous">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        crossorigin="anonymous"></script>
+<script>
+  // Dollar delimiters are deliberately NOT enabled: the UV-C bill of materials
+  // is full of prices that would otherwise be parsed as maths.
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!window.renderMathInElement) return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      ignoredTags: ["script","noscript","style","textarea","pre","code","option"],
+      throwOnError: false
+    });
+  });
+</script>
+</head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap wide">
+    <nav class="tabs">
+      <a href="/">Home</a>
+      <details class="navdrop active">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="/projects">All projects</a>
+          <div class="sep"></div>
+          <a href="/projects#optics">Optics &amp; Photonics</a>
+          <a href="/projects#circuits">Circuits &amp; Power</a>
+          <a href="/projects#robotics">Robotics &amp; Embedded</a>
+          <a href="/projects#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
+      <a href="/contact">Contact</a>
+      <a class="btn btn-sm ice" href="../resume.pdf">R&eacute;sum&eacute;</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap wide">
+
+  <div class="split">
+
+    <aside class="identity">
+      <p class="backlink"><a href="/projects">&larr; All projects</a></p>
+      <h1 class="projtitle">CMOS Cascode Amplifier with Active Current-Source Load</h1>
+      <p class="rail-note">NMOS cascode with an active current-source load, hand-analysed from Level-1 parameters before simulating.</p>
+      <dl class="rail-meta">
+        <div><dt>When</dt><dd>Oct 2025</dd></div>
+        <div><dt>Context</dt><dd>EECE 501 Analog Circuit Design · Binghamton University · LTspice</dd></div>
+        <div><dt>Area</dt><dd>Circuits &amp; Power</dd></div>
+      </dl>
+    </aside>
+
+    <div class="maincol">
+          <p>
+            An NMOS cascode amplifier using an active current-source load in place of a resistive
+            one. Swapping the load raises output resistance by orders of magnitude, and gain rises
+            with it.
+          </p>
+
+          <div class="tablescroll">
+            <table class="results">
+              <tr><th>Quantity</th><th>Value</th></tr>
+              <tr><td>Device sizing</td><td class="val">\(W = 20\ \mu\mathrm{m}\), \(L = 1\ \mu\mathrm{m}\)</td></tr>
+              <tr><td>Bias current</td><td class="val">\(I_D = 1\ \mathrm{mA}\)</td></tr>
+              <tr><td>Transconductance (hand-calculated)</td><td class="val">\(g_m = 2.83\ \mathrm{mS}\)</td></tr>
+              <tr><td>Output resistance per device</td><td class="val">\(r_o \approx 50\ \mathrm{k\Omega}\)</td></tr>
+              <tr><td>Amplifier output resistance</td><td class="val">\(\approx 7.2\ \mathrm{M\Omega}\)</td></tr>
+              <tr><td>Voltage gain</td><td class="val">\(86\ \mathrm{dB}\)</td></tr>
+            </table>
+          </div>
+
+          <p style="margin-top:.9rem">
+            Transconductance and output resistance were hand-calculated from SPICE Level-1 model
+            parameters (\(K_P = 200\ \mu\mathrm{A/V}^2\), \(V_T = 1.0\ \mathrm{V}\), \(V_{ov} = 0.707\ \mathrm{V}\)) before simulating, then gain
+            and bandwidth were verified against LTspice AC analysis from 10 Hz to 100 MHz.
+          </p>
+
+          <figure class="reveal">
+            <div class="plate">
+              <img src="../assets/cascode-schematic.png" width="1308" height="662" loading="lazy"
+                   alt="LTspice schematic of the cascode amplifier: stacked NMOS devices M1 and M2, a 1 mA current-source load to a 5 V rail, 2.5 V cascode bias, and the SPICE model card">
+            </div>
+            <figcaption>
+              LTspice schematic. M1 and M2 stacked as the cascode, a 1 mA current source as the
+              active load, and the Level-1 model card driving an AC sweep from 10 Hz to 100 MHz.
+            </figcaption>
+          </figure>
+
+          <h4>Hand analysis</h4>
+          <figure class="reveal">
+            <div class="plate">
+              <img src="../assets/cascode-hand-analysis.jpg" width="1350" height="1265" loading="lazy"
+                   alt="Handwritten derivation for the cascode amplifier: device sizing, K from KP times W over L, overdrive voltage, transconductance, output resistance per device, total output resistance, and the resulting voltage gain in decibels">
+            </div>
+            <figcaption>
+              The derivation worked by hand before simulating: \(K = K_P (W/L)\), then
+              \(V_{ov}\), \(g_m = K V_{ov} = 2.83\ \mathrm{mS}\), \(r_o = 1/(\lambda I_D) = 50\ \mathrm{k\Omega}\),
+              \(R_{out} \approx (1 + g_{m2} r_{o2})r_{o1} + r_{o2} = 7.17\ \mathrm{M\Omega}\), giving
+              \(|A_v| = 20\log_{10}(20{,}280) = 86.14\ \mathrm{dB}\).
+            </figcaption>
+          </figure>
+
+          <div class="tags">
+            <span class="tag">LTspice</span><span class="tag">CMOS</span>
+            <span class="tag">Cascode topology</span><span class="tag">Active load</span>
+            <span class="tag">Hand analysis → simulation</span>
+          </div>
+
+      <nav class="projnav">
+    <a class="pv" href="/projects/sallen-key-filter"><span class="lbl">Previous</span><span class="ttl">8th-Order Sallen-Key Band-Pass Filter with Noise Rejection</span></a>
+    <a class="nx" href="/projects/optical-computing"><span class="lbl">Next</span><span class="ttl">Optical Computing, Memory &amp; Data Centers</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      More on <a href="https://github.com/ethanlsk">GitHub</a> ·
+      <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a> ·
+      <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
+    </p>
+  </footer>
+
+</div>
+<script src="../background.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>

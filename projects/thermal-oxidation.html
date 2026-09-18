@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analysis of Kinetic Growth in Silicon Thermal Oxidation | Ethan Khan</title>
+<meta name="description" content="Furnace oxidation with Deal-Grove modelling and SEM characterisation, which turned up unexpected nanowires.">
+<link rel="canonical" href="https://ethanlsk.com/projects/thermal-oxidation">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethan Khan">
+<meta property="og:title" content="Analysis of Kinetic Growth in Silicon Thermal Oxidation | Ethan Khan">
+<meta property="og:description" content="Furnace oxidation with Deal-Grove modelling and SEM characterisation, which turned up unexpected nanowires.">
+<meta property="og:url" content="https://ethanlsk.com/projects/thermal-oxidation">
+<meta property="og:image" content="https://ethanlsk.com/assets/oxidation-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      crossorigin="anonymous">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        crossorigin="anonymous"></script>
+<script>
+  // Dollar delimiters are deliberately NOT enabled: the UV-C bill of materials
+  // is full of prices that would otherwise be parsed as maths.
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!window.renderMathInElement) return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      ignoredTags: ["script","noscript","style","textarea","pre","code","option"],
+      throwOnError: false
+    });
+  });
+</script>
+</head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap wide">
+    <nav class="tabs">
+      <a href="/">Home</a>
+      <details class="navdrop active">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="/projects">All projects</a>
+          <div class="sep"></div>
+          <a href="/projects#optics">Optics &amp; Photonics</a>
+          <a href="/projects#circuits">Circuits &amp; Power</a>
+          <a href="/projects#robotics">Robotics &amp; Embedded</a>
+          <a href="/projects#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
+      <a href="/contact">Contact</a>
+      <a class="btn btn-sm ice" href="../resume.pdf">R&eacute;sum&eacute;</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap wide">
+
+  <div class="split">
+
+    <aside class="identity">
+      <p class="backlink"><a href="/projects">&larr; All projects</a></p>
+      <h1 class="projtitle">Analysis of Kinetic Growth in Silicon Thermal Oxidation</h1>
+      <p class="rail-note">Furnace oxidation with Deal-Grove modelling and SEM characterisation, which turned up unexpected nanowires.</p>
+      <dl class="rail-meta">
+        <div><dt>When</dt><dd>Jan to May 2024</dd></div>
+        <div><dt>Context</dt><dd>Semiconductor Experimentation Research · SUNY Polytechnic Institute</dd></div>
+        <div><dt>Area</dt><dd>Semiconductors &amp; Fabrication</dd></div>
+      </dl>
+    </aside>
+
+    <div class="maincol">
+          <p>
+            A hands-on fabrication study of how silicon dioxide grows on silicon wafers, combining
+            furnace processing, Deal-Grove modeling, and SEM characterization. SiO₂ is the gate
+            oxide, insulator, and passivation layer that modern CMOS depends on, so controlling
+            its thickness precisely is a core process-engineering problem.
+          </p>
+
+          <h4>Process</h4>
+          <div class="tablescroll">
+            <table class="results">
+              <tr><th>Parameter</th><th>Value</th></tr>
+              <tr><td>Wafer diameter</td><td class="val">100 mm</td></tr>
+              <tr><td>Oxidation temperature</td><td class="val">975 °C</td></tr>
+              <tr><td>Oxidation duration</td><td class="val">20 hours</td></tr>
+              <tr><td>Atmosphere</td><td class="val">Controlled O₂, inert cooldown</td></tr>
+              <tr><td>Resulting oxide thickness</td><td class="val">200 to 300 nm</td></tr>
+            </table>
+          </div>
+
+          <h4>Modeling</h4>
+          <p>
+            Oxidation was simulated in nanoHUB Process Lab using the Deal-Grove linear-parabolic
+            model across 850 °C, 975 °C, 1100 °C, and 1225 °C, studying oxide thickness against
+            time and temperature. Arrhenius plots were used to estimate activation energy and
+            characterize the reaction kinetics governing growth.
+          </p>
+
+          <h4>Characterization and findings</h4>
+          <p>
+            SEM imaging confirmed silicon and oxygen at the surface and the presence of the SiO₂
+            layer, and revealed <strong>nanowire structures</strong> that formed unexpectedly
+            after oxidation. That discovery took second place at the 2024 SUNY Polytechnic Student
+            Project Showcase and may warrant follow-up for nanoelectronics and sensing applications.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Thermal oxidation</span><span class="tag">Deal-Grove model</span>
+            <span class="tag">Arrhenius analysis</span><span class="tag">nanoHUB</span>
+            <span class="tag">SEM</span><span class="tag">Thin-film growth</span>
+            <span class="tag ice">2nd place, 2024 Showcase</span>
+          </div>
+
+          <h4>Research poster</h4>
+          <figure class="reveal">
+            <div class="plate">
+              <img src="../assets/oxidation-poster.jpg" width="1600" height="1067" loading="lazy"
+                   alt="Research poster for Analysis of Kinetic Growth in Silicon Thermal Oxidation: Deal-Grove modelling, nanoHUB simulation, Arrhenius plots, furnace photographs, and SEM images of the nanowire structures">
+            </div>
+            <figcaption>
+              Poster presented at the 2024 SUNY Polytechnic Student Project Showcase, where it
+              took second place. With Owen Lawrence and Leo Bruno.
+            </figcaption>
+          </figure>
+
+          <p class="note">
+            With Leo Bruno and Owen Lawrence. Faculty advisor: Dr. Iulian Gherasiou,
+            SUNY Polytechnic Institute, College of Engineering.
+          </p>
+
+          <p style="margin-top:1.1rem">
+            <a class="btn" href="https://github.com/ethanlsk/Analysis-of-Kinetic-Growth-in-Silicon-Thermal-Oxidation">View on GitHub</a>
+          </p>
+
+      <nav class="projnav">
+    <a class="pv" href="/projects/uvc-robot"><span class="lbl">Previous</span><span class="ttl">UV-C Sterilization Robot</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      More on <a href="https://github.com/ethanlsk">GitHub</a> ·
+      <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a> ·
+      <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
+    </p>
+  </footer>
+
+</div>
+<script src="../background.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>

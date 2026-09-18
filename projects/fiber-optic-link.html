@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiber-Optic Communication System | Ethan Khan</title>
+<meta name="description" content="End-to-end link: lens coupling into multimode fibre, random polarisation, electro-optic modulation, PIN detection.">
+<link rel="canonical" href="https://ethanlsk.com/projects/fiber-optic-link">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethan Khan">
+<meta property="og:title" content="Fiber-Optic Communication System | Ethan Khan">
+<meta property="og:description" content="End-to-end link: lens coupling into multimode fibre, random polarisation, electro-optic modulation, PIN detection.">
+<meta property="og:url" content="https://ethanlsk.com/projects/fiber-optic-link">
+<meta property="og:image" content="https://ethanlsk.com/assets/polarization-histogram.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"
+      crossorigin="anonymous">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"
+        crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        crossorigin="anonymous"></script>
+<script>
+  // Dollar delimiters are deliberately NOT enabled: the UV-C bill of materials
+  // is full of prices that would otherwise be parsed as maths.
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!window.renderMathInElement) return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "\\[", right: "\\]", display: true },
+        { left: "\\(", right: "\\)", display: false }
+      ],
+      ignoredTags: ["script","noscript","style","textarea","pre","code","option"],
+      throwOnError: false
+    });
+  });
+</script>
+</head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap wide">
+    <nav class="tabs">
+      <a href="/">Home</a>
+      <details class="navdrop active">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="/projects">All projects</a>
+          <div class="sep"></div>
+          <a href="/projects#optics">Optics &amp; Photonics</a>
+          <a href="/projects#circuits">Circuits &amp; Power</a>
+          <a href="/projects#robotics">Robotics &amp; Embedded</a>
+          <a href="/projects#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
+      <a href="/contact">Contact</a>
+      <a class="btn btn-sm ice" href="../resume.pdf">R&eacute;sum&eacute;</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap wide">
+
+  <div class="split">
+
+    <aside class="identity">
+      <p class="backlink"><a href="/projects">&larr; All projects</a></p>
+      <h1 class="projtitle">Fiber-Optic Communication System</h1>
+      <p class="rail-note">End-to-end link: lens coupling into multimode fibre, random polarisation, electro-optic modulation, PIN detection.</p>
+      <dl class="rail-meta">
+        <div><dt>When</dt><dd>Spring 2026</dd></div>
+        <div><dt>Context</dt><dd>EECE 530 Electro-Optics · Binghamton University · MATLAB</dd></div>
+        <div><dt>Area</dt><dd>Optics &amp; Photonics</dd></div>
+      </dl>
+    </aside>
+
+    <div class="maincol">
+          <p>
+            Design and analysis of the key components in a fiber-optic link: launching light into
+            multimode fiber, handling random polarization, modulating a binary signal, and
+            recovering it at a photodiode. Four linked tasks that build into one end-to-end system.
+          </p>
+
+          <h4>Task 1: Fiber coupler</h4>
+          <p>
+            Single-lens system launching a laser into 50 µm multimode fiber
+            (\(n_1 = 1.5\), \(n_2 = 1.49\), lens \(F = 3.5\ \mathrm{mm}\), \(D = 2\ \mathrm{mm}\)).
+          </p>
+          <div class="tablescroll">
+            <table class="results">
+              <tr><th>Quantity</th><th>Result</th></tr>
+              <tr><td>Numerical aperture</td><td class="val">\(\mathrm{NA} = 0.1729\)</td></tr>
+              <tr><td>Acceptance angle</td><td class="val">\(\theta_{\max} = 9.96^{\circ}\)</td></tr>
+              <tr><td>Max coupling radius</td><td class="val">\(r_{\max} = 0.6147\ \mathrm{mm}\)</td></tr>
+              <tr><td>Power coupling efficiency</td><td class="val">\(\eta \approx 37.79\%\)</td></tr>
+            </table>
+          </div>
+          <p style="margin-top:.9rem">
+            Efficiency is limited because the lens focuses rays across a wider angular spread than
+            the fiber's acceptance cone will admit.
+          </p>
+
+          <h4>Task 2: Revised three-lens coupler</h4>
+          <p>
+            Redesigned with a three-lens arrangement that shrinks the beam so every ray arrives
+            within \(\theta_{\max}\), recovering the lost power.
+          </p>
+          <div class="tablescroll">
+            <table class="results">
+              <tr><th>Quantity</th><th>Result</th></tr>
+              <tr><td>Required beam radius at L₃</td><td class="val">\(r_3 = 0.3511\ \mathrm{mm}\)</td></tr>
+              <tr><td>Lens separation</td><td class="val">\(d_1 = 4.729\ \mathrm{mm}\)</td></tr>
+              <tr><td>Collimating lens focal length</td><td class="val">\(F_2 = 1.229\ \mathrm{mm}\)</td></tr>
+              <tr><td>Radius of curvature (plano-convex)</td><td class="val">\(R = 0.6145\ \mathrm{mm}\)</td></tr>
+            </table>
+          </div>
+
+          <h4>Task 3: Random polarization through a polarizer</h4>
+          <p>
+            Malus's law applied to a randomly polarized source. Analytically, for \(\theta\) uniform over
+            \([0, 2\pi]\), the expected transmission \(E[\cos^{2}\theta] = \tfrac{1}{2}\). A 1,000,000-sample Monte Carlo
+            simulation returned <strong>0.5001</strong>, confirming the result.
+          </p>
+
+          <figure class="reveal">
+            <div class="plate">
+              <img src="../assets/polarization-histogram.jpg"
+                   alt="Probability density histogram of cos squared theta over one million random polarization angles, showing a U-shaped distribution">
+            </div>
+            <figcaption>
+              Probability density of cos²(θ) over 1,000,000 random polarization angles. The U-shape
+              shows near-zero and near-unity transmission are equally likely, averaging to 0.5.
+            </figcaption>
+          </figure>
+
+          <details class="code-toggle">
+            <summary>MATLAB source: Monte Carlo polarization</summary>
+<pre><code>% Task 3: Power transmitted through polarizer for random polarization
+N = 1e6;                          % number of samples
+theta = 2*pi*rand(N,1);           % uniform random angles in [0, 2pi]
+T = cos(theta).^2;                % Malus's law transmission
+avg_transmission = mean(T);       % average power fraction
+fprintf('Average transmission = %.4f (expected 0.5)\n', avg_transmission);
+
+figure;
+histogram(T, 50, 'Normalization', 'pdf');
+xlabel('Transmission fraction cos^2(\theta)');
+ylabel('Probability density');
+title(sprintf('Random Polarization through Polarizer (avg = %.4f)', ...
+      avg_transmission));
+grid on;</code></pre>
+          </details>
+
+          <h4>Task 4: Modulation and end-to-end link</h4>
+          <p>
+            Full binary link: 5 mW laser at \(\lambda = 1.55\ \mu\mathrm{m}\) &rarr; vertical polarizer &rarr; electro-optic
+            modulator (\(V_\pi = 5\ \mathrm{V}\)) &rarr; quarter-wave plate &rarr; horizontal polarizer &rarr;
+            multimode fiber &rarr; PIN photodiode (\(\eta_q = 80\%\)).
+          </p>
+          <div class="tablescroll">
+            <table class="results">
+              <tr><th>Bit</th><th>Drive</th><th>Transmission</th><th>Optical power</th><th>Photocurrent</th></tr>
+              <tr><td>'1'</td><td class="val">+2.2 V</td><td class="val">0.9900</td><td class="val">2.477 mW</td><td class="val">2.44 mA</td></tr>
+              <tr><td>'0'</td><td class="val">−2.2 V</td><td class="val">0.00886</td><td class="val">22.1 µW</td><td class="val">21.8 µA</td></tr>
+            </table>
+          </div>
+          <p style="margin-top:.9rem">
+            At 50 Mbps the intermodal dispersion budget allows a maximum fiber length of
+            <strong>≈ 297.9 m</strong> (delay per unit length 33.56 ns/km, half-bit-period criterion).
+            Photodiode responsivity worked out to 0.998 A/W.
+          </p>
+
+          <div class="tags">
+            <span class="tag">MATLAB</span><span class="tag">Ray optics</span>
+            <span class="tag">Malus's law</span><span class="tag">Monte Carlo</span>
+            <span class="tag">Intermodal dispersion</span><span class="tag">PIN photodetection</span>
+          </div>
+          <p style="margin-top:1.1rem">
+            <a class="btn" href="https://github.com/ethanlsk/electro-optics-fiber-system">View on GitHub</a>
+          </p>
+
+      <nav class="projnav">
+    <a class="pv" href="/projects/laser-relaxation"><span class="lbl">Previous</span><span class="ttl">Semiconductor Laser Relaxation Oscillations</span></a>
+    <a class="nx" href="/projects/sallen-key-filter"><span class="lbl">Next</span><span class="ttl">8th-Order Sallen-Key Band-Pass Filter with Noise Rejection</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      More on <a href="https://github.com/ethanlsk">GitHub</a> ·
+      <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a> ·
+      <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
+    </p>
+  </footer>
+
+</div>
+<script src="../background.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>

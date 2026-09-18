@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Ethan Khan</title>
+<meta name="description" content="Engineering projects by Ethan Khan: optics and photonics, analog circuits and power, robotics and embedded systems, semiconductor fabrication.">
+<link rel="canonical" href="https://ethanlsk.com/projects">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethan Khan">
+<meta property="og:title" content="Projects | Ethan Khan">
+<meta property="og:description" content="Engineering projects by Ethan Khan: optics and photonics, analog circuits and power, robotics and embedded systems, semiconductor fabrication.">
+<meta property="og:url" content="https://ethanlsk.com/projects">
+<meta property="og:image" content="https://ethanlsk.com/assets/laser-three-panel.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<script>
+  // Arm the scroll-reveal styles. If site.js never runs, disarm them after a
+  // beat so figures can never be left permanently invisible.
+  document.documentElement.className += " js";
+  setTimeout(function () {
+    if (!window.__revealArmed) {
+      document.documentElement.className =
+        document.documentElement.className.replace(/\bjs\b/, "");
+    }
+  }, 2500);
+</script>
+</head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <div class="wrap wide">
+    <nav class="tabs">
+      <a href="/">Home</a>
+      <details class="navdrop active">
+        <summary>Projects</summary>
+        <div class="navmenu">
+          <a href="/projects">All projects</a>
+          <div class="sep"></div>
+          <a href="/projects#optics">Optics &amp; Photonics</a>
+          <a href="/projects#circuits">Circuits &amp; Power</a>
+          <a href="/projects#robotics">Robotics &amp; Embedded</a>
+          <a href="/projects#semiconductors">Semiconductors &amp; Fabrication</a>
+        </div>
+      </details>
+      <a href="/contact">Contact</a>
+      <a class="btn btn-sm ice" href="../resume.pdf">R&eacute;sum&eacute;</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap wide">
+
+  <div class="split">
+
+    <aside class="identity">
+      <h1 class="railtitle">Projects</h1>
+      <p class="rail-note">
+        Coursework, research, and personal builds, newest first within each area.
+        Every project has its own page with the full write-up, results, figures and source.
+      </p>
+      <ul class="rail-links">
+        <li><span class="sep-label">Jump to</span></li>
+        <li><a href="#optics">Optics &amp; Photonics</a></li>
+        <li><a href="#circuits">Circuits &amp; Power</a></li>
+        <li><a href="#robotics">Robotics &amp; Embedded</a></li>
+        <li><a href="#semiconductors">Semiconductors &amp; Fabrication</a></li>
+      </ul>
+    </aside>
+
+    <div class="maincol">
+
+  <section id="optics" class="first">
+    <h2>Optics &amp; Photonics</h2>
+    <div class="proj-grid">
+        <a class="proj" href="/projects/laser-relaxation">
+          <div class="proj-top">
+            <span class="proj-name">Semiconductor Laser Relaxation Oscillations</span>
+            <span class="proj-when">2026</span>
+          </div>
+          <p class="proj-what">Coupled carrier and photon rate equations with gain compression. Threshold 22.9 mA, oscillations at 5 to 15 GHz.</p>
+          <span class="proj-area">Optics &amp; Photonics <span class="tool">MATLAB</span></span>
+        </a>
+        <a class="proj" href="/projects/fiber-optic-link">
+          <div class="proj-top">
+            <span class="proj-name">Fiber-Optic Communication System</span>
+            <span class="proj-when">2026</span>
+          </div>
+          <p class="proj-what">End-to-end link: lens coupling into multimode fibre, random polarisation, electro-optic modulation, PIN detection.</p>
+          <span class="proj-area">Optics &amp; Photonics <span class="tool">MATLAB</span></span>
+        </a>
+        <a class="proj" href="/projects/optical-computing">
+          <div class="proj-top">
+            <span class="proj-name">Optical Computing, Memory &amp; Data Centers</span>
+            <span class="proj-when">2025</span>
+          </div>
+          <p class="proj-what">Bachelor's thesis on photonic integrated circuits and all-optical architectures past the limits of silicon.</p>
+          <span class="proj-area">Optics &amp; Photonics <span class="tool">Thesis</span></span>
+        </a>
+    </div>
+  </section>
+  <section id="circuits">
+    <h2>Circuits &amp; Power</h2>
+    <div class="proj-grid">
+        <a class="proj" href="/projects/lm317-driver">
+          <div class="proj-top">
+            <span class="proj-name">Constant-Current LED / Laser Diode Driver</span>
+            <span class="proj-when">2026</span>
+          </div>
+          <p class="proj-what">LM317 driver holding output current flat against supply variation, building toward a protected laser-diode driver.</p>
+          <span class="proj-area">Circuits &amp; Power <span class="tool">KiCad</span></span>
+        </a>
+        <a class="proj" href="/projects/sallen-key-filter">
+          <div class="proj-top">
+            <span class="proj-name">8th-Order Sallen-Key Band-Pass Filter with Noise Rejection</span>
+            <span class="proj-when">2025</span>
+          </div>
+          <p class="proj-what">Cascaded biquads giving a 1 kHz to 50 kHz passband over 45 dB stopband, recovering a 30 kHz tone from white noise.</p>
+          <span class="proj-area">Circuits &amp; Power <span class="tool">LTspice</span></span>
+        </a>
+        <a class="proj" href="/projects/cascode-amplifier">
+          <div class="proj-top">
+            <span class="proj-name">CMOS Cascode Amplifier with Active Current-Source Load</span>
+            <span class="proj-when">2025</span>
+          </div>
+          <p class="proj-what">NMOS cascode with an active current-source load, hand-analysed from Level-1 parameters before simulating.</p>
+          <span class="proj-area">Circuits &amp; Power <span class="tool">LTspice</span></span>
+        </a>
+    </div>
+  </section>
+  <section id="robotics">
+    <h2>Robotics &amp; Embedded Systems</h2>
+    <div class="proj-grid">
+        <a class="proj" href="/projects/carrier-robot">
+          <div class="proj-top">
+            <span class="proj-name">AI-Powered Personal Carrier Robot</span>
+            <span class="proj-when">2024</span>
+          </div>
+          <p class="proj-what">Person-following robot: L298N drive on split rails, PID distance control, YOLO vision tracking on a Raspberry Pi.</p>
+          <span class="proj-area">Robotics &amp; Embedded <span class="tool">Python</span></span>
+        </a>
+        <a class="proj" href="/projects/uvc-robot">
+          <div class="proj-top">
+            <span class="proj-name">UV-C Sterilization Robot</span>
+            <span class="proj-when">2024</span>
+          </div>
+          <p class="proj-what">Autonomous disinfecting robot with a 3D-printed chassis and ultrasonic obstacle detection, built for under $150.</p>
+          <span class="proj-area">Robotics &amp; Embedded <span class="tool">Arduino</span></span>
+        </a>
+    </div>
+  </section>
+  <section id="semiconductors">
+    <h2>Semiconductors &amp; Fabrication</h2>
+    <div class="proj-grid">
+        <a class="proj" href="/projects/thermal-oxidation">
+          <div class="proj-top">
+            <span class="proj-name">Analysis of Kinetic Growth in Silicon Thermal Oxidation</span>
+            <span class="proj-when">2024</span>
+          </div>
+          <p class="proj-what">Furnace oxidation with Deal-Grove modelling and SEM characterisation, which turned up unexpected nanowires.</p>
+          <span class="proj-area">Semiconductors &amp; Fabrication <span class="tool">nanoHUB</span></span>
+        </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Academic progression</h2>
+    <p style="max-width:38rem;color:var(--dim);font-size:.95rem">
+      How the work has moved from undergraduate hands-on builds, through analog circuit design,
+      into graduate photonics and self-directed hardware.
+    </p>
+    <ul class="timeline">
+      <li class="tl-item">
+        <div class="tl-when">Spring<br>2024</div>
+        <div class="tl-body">
+          <div class="tl-title">UV-C Sterilization Robot</div>
+          <p class="tl-note">
+            CET 429 at SUNY Polytechnic Institute, undergraduate. First full hardware build:
+            3D-printed chassis, Arduino drive and sensing, the whole robot under $150 in parts.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Spring<br>2024</div>
+        <div class="tl-body">
+          <div class="tl-title">Silicon Thermal Oxidation</div>
+          <p class="tl-note">
+            Semiconductor Experimentation Research at SUNY Polytechnic Institute. First cleanroom
+            process work, Deal-Grove modeling and SEM characterization. Took second place at the
+            SUNY Poly Student Project Showcase.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Summer<br>2024</div>
+        <div class="tl-body">
+          <div class="tl-title">Personal Carrier Robot</div>
+          <p class="tl-note">
+            Summer Undergraduate Research Program. Motor drive, power rails, PID control,
+            and vision-based tracking on a real platform.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Oct 2024<br>to Aug 2025</div>
+        <div class="tl-body">
+          <div class="tl-title">Research Associate, AI robotics</div>
+          <p class="tl-note">
+            NVIDIA Isaac stack, perception and motion planning, GPU workload profiling.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Spring<br>2025</div>
+        <div class="tl-body">
+          <div class="tl-title">Bachelor's thesis on optical computing</div>
+          <p class="tl-note">
+            First sustained work in photonics, covering photonic integrated circuits and
+            optical processing architectures.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item milestone">
+        <div class="tl-when">May<br>2025</div>
+        <div class="tl-body">
+          <div class="tl-title">BS Electrical Engineering conferred</div>
+          <p class="tl-note">SUNY Polytechnic Institute, College of Engineering.</p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Fall<br>2025</div>
+        <div class="tl-body">
+          <div class="tl-title">Graduate analog design at Binghamton</div>
+          <p class="tl-note">
+            8th-order Sallen-Key band-pass filter and a CMOS cascode amplifier reaching 86 dB,
+            both worked out by hand before simulating.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Spring<br>2026</div>
+        <div class="tl-body">
+          <div class="tl-title">Electro-optics and semiconductor lasers</div>
+          <p class="tl-note">
+            End-to-end fiber-optic link design and rate-equation modeling of a directly
+            modulated laser.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-when">Summer 2026<br>to present</div>
+        <div class="tl-body">
+          <div class="tl-title">Constant-current driver in KiCad</div>
+          <p class="tl-note">
+            Self-directed. Moving from simulation into fabrication and bench measurement,
+            heading toward a laser diode driver.
+          </p>
+        </div>
+      </li>
+      <li class="tl-item milestone">
+        <div class="tl-when">May<br>2027</div>
+        <div class="tl-body">
+          <div class="tl-title">MS Electrical Engineering expected</div>
+          <p class="tl-note">Binghamton University, Physical Electronics and Electro-Optics.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      More on <a href="https://github.com/ethanlsk">GitHub</a> ·
+      <a href="mailto:ekhan7@binghamton.edu">ekhan7@binghamton.edu</a> ·
+      <a href="https://www.linkedin.com/in/e1k/">LinkedIn</a>
+    </p>
+  </footer>
+
+</div>
+<script src="../background.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>
