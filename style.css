@@ -619,6 +619,26 @@ details.code-toggle[open] > summary::before { content: "\25BE  "; }
   color: var(--blue);
 }
 
+/* Home tiles keep the discipline out of the way until the card is pointed at.
+   Opacity rather than display, so the tile does not resize on hover. */
+.home-page .proj .proj-area {
+  opacity: 0;
+  transition: opacity .18s;
+}
+.home-page .proj:hover .proj-area,
+.home-page .proj:focus-visible .proj-area,
+.home-page .proj:focus-within .proj-area {
+  opacity: 1;
+}
+/* Nothing hovers on a touch screen, so there it just stays visible. */
+@media (hover: none) {
+  .home-page .proj .proj-area { opacity: 1; }
+}
+
+/* On the projects index the label is the tool, which reads as a quiet
+   annotation rather than an accent. */
+.projects-page .proj-area { color: var(--dim); }
+
 /* anchored cards and groups must clear the sticky header when jumped to */
 .card, details.group { scroll-margin-top: 5.5rem; }
 
@@ -783,7 +803,8 @@ section[id] { scroll-margin-top: 5.5rem; }
 /* Project pages lay a lot of small text over the background scene, so the
    content column sits on a dark wash. The box-shadow spreads the same colour
    outward, which feathers the edge instead of drawing a panel. */
-.projects-page .maincol {
+.projects-page .maincol,
+.home-page .maincol {
   background: rgba(35, 38, 39, .85);
   box-shadow: 0 0 5rem 2.75rem rgba(35, 38, 39, .85);
 }
