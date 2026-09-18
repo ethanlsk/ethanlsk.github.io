@@ -19,8 +19,12 @@
   --line:     rgba(77, 163, 255, 0.24);
   --line-dim: rgba(214, 228, 242, 0.10);
 
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  /* Ranade (Fontshare) throughout. --mono is the small tracked label face,
+     which is now Ranade too; only literal code keeps a real monospace, since
+     it needs the alignment. */
+  --sans: "Ranade", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "Ranade", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -501,7 +505,7 @@ figcaption { font-size: .84rem; color: var(--dim); margin-top: .55rem; line-heig
 /* ---------------- code ---------------- */
 
 code {
-  font-family: var(--mono);
+  font-family: var(--code);
   font-size: .88em;
   color: var(--blue);
 }
