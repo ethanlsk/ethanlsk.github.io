@@ -781,6 +781,14 @@ h1.projtitle {
 /* index sections are anchor targets too */
 section[id] { scroll-margin-top: 5.5rem; }
 
+/* Project pages lay a lot of small text over the background scene, so the
+   content column sits on a dark wash. The box-shadow spreads the same colour
+   outward, which feathers the edge instead of drawing a panel. */
+.projects-page .maincol {
+  background: rgba(0, 0, 0, .74);
+  box-shadow: 0 0 5rem 2.75rem rgba(0, 0, 0, .74);
+}
+
 /* ---------------- scroll reveal ----------------
    Figures fade up as they enter the viewport. Only armed when JS is
    running, so the images are never stuck invisible without it. */
