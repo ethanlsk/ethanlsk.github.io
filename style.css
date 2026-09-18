@@ -281,7 +281,6 @@ img { max-width: 100%; height: auto; display: block; }
   /* thumb-sized tap targets */
   .contact li { margin-bottom: 0; }
   .contact a { display: block; padding: .62rem 0; }
-  .id-meta .btn { width: auto; }
 }
 
 /* ---------------- hero (projects page) ---------------- */
