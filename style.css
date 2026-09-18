@@ -4,20 +4,20 @@
    ========================================================================== */
 
 :root {
-  /* Black base with blue/white highlights, matching the PCB -> fibre -> LiDAR
-     background scene drawn by background.js */
-  --base:   #000000;  /* page background          */
-  --panel:  #0A0F16;  /* cards and panels         */
-  --raised: #131B25;  /* hover states, insets     */
-  --ice:    #BFE2FF;  /* pale highlight accent    */
-  --blue:   #4DA3FF;  /* primary accent           */
-  --pale:   #D6E4F2;  /* body text                */
+  /* Konsole Breeze Dark. Background and foreground are the terminal scheme's
+     own values; the accents are its blue and cyan. */
+  --base:   #232627;  /* Breeze terminal background */
+  --panel:  #31363B;  /* Breeze Dark panel          */
+  --raised: #3B4045;  /* hover states, insets       */
+  --ice:    #1ABC9C;  /* Breeze cyan, second accent */
+  --blue:   #3DAEE9;  /* Breeze blue, primary       */
+  --pale:   #EFF0F1;  /* Breeze window text         */
 
-  --bright:   #FFFFFF;
-  --dim:      #76889B;
-  --well:     #05080D;
-  --line:     rgba(77, 163, 255, 0.24);
-  --line-dim: rgba(214, 228, 242, 0.10);
+  --bright:   #FCFCFC;   /* Breeze terminal foreground */
+  --dim:      #7F8C8D;   /* Breeze intense black       */
+  --well:     #1B1E1F;
+  --line:     rgba(61, 174, 233, 0.28);
+  --line-dim: rgba(239, 240, 241, 0.12);
 
   /* Ranade (Fontshare) throughout. --mono is the small tracked label face,
      which is now Ranade too; only literal code keeps a real monospace, since
@@ -54,7 +54,7 @@ body {
 .wrap.wide { max-width: 79rem; padding: 0 2rem; }
 
 a { color: var(--blue); text-underline-offset: 3px; }
-a:hover { color: #A9D6FF; }
+a:hover { color: #93CEE9; }
 
 img { max-width: 100%; height: auto; display: block; }
 
@@ -62,7 +62,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .site-header {
   border-bottom: 1px solid var(--line-dim);
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(35, 38, 39, 0.82);
   position: sticky;
   top: 0;
   z-index: 20;
@@ -565,7 +565,7 @@ details.code-toggle > summary {
 }
 details.code-toggle > summary::-webkit-details-marker { display: none; }
 details.code-toggle > summary::marker { content: ""; }
-details.code-toggle > summary:hover { color: #A9D6FF; }
+details.code-toggle > summary:hover { color: #93CEE9; }
 details.code-toggle > summary::before { content: "\25B8  "; }
 details.code-toggle[open] > summary::before { content: "\25BE  "; }
 
@@ -784,8 +784,8 @@ section[id] { scroll-margin-top: 5.5rem; }
    content column sits on a dark wash. The box-shadow spreads the same colour
    outward, which feathers the edge instead of drawing a panel. */
 .projects-page .maincol {
-  background: rgba(0, 0, 0, .74);
-  box-shadow: 0 0 5rem 2.75rem rgba(0, 0, 0, .74);
+  background: rgba(35, 38, 39, .85);
+  box-shadow: 0 0 5rem 2.75rem rgba(35, 38, 39, .85);
 }
 
 /* ---------------- scroll reveal ----------------

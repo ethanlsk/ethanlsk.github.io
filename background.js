@@ -8,9 +8,10 @@
   var ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  var BLUE  = '77,163,255';
-  var ICE   = '191,226,255';
-  var WHITE = '255,255,255';
+  var BLUE  = '61,174,233';    // Breeze blue
+  var ICE   = '26,188,156';    // Breeze cyan
+  var WHITE = '252,252,252';   // Breeze foreground
+  var BASE  = '35,38,39';      // Breeze background, for knocking via holes
 
   var w = 0, h = 0, small = false, raf = null, t0 = Date.now();
   var traces = [], fibres = [], cloud = [], horizon = 0;
@@ -113,7 +114,7 @@
       var p = traces[k].pts[traces[k].pts.length - 1];
       ctx.fillStyle = 'rgba(' + BLUE + ',' + (0.4 * a).toFixed(3) + ')';
       ctx.beginPath(); ctx.arc(p.x, p.y, 2.8, 0, 6.2832); ctx.fill();
-      ctx.fillStyle = 'rgba(0,0,0,' + (0.9 * a).toFixed(3) + ')';
+      ctx.fillStyle = 'rgba(' + BASE + ',' + (0.9 * a).toFixed(3) + ')';
       ctx.beginPath(); ctx.arc(p.x, p.y, 1.15, 0, 6.2832); ctx.fill();
     }
     // current running down the traces
